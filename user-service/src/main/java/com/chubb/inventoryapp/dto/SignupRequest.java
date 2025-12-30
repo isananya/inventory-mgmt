@@ -2,6 +2,7 @@ package com.chubb.inventoryapp.dto;
 
 import com.chubb.inventoryapp.model.Role;
 
+import jakarta.persistence.Column;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -14,14 +15,16 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class SignupRequest {
-	@NotBlank
-	@Email
-	private String email;
+	@Email(message = "Invalid email format")
+    @NotBlank(message = "Email is required")
+    private String email;
 
-	@NotBlank
-	@Size(min = 8)
-	private String password;
+    @NotBlank
+    @Size(min = 8, message = "Password must be at least 8 characters")
+    private String password;
 
-	@NotNull
+    @NotBlank
+    private String name;
+
 	private Role role;
 }
