@@ -10,10 +10,13 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.chubb.inventoryapp.dto.ChangePasswordRequest;
 import com.chubb.inventoryapp.dto.LoginRequest;
 import com.chubb.inventoryapp.dto.LoginResponse;
 import com.chubb.inventoryapp.dto.SignupRequest;
+import com.chubb.inventoryapp.exception.PasswordMismatchException;
 import com.chubb.inventoryapp.exception.UserAlreadyExistsException;
+import com.chubb.inventoryapp.exception.UserNotFoundException;
 import com.chubb.inventoryapp.model.Role;
 import com.chubb.inventoryapp.model.User;
 import com.chubb.inventoryapp.repository.UserRepository;
@@ -88,5 +91,19 @@ public class AuthService {
                 .path("/")
                 .maxAge(0)
                 .build();
+	}
+	
+	public void changePassword(String token, ChangePasswordRequest request) {
+
+        String email = jwtService.extractUsername(token);
+
+		User user = userRepository.findByEmail(email).orElseThrow(() -> new UserNotFoundException("User not found"));
+
+		if (!passwordEncoder.matches(request.getCurrentPassword(), user.getPassword())) {
+			throw new PasswordMismatchException("Current password is incorrect");
+		}
+
+		user.setPassword(passwordEncoder.encode(request.getNewPassword()));
+		userRepository.save(user);
 	}
 }

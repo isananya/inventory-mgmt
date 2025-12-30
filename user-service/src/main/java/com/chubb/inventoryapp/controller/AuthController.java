@@ -5,11 +5,14 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseCookie;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.chubb.inventoryapp.dto.ChangePasswordRequest;
 import com.chubb.inventoryapp.dto.LoginRequest;
 import com.chubb.inventoryapp.dto.LoginResponse;
 import com.chubb.inventoryapp.dto.SignupRequest;
@@ -51,5 +54,14 @@ public class AuthController {
         return ResponseEntity.noContent()
         		.header(HttpHeaders.SET_COOKIE, cookie.toString())
         		.build();
+    }
+    
+    @PutMapping("/password")
+    public ResponseEntity<Void> changePassword(@CookieValue("jwt_token") String token,
+            @RequestBody @Valid ChangePasswordRequest request) {
+
+        authService.changePassword(token, request);
+
+        return ResponseEntity.noContent().build();
     }
 }
