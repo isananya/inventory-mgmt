@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.CookieValue;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -77,15 +78,12 @@ public class AuthController {
         return ResponseEntity.noContent().build();
     }
     
-    @GetMapping("/debug/auth")
-    public Object debugAuth() {
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        return Map.of(
-            "auth", auth,
-            "principal", auth.getPrincipal(),
-            "authorities", auth.getAuthorities(),
-            "authenticated", auth.isAuthenticated()
-        );
+    @DeleteMapping("")
+    public ResponseEntity<Void> deleteAccount(@CookieValue("jwt_token") String token){
+    	authService.deleteAccount(token);
+    	ResponseCookie cookie = authService.logout();
+        return ResponseEntity.noContent()
+                .header(HttpHeaders.SET_COOKIE, cookie.toString())
+                .build();    	
     }
-
 }

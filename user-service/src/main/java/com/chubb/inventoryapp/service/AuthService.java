@@ -121,4 +121,13 @@ public class AuthService {
 		user.setPassword(passwordEncoder.encode(request.getNewPassword()));
 		userRepository.save(user);
 	}
+	
+	public void deleteAccount(String token) {
+		String email = jwtService.extractUsername(token);
+		User user = userRepository.findByEmail(email)
+	            .orElseThrow(() -> new UserNotFoundException("User not found"));
+
+	    user.setActive(false);
+	    userRepository.save(user);
+	}
 }
