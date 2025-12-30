@@ -80,4 +80,13 @@ public class AuthService {
         
         return new LoginResponse(cookie, body);
 	}
+	
+	public ResponseCookie logout() {
+		return ResponseCookie.from("jwt_token", "")
+                .httpOnly(true)
+                .secure(false)
+                .path("/")
+                .maxAge(0)
+                .build();
+	}
 }

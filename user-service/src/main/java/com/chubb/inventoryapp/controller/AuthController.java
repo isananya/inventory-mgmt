@@ -3,6 +3,7 @@ package com.chubb.inventoryapp.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseCookie;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -40,5 +41,15 @@ public class AuthController {
         return ResponseEntity.ok()
                 .header(HttpHeaders.SET_COOKIE, response.getCookie().toString())
                 .body(response.getBody());
+    }
+    
+    @PostMapping("/logout")
+    public ResponseEntity<Void> logout() {
+
+        ResponseCookie cookie = authService.logout();
+        
+        return ResponseEntity.noContent()
+        		.header(HttpHeaders.SET_COOKIE, cookie.toString())
+        		.build();
     }
 }
