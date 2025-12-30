@@ -44,6 +44,11 @@ public class GlobalExceptionHandler {
     public ResponseEntity<String> handleUserNotFound(UserNotFoundException ex) {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ex.getMessage());
     }
+    
+    @ExceptionHandler(UserInactiveException.class)
+    public ResponseEntity<String> handleInactive(UserInactiveException ex) {
+        return ResponseEntity.status(HttpStatus.FORBIDDEN).body(ex.getMessage());
+    }
 
 //    @ExceptionHandler(Exception.class)
 //    public ResponseEntity<String> handleGenericException(Exception ex) {

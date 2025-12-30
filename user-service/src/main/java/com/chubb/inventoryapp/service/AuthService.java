@@ -17,6 +17,7 @@ import com.chubb.inventoryapp.dto.SignupRequest;
 import com.chubb.inventoryapp.dto.UserProfileResponse;
 import com.chubb.inventoryapp.exception.PasswordMismatchException;
 import com.chubb.inventoryapp.exception.UserAlreadyExistsException;
+import com.chubb.inventoryapp.exception.UserInactiveException;
 import com.chubb.inventoryapp.exception.UserNotFoundException;
 import com.chubb.inventoryapp.model.Role;
 import com.chubb.inventoryapp.model.User;
@@ -71,7 +72,11 @@ public class AuthService {
         );
 
         UserDetailsImpl user = (UserDetailsImpl) auth.getPrincipal();
-
+        
+        if (!user.getUser().isActive()) {
+            throw new UserInactiveException("User account is deactivated");
+        }
+        
         String jwt = jwtService.generateToken(user);
 
         ResponseCookie cookie = ResponseCookie.from("jwt_token", jwt)
