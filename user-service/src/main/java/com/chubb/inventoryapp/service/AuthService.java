@@ -42,8 +42,17 @@ public class AuthService {
 
 	public User register(SignupRequest request) {
 		if (userRepository.existsByEmail(request.getEmail())) {
-            throw new UserAlreadyExistsException();
-        }
+			User user1 = userRepository.findByEmail(request.getEmail()).get();
+			if(user1.isActive()==true) {
+				throw new UserAlreadyExistsException();
+			}
+			user1.setActive(true);
+			user1.setPassword(passwordEncoder.encode(request.getPassword()));
+			user1.setName(request.getName());
+			Role role1 = (request.getRole() == null) ? Role.CUSTOMER : request.getRole();
+			user1.setRole(role1);
+			return userRepository.save(user1);
+		}
 
 		User user = new User();
 		user.setName(request.getName());
