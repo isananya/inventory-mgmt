@@ -14,6 +14,7 @@ import com.chubb.inventoryapp.dto.ChangePasswordRequest;
 import com.chubb.inventoryapp.dto.LoginRequest;
 import com.chubb.inventoryapp.dto.LoginResponse;
 import com.chubb.inventoryapp.dto.SignupRequest;
+import com.chubb.inventoryapp.dto.UserProfileResponse;
 import com.chubb.inventoryapp.exception.PasswordMismatchException;
 import com.chubb.inventoryapp.exception.UserAlreadyExistsException;
 import com.chubb.inventoryapp.exception.UserNotFoundException;
@@ -91,6 +92,20 @@ public class AuthService {
                 .path("/")
                 .maxAge(0)
                 .build();
+	}
+	
+	public UserProfileResponse getProfile(String token) {
+        String email = jwtService.extractUsername(token);
+        
+		User user = userRepository.findByEmail(email).orElseThrow(() -> new UserNotFoundException("User not found"));
+		
+		return new UserProfileResponse(
+	            user.getId(),
+	            user.getName(),
+	            user.getEmail(),
+	            user.getRole().name(),
+	            user.isActive()
+	    );		
 	}
 	
 	public void changePassword(String token, ChangePasswordRequest request) {
