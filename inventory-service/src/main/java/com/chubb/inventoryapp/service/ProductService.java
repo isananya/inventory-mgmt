@@ -2,6 +2,8 @@ package com.chubb.inventoryapp.service;
 
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.chubb.inventoryapp.dto.ProductRequest;
@@ -60,36 +62,29 @@ public class ProductService {
         );
     }
     
-    public List<ProductResponse> getAllProducts(){
-    	return productRepository.findAll()
-    			.stream()
-                .map(this::mapToResponse)
-                .toList();
-    }
+    public Page<ProductResponse> getAllProducts(Pageable pageable){
+    	return productRepository.findAll(pageable)
+                .map(this::mapToResponse);    }
     
     public ProductResponse getProductById(Long id) {
     	Product product = productRepository.findById(id).orElseThrow(() -> new ProductNotFoundException());
     	return mapToResponse(product);
     }
     
-    public List<ProductResponse> getProductsByCategory(Long categoryId) {
+    public Page<ProductResponse> getProductsByCategory(Long categoryId, Pageable pageable) {
 
         Category category = categoryRepository.findById(categoryId)
                 .orElseThrow(() -> new CategoryNotFoundException(categoryId));
         
-        return productRepository.findByCategory(category)
-                .stream()
-                .map(this::mapToResponse)
-                .toList();
-    }
+        return productRepository.findByCategory(category, pageable)
+                .map(this::mapToResponse);
+        }
     
-    public List<ProductResponse> getProductsByName(String name) {
+    public Page<ProductResponse> getProductsByName(String name, Pageable pageable) {
 
         return productRepository
-                .findByNameContainingIgnoreCase(name)
-                .stream()
-                .map(this::mapToResponse)
-                .toList();
-    }
+                .findByNameContainingIgnoreCase(name, pageable)
+                .map(this::mapToResponse);
+        }
     
 }

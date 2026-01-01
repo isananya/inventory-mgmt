@@ -1,7 +1,9 @@
 package com.chubb.inventoryapp.controller;
 
-import java.util.List;
-
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.chubb.inventoryapp.dto.ProductRequest;
@@ -34,24 +37,41 @@ public class ProductController {
 	}
 	
 	@GetMapping
-    public List<ProductResponse> getAllProducts() {
-        return productService.getAllProducts();
+    public ResponseEntity<Page<ProductResponse>> getAllProducts(
+    		@RequestParam(defaultValue = "0") int page,
+	        @RequestParam(defaultValue = "10") int size,
+	        @RequestParam(defaultValue = "name") String sortBy){
+		Pageable pageable = PageRequest.of(page, size, Sort.by(sortBy));
+		Page<ProductResponse> response = productService.getAllProducts(pageable);
+        return ResponseEntity.ok(response);
     }
 	
 	@GetMapping("/{id}")
-	public ProductResponse getProductById(@PathVariable Long id) {
-		return productService.getProductById(id);
+	public ResponseEntity<ProductResponse> getProductById(@PathVariable Long id) {
+		return ResponseEntity.ok(productService.getProductById(id));
     }
 	
 	@GetMapping("/category/{categoryId}")
-    public ResponseEntity<List<ProductResponse>> getProductsByCategory(@PathVariable Long categoryId) {
-		List<ProductResponse> response = productService.getProductsByCategory(categoryId);
+    public ResponseEntity<Page<ProductResponse>> getProductsByCategory(
+    		@PathVariable Long categoryId,
+    		@RequestParam(defaultValue = "0") int page,
+	        @RequestParam(defaultValue = "10") int size,
+	        @RequestParam(defaultValue = "name") String sortBy){
+		
+		Pageable pageable = PageRequest.of(page, size, Sort.by(sortBy));
+		Page<ProductResponse> response = productService.getProductsByCategory(categoryId, pageable);
         return ResponseEntity.ok(response);
     }
 	
 	@GetMapping("search/{name}")
-    public ResponseEntity<List<ProductResponse>> getProductsByName(@PathVariable String name) {
-		List<ProductResponse> response = productService.getProductsByName(name);
+	public ResponseEntity<Page<ProductResponse>> searchProductsByName(
+	        @PathVariable String name,
+	        @RequestParam(defaultValue = "0") int page,
+	        @RequestParam(defaultValue = "10") int size,
+	        @RequestParam(defaultValue = "name") String sortBy){
+	    
+		Pageable pageable = PageRequest.of(page, size, Sort.by(sortBy));
+		Page<ProductResponse> response = productService.getProductsByName(name, pageable);
         return ResponseEntity.ok(response);
     }
 }
