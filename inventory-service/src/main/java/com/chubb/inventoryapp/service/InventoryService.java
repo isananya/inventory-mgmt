@@ -6,7 +6,10 @@ import org.springframework.stereotype.Service;
 
 import com.chubb.inventoryapp.dto.InventoryRequest;
 import com.chubb.inventoryapp.dto.InventoryResponse;
+import com.chubb.inventoryapp.dto.StockRequest;
+import com.chubb.inventoryapp.exception.InsufficientStockException;
 import com.chubb.inventoryapp.exception.InventoryAlreadyExistsException;
+import com.chubb.inventoryapp.exception.InventoryNotFoundException;
 import com.chubb.inventoryapp.exception.ProductNotFoundException;
 import com.chubb.inventoryapp.exception.WarehouseNotFoundException;
 import com.chubb.inventoryapp.model.Inventory;
@@ -80,4 +83,36 @@ public class InventoryService {
                 .toList();
 	}
 
+	public void updateQuantity(Long id, Integer quantity ) {
+
+        Inventory inventory = inventoryRepository.findById(id)
+                .orElseThrow(() -> new InventoryNotFoundException());
+
+        inventory.setQuantity(quantity);
+        inventoryRepository.save(inventory);
+    }
+
+    public void addStock(StockRequest request) {
+
+        Inventory inventory = inventoryRepository
+                .findByProductIdAndWarehouseId( request.getProductId(),request.getWarehouseId())
+                .orElseThrow(() -> new InventoryNotFoundException());
+
+        inventory.setQuantity(inventory.getQuantity() + request.getQuantity());
+        inventoryRepository.save(inventory);
+    }
+
+    public void deductStock(StockRequest request) {
+
+        Inventory inventory = inventoryRepository
+                .findByProductIdAndWarehouseId(request.getProductId(), request.getWarehouseId())
+                .orElseThrow(() -> new InventoryNotFoundException());
+
+        if (inventory.getQuantity() < request.getQuantity()) {
+            throw new InsufficientStockException();
+        }
+
+        inventory.setQuantity(inventory.getQuantity() - request.getQuantity());
+        inventoryRepository.save(inventory);
+    }
 }
