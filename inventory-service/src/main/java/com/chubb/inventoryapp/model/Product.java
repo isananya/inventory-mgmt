@@ -39,6 +39,11 @@ public class Product {
 	@Size(min = 2, max = 100)
 	@Column(nullable = false)
 	private String name;
+	
+	@NotBlank(message = "Product brand is required")
+	@Size(min = 2, max = 100)
+	@Column(nullable = false)
+	private String brand;
 
 	@NotNull(message = "Price is required")
 	@Positive(message = "Price must be greater than 0")
