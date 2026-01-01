@@ -15,6 +15,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ProductRequest {
+	@NotBlank(message = "Product code is required")
+	@Size(min = 3, max = 7)
+	private String productCode;
+	
 	@NotBlank(message = "Product name is required")
 	@Size(min = 2, max = 100)
 	private String name;

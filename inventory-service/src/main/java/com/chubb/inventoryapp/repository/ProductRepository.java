@@ -10,7 +10,7 @@ import com.chubb.inventoryapp.model.Product;
 @Repository
 public interface ProductRepository extends JpaRepository<Product, Long> {
 
-    boolean existsByBrandAndName(String brand, String name);
+    boolean existsByProductCode(String productCode);
 
     List<Product> findByCategoryId(Long categoryId);
 }

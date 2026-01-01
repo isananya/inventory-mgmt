@@ -34,6 +34,11 @@ public class Product {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
+	@NotBlank(message = "Product code is required")
+	@Size(min = 3, max = 7)
+	@Column(nullable = false)
+	private String productCode;
 
 	@NotBlank(message = "Product name is required")
 	@Size(min = 2, max = 100)
