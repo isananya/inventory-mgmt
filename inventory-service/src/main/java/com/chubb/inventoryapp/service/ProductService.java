@@ -1,7 +1,5 @@
 package com.chubb.inventoryapp.service;
 
-import java.util.List;
-
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -87,4 +85,26 @@ public class ProductService {
                 .map(this::mapToResponse);
         }
     
+    public void updateProductProperties(Long productId, ProductRequest request) {
+
+        Product product = productRepository.findById(productId).orElseThrow(() -> new ProductNotFoundException());
+
+        if (request.getPrice() != null) {
+            product.setPrice(request.getPrice());
+        }
+
+        if (request.getDescription() != null) {
+            product.setDescription(request.getDescription());
+        }
+
+        if (request.getSpecifications() != null) {
+            product.setSpecifications(request.getSpecifications());
+        }
+
+        if (request.getImageUrl() != null) {
+            product.setImageUrl(request.getImageUrl());
+        }
+
+        productRepository.save(product);
+    }
 }
