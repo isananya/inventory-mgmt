@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class ProductResponse {
 	private Long id;
-	private String productCodeString;
+	private String productCode;
 	private String name;
 	private String brand;
 	private Float price;
