@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import com.chubb.inventoryapp.dto.WarehouseRequest;
 import com.chubb.inventoryapp.dto.WarehouseResponse;
 import com.chubb.inventoryapp.exception.WarehouseAlreadyExistsException;
+import com.chubb.inventoryapp.exception.WarehouseNotFoundException;
 import com.chubb.inventoryapp.model.Warehouse;
 import com.chubb.inventoryapp.repository.WarehouseRepository;
 
@@ -55,5 +56,28 @@ public class WarehouseService {
                 .map(this::mapToResponse)
                 .toList();
 	}
+	
+	public WarehouseResponse getWarehouseById(Long id) {
+		Warehouse warehouse = warehouseRepository.findById(id).orElseThrow(() -> new WarehouseNotFoundException(id));
+		return mapToResponse(warehouse);
+	}
+	
+	public void updateWarehouse(WarehouseRequest request, Long id) {
+		Warehouse warehouse = warehouseRepository.findById(id).orElseThrow(() -> new WarehouseNotFoundException(id));
+		warehouse.setName(request.getName());
+        warehouse.setLocation(request.getLocation());
+        warehouseRepository.save(warehouse);
+	}
+	
+	public void deactivateWarehouse(Long id) {
+		Warehouse warehouse = warehouseRepository.findById(id).orElseThrow(() -> new WarehouseNotFoundException(id));
+        warehouse.setActive(false);
+        warehouseRepository.save(warehouse);
+    }
 
+    public void activateWarehouse(Long id) {
+		Warehouse warehouse = warehouseRepository.findById(id).orElseThrow(() -> new WarehouseNotFoundException(id));
+        warehouse.setActive(true);
+        warehouseRepository.save(warehouse);
+    }
 }
