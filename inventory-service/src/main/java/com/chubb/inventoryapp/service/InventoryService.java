@@ -1,8 +1,11 @@
 package com.chubb.inventoryapp.service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.chubb.inventoryapp.dto.InventoryRequest;
+import com.chubb.inventoryapp.dto.InventoryResponse;
 import com.chubb.inventoryapp.exception.InventoryAlreadyExistsException;
 import com.chubb.inventoryapp.exception.ProductNotFoundException;
 import com.chubb.inventoryapp.exception.WarehouseNotFoundException;
@@ -48,6 +51,33 @@ public class InventoryService {
         inventoryRepository.save(inventory);
         return inventory.getId();
     }
+	
+	private InventoryResponse mapToResponse(Inventory inventory) {
+        return new InventoryResponse(
+                inventory.getId(),
+                inventory.getProduct(),
+                inventory.getWarehouse(),
+                inventory.getQuantity(),
+                inventory.getLowStockThreshold()
+        );
+	}
     
+	public List<InventoryResponse> getInventoryByProduct(Long id){
+		Product product = productRepository.findById(id).orElseThrow(()-> new ProductNotFoundException());
+		
+		return inventoryRepository.findByProduct(product)
+                .stream()
+                .map(this::mapToResponse)
+                .toList();
+	}
+	
+	public List<InventoryResponse> getInventoryByWarehouse(Long id){
+		Warehouse warehouse = warehouseRepository.findById(id).orElseThrow(()-> new WarehouseNotFoundException(id));
+		
+		return inventoryRepository.findByWarehouse(warehouse)
+                .stream()
+                .map(this::mapToResponse)
+                .toList();
+	}
 
 }
