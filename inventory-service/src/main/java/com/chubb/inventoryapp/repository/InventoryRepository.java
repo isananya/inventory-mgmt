@@ -20,5 +20,6 @@ public interface InventoryRepository extends JpaRepository<Inventory, Long> {
 	
 	List<Inventory> findByWarehouse(Warehouse warehouse);
 
+	Optional<Inventory> findFirstByProductIdAndQuantityGreaterThanEqual(Long productId, Integer quantity);
 }
 	

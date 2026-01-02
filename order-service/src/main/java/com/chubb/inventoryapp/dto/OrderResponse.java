@@ -3,6 +3,7 @@ package com.chubb.inventoryapp.dto;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import com.chubb.inventoryapp.model.Address;
 import com.chubb.inventoryapp.model.OrderStatus;
 
 import lombok.AllArgsConstructor;
@@ -16,7 +17,7 @@ public class OrderResponse {
 
     private Long orderId;
     private OrderStatus status;
-    private AddressDTO address;
+    private Address address;
     private float totalAmount;
     private List<OrderItemResponse> items;
     private LocalDateTime createdAt;

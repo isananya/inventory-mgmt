@@ -1,0 +1,86 @@
+package com.chubb.inventoryapp.service;
+
+import java.time.LocalDateTime;
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import com.chubb.inventoryapp.dto.OrderRequest;
+import com.chubb.inventoryapp.dto.OrderItemRequest;
+import com.chubb.inventoryapp.dto.StockCheckResponse;
+import com.chubb.inventoryapp.dto.StockUpdateRequest;
+import com.chubb.inventoryapp.exception.OutOfStockException;
+import com.chubb.inventoryapp.feign.InventoryClientWrapper;
+import com.chubb.inventoryapp.model.FulfillmentStatus;
+import com.chubb.inventoryapp.model.Order;
+import com.chubb.inventoryapp.model.OrderItem;
+import com.chubb.inventoryapp.model.OrderStatus;
+import com.chubb.inventoryapp.repository.OrderRepository;
+
+@Service
+public class OrderService {
+
+	private final OrderRepository orderRepository;
+    private final InventoryClientWrapper inventoryClient;
+    
+	public OrderService(OrderRepository orderRepository, InventoryClientWrapper inventoryClient) {
+		super();
+		this.orderRepository = orderRepository;
+		this.inventoryClient = inventoryClient;
+	}
+    
+	public Long placeOrder(OrderRequest request) {
+
+        List<OrderItemRequest> stockRequests = request.getItems().stream()
+                .map(i -> new OrderItemRequest(i.getProductId(), i.getQuantity()))
+                .toList();
+
+        List<StockCheckResponse> stockResponses = inventoryClient.checkStock(stockRequests);
+
+        for (StockCheckResponse res : stockResponses) {
+            if (!res.isAvailable()) {
+                throw new OutOfStockException("Product out of stock: " + res.getProductId());
+            }
+        }
+
+        Order order = new Order();
+        order.setCustomerId(request.getCustomerId());
+        order.setStatus(OrderStatus.CREATED);
+        order.setAddress(request.getAddress());
+        order.setCreatedAt(LocalDateTime.now());
+
+        float totalPrice = 0;
+        for (int i = 0; i < request.getItems().size(); i++) {
+            OrderItemRequest itemReq = request.getItems().get(i);
+            StockCheckResponse stockRes = stockResponses.get(i);
+            float price = itemReq.getQuantity()*stockRes.getPrice();
+            totalPrice+= price;
+           
+            OrderItem item = new OrderItem();
+            item.setProductId(itemReq.getProductId());
+            item.setQuantity(itemReq.getQuantity());
+            item.setWarehouseId(stockRes.getWarehouseId());
+            item.setFulfillmentStatus(FulfillmentStatus.ASSIGNED);
+            item.setPrice(price);
+            item.setOrder(order);
+
+            order.getItems().add(item);
+        }
+        
+        order.setTotalAmount(totalPrice);
+
+        List<StockUpdateRequest> deductRequests = order.getItems().stream()
+                .map(i -> new StockUpdateRequest(
+                        i.getProductId(),
+                        i.getWarehouseId(),
+                        i.getQuantity()))
+                .toList();
+
+        inventoryClient.deductStock(deductRequests);
+
+        orderRepository.save(order);
+        
+        return order.getId();
+    }
+    
+}

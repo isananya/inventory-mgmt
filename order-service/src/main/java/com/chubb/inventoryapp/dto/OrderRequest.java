@@ -2,7 +2,9 @@ package com.chubb.inventoryapp.dto;
 
 import java.util.List;
 
-import jakarta.validation.constraints.NotBlank;
+import com.chubb.inventoryapp.model.Address;
+
+import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -16,8 +18,9 @@ public class OrderRequest {
 	@NotNull
     private Long customerId;
 
-    @NotBlank
-    private AddressDTO address;
+    @NotNull
+    @Valid
+    private Address address;
     
     @NotEmpty
     private List<OrderItemRequest> items;

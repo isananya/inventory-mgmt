@@ -1,11 +1,14 @@
 package com.chubb.inventoryapp.service;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
 import com.chubb.inventoryapp.dto.InventoryRequest;
 import com.chubb.inventoryapp.dto.InventoryResponse;
+import com.chubb.inventoryapp.dto.StockCheckResponse;
 import com.chubb.inventoryapp.dto.StockRequest;
 import com.chubb.inventoryapp.exception.InsufficientStockException;
 import com.chubb.inventoryapp.exception.InventoryAlreadyExistsException;
@@ -18,6 +21,8 @@ import com.chubb.inventoryapp.model.Warehouse;
 import com.chubb.inventoryapp.repository.InventoryRepository;
 import com.chubb.inventoryapp.repository.ProductRepository;
 import com.chubb.inventoryapp.repository.WarehouseRepository;
+
+import jakarta.transaction.Transactional;
 
 @Service
 public class InventoryService {
@@ -86,35 +91,39 @@ public class InventoryService {
 	public void updateQuantity(Long id, Integer quantity ) {
 
         Inventory inventory = inventoryRepository.findById(id)
-                .orElseThrow(() -> new InventoryNotFoundException());
+                .orElseThrow(() -> new InventoryNotFoundException("Inventory not found"));
 
         inventory.setQuantity(quantity);
         inventoryRepository.save(inventory);
     }
 
-    public void addStock(StockRequest request) {
+	@Transactional
+	public void addStock(List<StockRequest> requests) {
+	    for (StockRequest req : requests) {
+	        Inventory inventory = inventoryRepository
+	                .findByProductIdAndWarehouseId(req.getProductId(), req.getWarehouseId())
+	                .orElseThrow(() -> new InventoryNotFoundException("Inventory not found for Product " + req.getProductId()));
 
-        Inventory inventory = inventoryRepository
-                .findByProductIdAndWarehouseId( request.getProductId(),request.getWarehouseId())
-                .orElseThrow(() -> new InventoryNotFoundException());
+	        inventory.setQuantity(inventory.getQuantity() + req.getQuantity());
+	        inventoryRepository.save(inventory);
+	    }
+	}
 
-        inventory.setQuantity(inventory.getQuantity() + request.getQuantity());
-        inventoryRepository.save(inventory);
-    }
+	@Transactional
+	public void deductStock(List<StockRequest> requests) {
+	    for (StockRequest req : requests) {
+	        Inventory inventory = inventoryRepository
+	                .findByProductIdAndWarehouseId(req.getProductId(), req.getWarehouseId())
+	                .orElseThrow(() -> new InventoryNotFoundException("Inventory not found for Product " + req.getProductId()));
 
-    public void deductStock(StockRequest request) {
+	        if (inventory.getQuantity() < req.getQuantity()) {
+	            throw new InsufficientStockException("Not enough stock for Product " + req.getProductId());
+	        }
 
-        Inventory inventory = inventoryRepository
-                .findByProductIdAndWarehouseId(request.getProductId(), request.getWarehouseId())
-                .orElseThrow(() -> new InventoryNotFoundException());
-
-        if (inventory.getQuantity() < request.getQuantity()) {
-            throw new InsufficientStockException();
-        }
-
-        inventory.setQuantity(inventory.getQuantity() - request.getQuantity());
-        inventoryRepository.save(inventory);
-    }
+	        inventory.setQuantity(inventory.getQuantity() - req.getQuantity());
+	        inventoryRepository.save(inventory);
+	    }
+	}
     
     public List<InventoryResponse> getLowStock() {
         return inventoryRepository.findAll()
@@ -122,5 +131,25 @@ public class InventoryService {
                 .filter(i -> i.getQuantity() <= i.getLowStockThreshold())
                 .map(this::mapToResponse)
                 .toList();
+    }
+    
+    public List<StockCheckResponse> checkStock(List<StockRequest> requests) {
+        List<StockCheckResponse> responses = new ArrayList<>();
+
+        for (StockRequest req : requests) {
+            Optional<Inventory> inventoryOpt = inventoryRepository
+                    .findFirstByProductIdAndQuantityGreaterThanEqual(req.getProductId(), req.getQuantity());
+
+            if (inventoryOpt.isPresent()) {
+                Inventory inventory = inventoryOpt.get();
+                responses.add(new StockCheckResponse(req.getProductId(), true, 
+                    inventory.getWarehouse().getId(), inventory.getProduct().getPrice()));
+            } 
+            else {
+                responses.add(new StockCheckResponse(req.getProductId(), false, null,0));
+            }
+        }
+
+        return responses;
     }
 }

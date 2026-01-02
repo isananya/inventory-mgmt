@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.chubb.inventoryapp.dto.InventoryRequest;
 import com.chubb.inventoryapp.dto.InventoryResponse;
+import com.chubb.inventoryapp.dto.StockCheckResponse;
 import com.chubb.inventoryapp.dto.StockRequest;
 import com.chubb.inventoryapp.service.InventoryService;
 
@@ -58,14 +59,14 @@ public class InventoryController {
     }
 
     @PutMapping("stock/add")
-    public ResponseEntity<Void> addStock(@Valid @RequestBody StockRequest request) {
+    public ResponseEntity<Void> addStock(@Valid @RequestBody List<StockRequest> request) {
 
         inventoryService.addStock(request);
         return ResponseEntity.ok().build();
     }
 
     @PutMapping("stock/deduct")
-    public ResponseEntity<Void> deductStock(@Valid @RequestBody StockRequest request) {
+    public ResponseEntity<Void> deductStock(@Valid @RequestBody List<StockRequest> request) {
 
         inventoryService.deductStock(request);
         return ResponseEntity.ok().build();
@@ -74,5 +75,10 @@ public class InventoryController {
     @GetMapping("/low-stock")
     public ResponseEntity<List<InventoryResponse>> lowStock() {
         return ResponseEntity.ok(inventoryService.getLowStock());
+    }
+    
+    @PostMapping("/check")
+    public List<StockCheckResponse> checkStock(@RequestBody List<StockRequest> request) {
+        return inventoryService.checkStock(request);
     }
 }
