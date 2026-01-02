@@ -14,12 +14,15 @@ import com.chubb.inventoryapp.dto.StockCheckResponse;
 import com.chubb.inventoryapp.dto.StockUpdateRequest;
 import com.chubb.inventoryapp.exception.OrderNotFoundException;
 import com.chubb.inventoryapp.exception.OutOfStockException;
+import com.chubb.inventoryapp.exception.StatusConflictException;
 import com.chubb.inventoryapp.feign.InventoryClientWrapper;
 import com.chubb.inventoryapp.model.FulfillmentStatus;
 import com.chubb.inventoryapp.model.Order;
 import com.chubb.inventoryapp.model.OrderItem;
 import com.chubb.inventoryapp.model.OrderStatus;
 import com.chubb.inventoryapp.repository.OrderRepository;
+
+import jakarta.transaction.Transactional;
 
 @Service
 public class OrderService {
@@ -99,6 +102,29 @@ public class OrderService {
 	    return orders.stream()
 	            .map(this::mapToOrderResponse)
 	            .collect(Collectors.toList());
+	}
+	
+	@Transactional
+	public void cancelOrder(Long orderId) {
+	    Order order = orderRepository.findById(orderId)
+	            .orElseThrow(() -> new OrderNotFoundException("Order not found: " + orderId));
+
+	    if (order.getStatus().equals(OrderStatus.CANCELLED)) {
+	        throw new StatusConflictException("Order already cancelled");
+	    }
+
+	    order.setStatus(OrderStatus.CANCELLED);
+	    orderRepository.save(order);
+
+	    List<StockUpdateRequest> request = order.getItems().stream()
+	            .map(item -> new StockUpdateRequest(
+	                item.getProductId(), 
+	                item.getWarehouseId(), 
+	                item.getQuantity()
+	            ))
+	            .collect(Collectors.toList());
+
+	    inventoryClient.addStock(request);
 	}
 	
 	private OrderResponse mapToOrderResponse(Order order) {
