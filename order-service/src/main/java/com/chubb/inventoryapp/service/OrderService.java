@@ -2,13 +2,17 @@ package com.chubb.inventoryapp.service;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
 import com.chubb.inventoryapp.dto.OrderRequest;
+import com.chubb.inventoryapp.dto.OrderResponse;
 import com.chubb.inventoryapp.dto.OrderItemRequest;
+import com.chubb.inventoryapp.dto.OrderItemResponse;
 import com.chubb.inventoryapp.dto.StockCheckResponse;
 import com.chubb.inventoryapp.dto.StockUpdateRequest;
+import com.chubb.inventoryapp.exception.OrderNotFoundException;
 import com.chubb.inventoryapp.exception.OutOfStockException;
 import com.chubb.inventoryapp.feign.InventoryClientWrapper;
 import com.chubb.inventoryapp.model.FulfillmentStatus;
@@ -82,5 +86,32 @@ public class OrderService {
         
         return order.getId();
     }
+	
+	public OrderResponse getOrderById(Long id) {
+	    Order order = orderRepository.findById(id)
+	            .orElseThrow(() -> new OrderNotFoundException("Order not found: " + id));
+	    return mapToOrderResponse(order);
+	}
+	
+	private OrderResponse mapToOrderResponse(Order order) {
+	    List<OrderItemResponse> items = order.getItems().stream()
+	            .map(i -> new OrderItemResponse(
+	            		i.getId(),
+	            		i.getProductId(), 
+	            		i.getQuantity(), 
+	            		i.getWarehouseId(),
+	            		i.getPrice(),
+	            		i.getFulfillmentStatus()))
+	            .collect(Collectors.toList());
+
+	    return new OrderResponse(
+	            order.getId(),
+	            order.getStatus(),
+	            order.getAddress(),
+	            order.getTotalAmount(),
+	            items,
+	            order.getCreatedAt()
+	    );
+	}
     
 }
