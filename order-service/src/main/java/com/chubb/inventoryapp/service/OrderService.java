@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
@@ -99,12 +100,10 @@ public class OrderService {
 	    return mapToOrderResponse(order);
 	}
 	
-	public List<OrderResponse> getOrdersByCustomer(Long customerId) {
-	    List<Order> orders = orderRepository.findByCustomerId(customerId);
+	public Page<OrderResponse> getOrdersByCustomer(Long customerId, Pageable pageable) {
+	    Page<Order> orderPage = orderRepository.findByCustomerId(customerId, pageable);
 	    
-	    return orders.stream()
-	            .map(this::mapToOrderResponse)
-	            .collect(Collectors.toList());
+	    return orderPage.map(this::mapToOrderResponse);
 	}
 	
 	@Transactional
@@ -130,10 +129,9 @@ public class OrderService {
 	    inventoryClient.addStock(request);
 	}
 	
-	public Page<OrderResponse> getAllOrders(int page, int size) {
-	    PageRequest pageRequest = PageRequest.of(page, size, Sort.by("id").descending());
-	    Page<Order> orderPage = orderRepository.findAll(pageRequest);
-
+	public Page<OrderResponse> getAllOrders(Pageable pageable) {
+	    Page<Order> orderPage = orderRepository.findAll(pageable);
+	    
 	    return orderPage.map(this::mapToOrderResponse);
 	}
 	

@@ -3,6 +3,9 @@ package com.chubb.inventoryapp.controller;
 import java.util.List;
 
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -43,8 +46,16 @@ public class OrderController {
 	}
 	
 	@GetMapping("/customer/{customerId}")
-	public ResponseEntity<List<OrderResponse>> getOrdersByCustomer(@PathVariable Long customerId) {
-	    return ResponseEntity.ok(orderService.getOrdersByCustomer(customerId));
+	public ResponseEntity<Page<OrderResponse>> getOrdersByCustomer(
+	        @PathVariable Long customerId,
+	        @RequestParam(defaultValue = "0") int page,
+	        @RequestParam(defaultValue = "10") int size,
+	        @RequestParam(defaultValue = "id") String sortBy) {
+	    
+	    Pageable pageable = PageRequest.of(page, size, Sort.by(sortBy).descending());
+	    Page<OrderResponse> response = orderService.getOrdersByCustomer(customerId, pageable);
+	    
+	    return ResponseEntity.ok(response);
 	}
 	
 	@PutMapping("/{id}/cancel")
@@ -56,8 +67,13 @@ public class OrderController {
 	@GetMapping
 	public ResponseEntity<Page<OrderResponse>> getAllOrders(
 	        @RequestParam(defaultValue = "0") int page,
-	        @RequestParam(defaultValue = "10") int size){
-	    return ResponseEntity.ok(orderService.getAllOrders(page, size));
+	        @RequestParam(defaultValue = "10") int size,
+	        @RequestParam(defaultValue = "id") String sortBy) {
+	    
+	    Pageable pageable = PageRequest.of(page, size, Sort.by(sortBy).descending());
+	    Page<OrderResponse> response = orderService.getAllOrders(pageable);
+	    
+	    return ResponseEntity.ok(response);
 	}
 
 }
