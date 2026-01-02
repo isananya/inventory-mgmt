@@ -1,6 +1,8 @@
 package com.chubb.inventoryapp.model;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -26,6 +28,9 @@ public class OrderItem {
 
     @NotNull
     private Long productId;
+    
+    @NotNull
+    private Long warehouseId;
 
     @NotNull
     @Positive
@@ -34,6 +39,9 @@ public class OrderItem {
     @NotNull
     @Positive
     private float price;
+    
+    @Enumerated(EnumType.STRING)
+    private FulfillmentStatus fulfillmentStatus;
     
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "order_id", nullable = false)

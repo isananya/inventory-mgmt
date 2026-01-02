@@ -32,9 +32,6 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, unique = true)
-    private String orderNumber;
-
     @NotNull
     private Long customerId;
 
@@ -45,6 +42,9 @@ public class Order {
     @NotNull
     @Positive
     private float totalAmount;
+    
+    @Column(nullable = false)
+    private String deliveryAddress;
 
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<OrderItem> items = new ArrayList<>();
