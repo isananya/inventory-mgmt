@@ -115,4 +115,12 @@ public class InventoryService {
         inventory.setQuantity(inventory.getQuantity() - request.getQuantity());
         inventoryRepository.save(inventory);
     }
+    
+    public List<InventoryResponse> getLowStock() {
+        return inventoryRepository.findAll()
+                .stream()
+                .filter(i -> i.getQuantity() <= i.getLowStockThreshold())
+                .map(this::mapToResponse)
+                .toList();
+    }
 }

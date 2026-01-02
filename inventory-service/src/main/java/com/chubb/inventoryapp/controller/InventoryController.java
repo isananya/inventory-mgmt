@@ -68,7 +68,11 @@ public class InventoryController {
     public ResponseEntity<Void> deductStock(@Valid @RequestBody StockRequest request) {
 
         inventoryService.deductStock(request);
-        return ResponseEntity.noContent().build();
+        return ResponseEntity.ok().build();
     }
-
+    
+    @GetMapping("/low-stock")
+    public ResponseEntity<List<InventoryResponse>> lowStock() {
+        return ResponseEntity.ok(inventoryService.getLowStock());
+    }
 }
