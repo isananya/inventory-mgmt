@@ -1,7 +1,5 @@
 package com.chubb.inventoryapp.dto;
 
-import com.chubb.inventoryapp.model.FulfillmentStatus;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,6 +13,5 @@ public class OrderItemResponse {
     private Integer quantity;
     private Long warehouseId;
     private float price;
-    private FulfillmentStatus fulfillmentStatus;
 }
 

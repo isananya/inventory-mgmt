@@ -20,7 +20,6 @@ import com.chubb.inventoryapp.exception.OrderNotFoundException;
 import com.chubb.inventoryapp.exception.OutOfStockException;
 import com.chubb.inventoryapp.exception.StatusConflictException;
 import com.chubb.inventoryapp.feign.InventoryClientWrapper;
-import com.chubb.inventoryapp.model.FulfillmentStatus;
 import com.chubb.inventoryapp.model.Order;
 import com.chubb.inventoryapp.model.OrderItem;
 import com.chubb.inventoryapp.model.OrderStatus;
@@ -71,7 +70,6 @@ public class OrderService {
             item.setProductId(itemReq.getProductId());
             item.setQuantity(itemReq.getQuantity());
             item.setWarehouseId(stockRes.getWarehouseId());
-            item.setFulfillmentStatus(FulfillmentStatus.ASSIGNED);
             item.setPrice(price);
             item.setOrder(order);
 
@@ -165,8 +163,7 @@ public class OrderService {
 	            		i.getProductId(), 
 	            		i.getQuantity(), 
 	            		i.getWarehouseId(),
-	            		i.getPrice(),
-	            		i.getFulfillmentStatus()))
+	            		i.getPrice()))
 	            .collect(Collectors.toList());
 
 	    return new OrderResponse(

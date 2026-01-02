@@ -40,9 +40,6 @@ public class OrderItem {
     @Positive
     private float price;
     
-    @Enumerated(EnumType.STRING)
-    private FulfillmentStatus fulfillmentStatus;
-    
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "order_id", nullable = false)
     private Order order;
