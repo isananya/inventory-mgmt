@@ -4,6 +4,9 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.chubb.inventoryapp.dto.OrderRequest;
@@ -125,6 +128,13 @@ public class OrderService {
 	            .collect(Collectors.toList());
 
 	    inventoryClient.addStock(request);
+	}
+	
+	public Page<OrderResponse> getAllOrders(int page, int size) {
+	    PageRequest pageRequest = PageRequest.of(page, size, Sort.by("id").descending());
+	    Page<Order> orderPage = orderRepository.findAll(pageRequest);
+
+	    return orderPage.map(this::mapToOrderResponse);
 	}
 	
 	private OrderResponse mapToOrderResponse(Order order) {
