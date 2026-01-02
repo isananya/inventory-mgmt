@@ -16,7 +16,7 @@ public class OrderResponse {
 
     private Long orderId;
     private OrderStatus status;
-    private String deliveryAddress;
+    private AddressDTO address;
     private float totalAmount;
     private List<OrderItemResponse> items;
     private LocalDateTime createdAt;

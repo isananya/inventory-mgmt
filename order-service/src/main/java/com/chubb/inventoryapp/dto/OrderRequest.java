@@ -17,7 +17,7 @@ public class OrderRequest {
     private Long customerId;
 
     @NotBlank
-    private String deliveryAddress;
+    private AddressDTO address;
     
     @NotEmpty
     private List<OrderItemRequest> items;
