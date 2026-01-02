@@ -1,5 +1,7 @@
 package com.chubb.inventoryapp.controller;
 
+import java.util.List;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -35,6 +37,11 @@ public class OrderController {
 	@GetMapping("/{id}")
 	public ResponseEntity<OrderResponse> getOrder(@PathVariable Long id) {
 	    return ResponseEntity.ok(orderService.getOrderById(id));
+	}
+	
+	@GetMapping("/customer/{customerId}")
+	public ResponseEntity<List<OrderResponse>> getOrdersByCustomer(@PathVariable Long customerId) {
+	    return ResponseEntity.ok(orderService.getOrdersByCustomer(customerId));
 	}
 
 }
