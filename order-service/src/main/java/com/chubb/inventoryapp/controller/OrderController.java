@@ -9,6 +9,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -82,6 +83,15 @@ public class OrderController {
 	public ResponseEntity<OrderStatusUpdateRequest> getOrderStatus(@PathVariable Long id) {
 	    OrderStatus status = orderService.getOrderStatus(id);
 	    return ResponseEntity.ok(new OrderStatusUpdateRequest(status));
+	}
+	
+	@PatchMapping("/{id}/status")
+	public ResponseEntity<Void> updateOrderStatus(
+	        @PathVariable Long id, 
+	        @RequestBody @Valid OrderStatusUpdateRequest request) {
+	    
+	    orderService.updateOrderStatus(id, request.getStatus());
+	    return ResponseEntity.ok(null);
 	}
 
 }

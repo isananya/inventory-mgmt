@@ -2,13 +2,13 @@ package com.chubb.inventoryapp.dto;
 
 import com.chubb.inventoryapp.model.OrderStatus;
 
-import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
 @AllArgsConstructor
 public class OrderStatusUpdateRequest {
-    @NotBlank(message = "Status cannot be empty")
+    @NotNull(message = "Status cannot be empty")
     private OrderStatus status;
 }

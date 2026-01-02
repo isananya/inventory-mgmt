@@ -141,6 +141,23 @@ public class OrderService {
 	            .orElseThrow(() -> new OrderNotFoundException("Order not found: " + id));
 	}
 	
+	@Transactional
+	public void updateOrderStatus(Long id, OrderStatus newStatus) {
+	    Order order = orderRepository.findById(id).orElseThrow(() -> new OrderNotFoundException("Order not found: " + id));
+
+	    if (order.getStatus() == OrderStatus.CANCELLED || order.getStatus() == OrderStatus.DELIVERED) {
+	         throw new StatusConflictException("Cannot update an order that is already " + order.getStatus());
+	    }
+
+	    if (newStatus == OrderStatus.CANCELLED) {
+	        this.cancelOrder(id); 
+	        return;
+	    }
+
+	    order.setStatus(newStatus);
+	    orderRepository.save(order);
+	}
+	
 	private OrderResponse mapToOrderResponse(Order order) {
 	    List<OrderItemResponse> items = order.getItems().stream()
 	            .map(i -> new OrderItemResponse(
