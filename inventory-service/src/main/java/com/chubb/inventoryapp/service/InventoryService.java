@@ -138,7 +138,7 @@ public class InventoryService {
 
         for (StockRequest req : requests) {
             Optional<Inventory> inventoryOpt = inventoryRepository
-                    .findFirstByProductIdAndQuantityGreaterThanEqual(req.getProductId(), req.getQuantity());
+                    .findAvailableStock(req.getProductId(), req.getQuantity());
 
             if (inventoryOpt.isPresent()) {
                 Inventory inventory = inventoryOpt.get();

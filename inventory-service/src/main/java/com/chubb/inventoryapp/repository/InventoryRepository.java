@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 import com.chubb.inventoryapp.model.Inventory;
 import com.chubb.inventoryapp.model.Product;
@@ -20,6 +22,11 @@ public interface InventoryRepository extends JpaRepository<Inventory, Long> {
 	
 	List<Inventory> findByWarehouse(Warehouse warehouse);
 
-	Optional<Inventory> findFirstByProductIdAndQuantityGreaterThanEqual(Long productId, Integer quantity);
+	@Query("SELECT i FROM Inventory i " +
+           "WHERE i.product.id = :productId " +
+           "AND i.quantity >= :quantity " +
+           "AND i.warehouse.active = true") 
+    Optional<Inventory> findAvailableStock(@Param("productId") Long productId, 
+                                           @Param("quantity") Integer quantity);
 }
 	
