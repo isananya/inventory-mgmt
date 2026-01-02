@@ -19,6 +19,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.chubb.inventoryapp.dto.OrderRequest;
 import com.chubb.inventoryapp.dto.OrderResponse;
+import com.chubb.inventoryapp.dto.OrderStatusUpdateRequest;
+import com.chubb.inventoryapp.model.OrderStatus;
 import com.chubb.inventoryapp.service.OrderService;
 
 import jakarta.validation.Valid;
@@ -74,6 +76,12 @@ public class OrderController {
 	    Page<OrderResponse> response = orderService.getAllOrders(pageable);
 	    
 	    return ResponseEntity.ok(response);
+	}
+	
+	@GetMapping("/{id}/status")
+	public ResponseEntity<OrderStatusUpdateRequest> getOrderStatus(@PathVariable Long id) {
+	    OrderStatus status = orderService.getOrderStatus(id);
+	    return ResponseEntity.ok(new OrderStatusUpdateRequest(status));
 	}
 
 }

@@ -135,6 +135,12 @@ public class OrderService {
 	    return orderPage.map(this::mapToOrderResponse);
 	}
 	
+	public OrderStatus getOrderStatus(Long id) {
+	    return orderRepository.findById(id)
+	            .map(Order::getStatus)
+	            .orElseThrow(() -> new OrderNotFoundException("Order not found: " + id));
+	}
+	
 	private OrderResponse mapToOrderResponse(Order order) {
 	    List<OrderItemResponse> items = order.getItems().stream()
 	            .map(i -> new OrderItemResponse(
