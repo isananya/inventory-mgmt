@@ -7,6 +7,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.chubb.inventoryapp.dto.InvoiceRequest;
 import com.chubb.inventoryapp.dto.InvoiceResponse;
+import com.chubb.inventoryapp.dto.InvoiceStatusRequest;
 import com.chubb.inventoryapp.service.InvoiceService;
 
 import jakarta.validation.Valid;
@@ -62,5 +64,14 @@ public class InvoiceController {
         
         Page<InvoiceResponse> response = invoiceService.getAllInvoices(pageable);
         return ResponseEntity.ok(response);
+    }
+	
+	@PatchMapping("/order/{orderId}/status")
+    public ResponseEntity<Void> updateStatus(
+            @PathVariable Long orderId,
+            @RequestBody @Valid InvoiceStatusRequest request) {
+		
+    	invoiceService.updateInvoiceStatus(orderId, request.getStatus());
+        return ResponseEntity.ok(null);
     }
 }

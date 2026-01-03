@@ -79,6 +79,14 @@ public class InvoiceService {
         return invoicePage.map(this::mapToResponse);
     }
 	
+	public void updateInvoiceStatus(Long id, PaymentStatus status) {
+        Invoice invoice = invoiceRepository.findByOrderId(id)
+                .orElseThrow(() -> new InvoiceNotFoundException("Invoice not found with ID: " + id));
+
+        invoice.setPaymentStatus(status);
+        invoiceRepository.save(invoice);
+    }
+	
 	private InvoiceResponse mapToResponse(Invoice invoice) {
         return new InvoiceResponse(
                 invoice.getId(),
