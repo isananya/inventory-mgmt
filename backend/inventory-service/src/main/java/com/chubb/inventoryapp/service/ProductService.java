@@ -61,8 +61,8 @@ public class ProductService {
     }
     
     public Page<ProductResponse> getAllProducts(Pageable pageable){
-    	return productRepository.findAll(pageable)
-                .map(this::mapToResponse);    }
+    	return productRepository.findAll(pageable).map(this::mapToResponse);    
+    }
     
     public ProductResponse getProductById(Long id) {
     	Product product = productRepository.findById(id).orElseThrow(() -> new ProductNotFoundException());
