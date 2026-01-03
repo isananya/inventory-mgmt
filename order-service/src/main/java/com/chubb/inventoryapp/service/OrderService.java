@@ -23,6 +23,7 @@ import com.chubb.inventoryapp.feign.InventoryClientWrapper;
 import com.chubb.inventoryapp.model.Order;
 import com.chubb.inventoryapp.model.OrderItem;
 import com.chubb.inventoryapp.model.OrderStatus;
+import com.chubb.inventoryapp.repository.OrderItemRepository;
 import com.chubb.inventoryapp.repository.OrderRepository;
 
 import jakarta.transaction.Transactional;
@@ -31,12 +32,14 @@ import jakarta.transaction.Transactional;
 public class OrderService {
 
 	private final OrderRepository orderRepository;
+	private final OrderItemRepository orderItemRepository;
     private final InventoryClientWrapper inventoryClient;
     
-	public OrderService(OrderRepository orderRepository, InventoryClientWrapper inventoryClient) {
+	public OrderService(OrderRepository orderRepository, InventoryClientWrapper inventoryClient, OrderItemRepository orderItemRepository) {
 		super();
 		this.orderRepository = orderRepository;
 		this.inventoryClient = inventoryClient;
+		this.orderItemRepository = orderItemRepository;
 	}
     
 	public Long placeOrder(OrderRequest request) {
@@ -156,22 +159,31 @@ public class OrderService {
 	    orderRepository.save(order);
 	}
 	
-	private OrderResponse mapToOrderResponse(Order order) {
-	    List<OrderItemResponse> items = order.getItems().stream()
-	            .map(i -> new OrderItemResponse(
-	            		i.getId(),
-	            		i.getProductId(), 
-	            		i.getQuantity(), 
-	            		i.getWarehouseId(),
-	            		i.getPrice()))
-	            .collect(Collectors.toList());
+	public List<OrderItemResponse> getOrderItems(Long orderId) {
+	    if (!orderRepository.existsById(orderId)) {
+	        throw new OrderNotFoundException("Order not found: " + orderId);
+	    }
 
+	    List<OrderItem> items = orderItemRepository.findByOrderId(orderId);
+
+	    return items.stream()
+	            .map(i -> new OrderItemResponse(
+	                    i.getId(),
+	                    i.getProductId(),
+	                    i.getQuantity(),
+	                    i.getWarehouseId(),
+	                    i.getPrice()
+	            ))
+	            .collect(Collectors.toList());
+	}
+	
+	private OrderResponse mapToOrderResponse(Order order) {
 	    return new OrderResponse(
 	            order.getId(),
+	            order.getCustomerId(),
 	            order.getStatus(),
 	            order.getAddress(),
 	            order.getTotalAmount(),
-	            items,
 	            order.getCreatedAt()
 	    );
 	}

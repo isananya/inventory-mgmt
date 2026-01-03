@@ -16,10 +16,10 @@ import lombok.NoArgsConstructor;
 public class OrderResponse {
 
     private Long orderId;
+    private Long customerId;
     private OrderStatus status;
     private Address address;
     private float totalAmount;
-    private List<OrderItemResponse> items;
     private LocalDateTime createdAt;
 }
 

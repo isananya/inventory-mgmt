@@ -1,5 +1,7 @@
 package com.chubb.inventoryapp.controller;
 
+import java.util.List;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -16,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.chubb.inventoryapp.dto.OrderItemResponse;
 import com.chubb.inventoryapp.dto.OrderRequest;
 import com.chubb.inventoryapp.dto.OrderResponse;
 import com.chubb.inventoryapp.dto.OrderStatusUpdateRequest;
@@ -90,5 +93,10 @@ public class OrderController {
 	    
 	    orderService.updateOrderStatus(id, request.getStatus());
 	    return ResponseEntity.ok(null);
+	}
+	
+	@GetMapping("/{id}/items")
+	public ResponseEntity<List<OrderItemResponse>> getOrderItems(@PathVariable Long id) {
+	    return ResponseEntity.ok(orderService.getOrderItems(id));
 	}
 }
