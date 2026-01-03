@@ -2,6 +2,7 @@ package com.chubb.inventoryapp.dto;
 
 import com.chubb.inventoryapp.model.PaymentMode;
 
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
@@ -9,4 +10,8 @@ import lombok.Data;
 public class InvoiceRequest {
     @NotNull
     private PaymentMode paymentMode;
+    
+    @NotNull
+    @Email
+    private String email;
 }

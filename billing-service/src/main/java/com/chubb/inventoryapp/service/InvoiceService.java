@@ -6,8 +6,10 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import com.chubb.inventoryapp.dto.InvoiceRequest;
 import com.chubb.inventoryapp.dto.InvoiceResponse;
 import com.chubb.inventoryapp.dto.OrderResponse;
+import com.chubb.inventoryapp.event.InvoiceEventPublisher;
 import com.chubb.inventoryapp.exception.InvoiceAlreadyExistsException;
 import com.chubb.inventoryapp.exception.InvoiceNotFoundException;
 import com.chubb.inventoryapp.feign.OrderClientWrapper;
@@ -21,14 +23,16 @@ public class InvoiceService {
 	
 	private final InvoiceRepository invoiceRepository;
     private final OrderClientWrapper orderClient;
+    private final InvoiceEventPublisher eventPublisher;
     
-	public InvoiceService(InvoiceRepository invoiceRepository, OrderClientWrapper orderClient) {
+	public InvoiceService(InvoiceRepository invoiceRepository, OrderClientWrapper orderClient, InvoiceEventPublisher eventPublisher) {
 		super();
 		this.invoiceRepository = invoiceRepository;
 		this.orderClient = orderClient;
+		this.eventPublisher = eventPublisher;
 	}
 
-	public Long generateInvoice(Long orderId, PaymentMode paymentMode) {
+	public Long generateInvoice(Long orderId, InvoiceRequest request) {
 		if (invoiceRepository.findByOrderId(orderId).isPresent()) {
 	        throw new InvoiceAlreadyExistsException("Invoice already exists for Order ID: " + orderId);
 	    }
@@ -39,14 +43,14 @@ public class InvoiceService {
         invoice.setOrderId(order.getOrderId());
         invoice.setCustomerId(order.getCustomerId());
         invoice.setTotalAmount(order.getTotalAmount());
-        invoice.setPaymentMode(paymentMode);
+        invoice.setPaymentMode(request.getPaymentMode());
         invoice.setCreatedAt(LocalDateTime.now());
 
         if ( "CANCELLED".equalsIgnoreCase(order.getStatus())){
         	invoice.setPaymentStatus(PaymentStatus.REFUNDED);
         }
         else {
-        	if (paymentMode.equals(PaymentMode.COD)) {
+        	if (invoice.getPaymentMode().equals(PaymentMode.COD)) {
         		invoice.setPaymentStatus(PaymentStatus.PENDING);
         	}
         	else {
@@ -55,6 +59,8 @@ public class InvoiceService {
         }
 
         invoiceRepository.save(invoice);
+        
+        eventPublisher.publishInvoiceGenerated(orderId, request.getEmail(), invoice.getTotalAmount());
         
         return invoice.getId();
     }

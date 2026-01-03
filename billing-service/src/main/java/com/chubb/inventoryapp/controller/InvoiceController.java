@@ -36,7 +36,7 @@ public class InvoiceController {
 	@PostMapping("/order/{orderId}")
     public ResponseEntity<Long> generateInvoice(@PathVariable Long orderId,
     		@RequestBody @Valid InvoiceRequest request) {
-        return ResponseEntity.status(HttpStatus.CREATED).body(invoiceService.generateInvoice(orderId, request.getPaymentMode()));
+        return ResponseEntity.status(HttpStatus.CREATED).body(invoiceService.generateInvoice(orderId, request));
     }
 	
 	@GetMapping("/order/{orderId}")
