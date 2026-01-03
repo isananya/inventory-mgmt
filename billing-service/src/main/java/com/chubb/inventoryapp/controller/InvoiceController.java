@@ -36,4 +36,9 @@ public class InvoiceController {
     public ResponseEntity<InvoiceResponse> getInvoiceByOrder(@PathVariable Long orderId) {
         return ResponseEntity.ok(invoiceService.getInvoiceByOrderId(orderId));
     }
+	
+	@GetMapping("/{id}")
+    public ResponseEntity<InvoiceResponse> getInvoice(@PathVariable Long id) {
+        return ResponseEntity.ok(invoiceService.getInvoice(id));
+    }
 }

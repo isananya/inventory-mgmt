@@ -64,6 +64,13 @@ public class InvoiceService {
         return mapToResponse(invoice);
     }
 	
+	public InvoiceResponse getInvoice(Long id) {
+        Invoice invoice = invoiceRepository.findById(id)
+                .orElseThrow(() -> new InvoiceNotFoundException("Invoice not found for ID: " + id));
+      
+        return mapToResponse(invoice);
+    }
+	
 	private InvoiceResponse mapToResponse(Invoice invoice) {
         return new InvoiceResponse(
                 invoice.getId(),
