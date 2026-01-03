@@ -73,7 +73,19 @@ public class GlobalSecurityFilter implements GlobalFilter, Ordered {
         if ("ADMIN".equalsIgnoreCase(role)) return true;
 
         if (path.startsWith("/inventory/check") && method == HttpMethod.POST) {
-            return hasRole(role, "CUSTOMER", "SALES_EXECUTIVE");
+            return hasRole(role, "CUSTOMER", "SALES_EXECUTIVE", "WAREHOUSE_MANAGER");
+        }
+        
+        if (path.startsWith("/inventory/product/") && method == HttpMethod.GET) {
+            return hasRole(role, "CUSTOMER", "SALES_EXECUTIVE", "WAREHOUSE_MANAGER");
+        }
+        
+        if (path.startsWith("/inventory/warehouse/") && method == HttpMethod.GET) {
+            return hasRole(role, "WAREHOUSE_MANAGER", "SALES_EXECUTIVE");
+        }
+        
+        if (path.startsWith("/inventory") && method == HttpMethod.PATCH) {
+            return hasRole(role, "WAREHOUSE_MANAGER");
         }
         
         if (path.startsWith("/inventory/stock") && (method == HttpMethod.PUT || method == HttpMethod.PATCH)) {
@@ -84,7 +96,15 @@ public class GlobalSecurityFilter implements GlobalFilter, Ordered {
             return hasRole(role, "WAREHOUSE_MANAGER");
         }
         
+        if (path.equals("/inventory") && method == HttpMethod.POST) {
+            return hasRole(role, "WAREHOUSE_MANAGER");
+        }
+        
         if (path.startsWith("/inventory") && method == HttpMethod.GET) {
+            return hasRole(role, "WAREHOUSE_MANAGER", "SALES_EXECUTIVE");
+        }
+        
+        if (path.startsWith("/warehouse") && method == HttpMethod.GET) {
             return hasRole(role, "WAREHOUSE_MANAGER", "SALES_EXECUTIVE");
         }
 
@@ -96,11 +116,19 @@ public class GlobalSecurityFilter implements GlobalFilter, Ordered {
             return hasRole(role, "CUSTOMER", "SALES_EXECUTIVE");
         }
         
-        if (path.matches("/order/.*/status") && method == HttpMethod.PUT) {
+        if (path.matches("/order/.*/status") && method == HttpMethod.PATCH) {
             return hasRole(role, "WAREHOUSE_MANAGER");
         }
         
-        if (path.startsWith("/order") && method == HttpMethod.GET) {
+        if (path.matches("/order/.*/status") && method == HttpMethod.GET) {
+            return hasRole(role, "CUSTOMER", "SALES_EXECUTIVE", "WAREHOUSE_MANAGER", "FINANCE_OFFICER");
+        }
+        
+        if (path.matches("/order/.*/items") && method == HttpMethod.GET) {
+            return hasRole(role, "CUSTOMER", "SALES_EXECUTIVE", "WAREHOUSE_MANAGER", "FINANCE_OFFICER");
+       }
+        
+        if (path.matches("/order/\\d+") && method == HttpMethod.GET) {
             return hasRole(role, "CUSTOMER", "SALES_EXECUTIVE", "WAREHOUSE_MANAGER", "FINANCE_OFFICER");
         }
 
@@ -108,12 +136,20 @@ public class GlobalSecurityFilter implements GlobalFilter, Ordered {
             return hasRole(role, "CUSTOMER", "SALES_EXECUTIVE");
         }
         
-        if (path.startsWith("/billing") && method == HttpMethod.GET) {
+        if (path.startsWith("/billing") && method == HttpMethod.PATCH) {
+            return hasRole(role, "CUSTOMER", "SALES_EXECUTIVE");
+        }
+        
+        if (path.equals("/billing") && method == HttpMethod.GET) {
+            return hasRole(role, "FINANCE_OFFICER");
+        }
+        
+        if (path.matches("/billing/\\d+") && method == HttpMethod.GET) {
             return hasRole(role, "CUSTOMER", "SALES_EXECUTIVE", "FINANCE_OFFICER");
         }
-
-        if (path.startsWith("/user/profile")) {
-            return true;
+        
+        if (path.startsWith("/billing/order/") && method == HttpMethod.GET) {
+            return hasRole(role, "CUSTOMER", "SALES_EXECUTIVE", "FINANCE_OFFICER");
         }
 
         return false;
