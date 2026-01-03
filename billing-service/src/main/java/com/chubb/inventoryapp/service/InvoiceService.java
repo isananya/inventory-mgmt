@@ -1,9 +1,13 @@
 package com.chubb.inventoryapp.service;
 
+import java.time.LocalDateTime;
+
 import org.springframework.stereotype.Service;
 
+import com.chubb.inventoryapp.dto.InvoiceResponse;
 import com.chubb.inventoryapp.dto.OrderResponse;
 import com.chubb.inventoryapp.exception.InvoiceAlreadyExistsException;
+import com.chubb.inventoryapp.exception.InvoiceNotFoundException;
 import com.chubb.inventoryapp.feign.OrderClientWrapper;
 import com.chubb.inventoryapp.model.Invoice;
 import com.chubb.inventoryapp.model.PaymentMode;
@@ -34,6 +38,7 @@ public class InvoiceService {
         invoice.setCustomerId(order.getCustomerId());
         invoice.setTotalAmount(order.getTotalAmount());
         invoice.setPaymentMode(paymentMode);
+        invoice.setCreatedAt(LocalDateTime.now());
 
         if ( "CANCELLED".equalsIgnoreCase(order.getStatus())){
         	invoice.setPaymentStatus(PaymentStatus.REFUNDED);
@@ -50,5 +55,24 @@ public class InvoiceService {
         invoiceRepository.save(invoice);
         
         return invoice.getId();
+    }
+	
+	public InvoiceResponse getInvoiceByOrderId(Long orderId) {
+        Invoice invoice = invoiceRepository.findByOrderId(orderId)
+                .orElseThrow(() -> new InvoiceNotFoundException("Invoice not found for Order ID: " + orderId));
+        
+        return mapToResponse(invoice);
+    }
+	
+	private InvoiceResponse mapToResponse(Invoice invoice) {
+        return new InvoiceResponse(
+                invoice.getId(),
+                invoice.getOrderId(),
+                invoice.getCustomerId(),
+                invoice.getTotalAmount(),
+                invoice.getPaymentMode(),
+                invoice.getPaymentStatus(),
+                invoice.getCreatedAt()
+        );
     }
 }
