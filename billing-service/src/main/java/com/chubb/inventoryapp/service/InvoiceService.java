@@ -2,6 +2,8 @@ package com.chubb.inventoryapp.service;
 
 import java.time.LocalDateTime;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.chubb.inventoryapp.dto.InvoiceResponse;
@@ -69,6 +71,12 @@ public class InvoiceService {
                 .orElseThrow(() -> new InvoiceNotFoundException("Invoice not found for ID: " + id));
       
         return mapToResponse(invoice);
+    }
+	
+	public Page<InvoiceResponse> getAllInvoices(Pageable pageable) {
+        Page<Invoice> invoicePage = invoiceRepository.findAll(pageable);
+        
+        return invoicePage.map(this::mapToResponse);
     }
 	
 	private InvoiceResponse mapToResponse(Invoice invoice) {
