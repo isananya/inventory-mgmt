@@ -1,47 +1,0 @@
-
-`com.chubb.inventoryapp.feign.InventoryClientWrapper#checkStock(Ljava/util/List;)Ljava/util/List;ô
-éD:/CHUBB_Training/CAPSTONE PROJECT/inventory-mgmt/backend/order-service/src/main/java/com/chubb/inventoryapp/feign/InventoryClientWrapper.java$ (."startingBlock*µ
-startingBlock. (Nπ
-∂
- (W
-%2"
-__annotate*_
-
-__unknown_file (CA
-?io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker*7
-
-__unknown_file (
-
-requestjava.util.ListY
-W
-F (M
-requestjava.util.List"__annotation*"
-
-__unknown_file (
-
-%2*
-1*è
-1 (±
-Æ
- (2
-%0,com.chubb.inventoryapp.feign.InventoryClient"__id*h
-
-__unknown_file (L*J5
-3com.chubb.inventoryapp.feign.InventoryClientWrapper"
-inventoryClientß§
- (2
-%1java.util.List"Ycom.chubb.inventoryapp.feign.InventoryClient#checkStock(Ljava/util/List;)Ljava/util/List;*P
-
-__unknown_file (4
-2
-%0,com.chubb.inventoryapp.feign.InventoryClient*7
-
-__unknown_file (
-
-requestjava.util.List2checkStock(Ljava/util/List;)""
- (3
-
-%1java.util.List:%
-/ (M
-requestjava.util.ListB75
-3com.chubb.inventoryapp.feign.InventoryClientWrapperH

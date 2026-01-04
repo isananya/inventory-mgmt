@@ -1,292 +1,0 @@
-
-1.0isananya_inventory-mgmtJavaFrontend"1767544935337*java2.Bñ
-[
-Vuser-service/src/main/java/com/chubb/inventoryapp/security/UserDetailsServiceImpl.java2
-	
-type3
-	
-MAIN4
-
-
-module-key5
-
-user-service6
-
-package8
-1
-,user-service:com.chubb.inventoryapp.security9
-<
-6com.chubb.inventoryapp.security.UserDetailsServiceImpl11
-
-class12
-
-access13
-
-public14
-
-
-full-range15
-
-(13:1)-(31:2)16
-
-simple-name17
-
-UserDetailsServiceImpl18
-F
-@org.springframework.security.core.userdetails.UserDetailsService20
-
-unknown21
-
-
-implements22
-,
-&org.springframework.stereotype.Service24
-
-annotated by25
-
-
-uses26
-K
-Ecom.chubb.inventoryapp.security.UserDetailsServiceImpl.userRepository28
-
-field29
-
-private30
-
-(16:5)-(16:49)31
-
-userRepository32
-6
-0com.chubb.inventoryapp.repository.UserRepository34
-
-is type35
-x
-rcom.chubb.inventoryapp.security.UserDetailsServiceImpl#<init>(Lcom/chubb/inventoryapp/repository/UserRepository;)V37
-
-method38
-
-(18:5)-(21:6)39
-
-	has param40
-<
-6org.springframework.beans.factory.annotation.Autowired42
-
-calls43
-
-
-references44
-Ÿ
-˜com.chubb.inventoryapp.security.UserDetailsServiceImpl#loadUserByUsername(Ljava/lang/String;)Lorg/springframework/security/core/userdetails/UserDetails;46
-
-(23:5)-(30:6)47
-
-loadUserByUsername48
-?
-9org.springframework.security.core.userdetails.UserDetails50
-
-returns51
-M
-Gorg.springframework.security.core.userdetails.UsernameNotFoundException53
-'
-!com.chubb.inventoryapp.model.User55
-j
-dcom.chubb.inventoryapp.repository.UserRepository#findByEmail(Ljava/lang/String;)Ljava/util/Optional;57
-5
-/com.chubb.inventoryapp.security.UserDetailsImpl59J%
-#
-1
-12
-
-3
-4
-
-5
-6 Z
-
-7
-7982
-
-
-5
-68jð
-J
-10D
-101112 *
-1 ($:7B$
-
-
-13
-14
-
-
-15
-16
-
-
-17
-18
-N
-36H
-363738 *
-1 ("210:7B$
-
-
-13
-14
-
-
-15
-39
-
-
-17
-18
-
-52
-525321
-
-19
-192021
-
-41
-414221
-N
-27H
-272829 *
-1" (0210:7B$
-
-
-13
-30
-
-
-15
-31
-
-
-17
-32
-
-33
-333421
-
-58
-585921
-
-54
-545521
-N
-45H
-454638 *
-1 (*210:7B$
-
-
-13
-14
-
-
-15
-47
-
-
-17
-48
-
-56
-565721
-
-23
-232421
-
-49
-495021rª
-
-101922*
-10 (B
-
-102325*
-1 (	
-
-102326*
-1 (	
-
-101926*
-10 (B
-
-273335*
-1 (!
-
-273326*
-1 (!
-
-273326*
-1" (0
-
-363340*
-1# (1
-
-364125*
-1 (
-
-364126*
-1 (
-
-361043*
-1 ("
-
-363335*
-12 (@
-
-363326*
-1# (1
-
-361026*
-1	 (
-
-361044*
-1	 (
-
-363326*
-1 (
-
-362744*
-1 (
-
-454951*
-1 (
-
-454926*
-1 (
-
-455226*
-1@ (Y
-
-455435*
-1 (
-
-455426*
-1	 (
-
-455451*
-1 (
-
-453344*
-1 (/
-
-455643*
-1$ (/
-
-452744*
-1 (#
-
-453326*
-1 (#
-
-452744*
-1 (#
-
-455243*
-1( (A
-
-455843*
-1 (#

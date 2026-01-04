@@ -1,180 +1,0 @@
-
-1.0isananya_inventory-mgmtJavaFrontend"1767544944706*java2.B∂
-Q
-Lorder-service/src/main/java/com/chubb/inventoryapp/dto/OrderItemRequest.java2
-	
-type3
-	
-MAIN4
-
-
-module-key5
-
-order-service6
-
-package8
--
-(order-service:com.chubb.inventoryapp.dto9
-1
-+com.chubb.inventoryapp.dto.OrderItemRequest11
-
-class12
-
-access13
-
-public14
-
-
-full-range15
-
-(10:1)-(19:2)16
-
-simple-name17
-
-OrderItemRequest18
-
-lombok.Data20
-
-unknown21
-
-annotated by22
-
-
-uses23
-
-lombok.NoArgsConstructor25
-
-lombok.AllArgsConstructor27
-;
-5com.chubb.inventoryapp.dto.OrderItemRequest.productId29
-
-field30
-
-private31
-
-(14:5)-(15:28)32
-
-	productId33
-,
-&jakarta.validation.constraints.NotNull35
-:
-4com.chubb.inventoryapp.dto.OrderItemRequest.quantity37
-
-(17:5)-(18:30)38
-
-quantity39
-(
-"jakarta.validation.constraints.Min41J%
-#
-1
-12
-
-3
-4
-
-5
-6 Z
-
-7
-7982
-
-
-5
-68j–
-N
-28H
-282930 *
-1 (210:7B$
-
-
-13
-31
-
-
-15
-32
-
-
-17
-33
-
-19
-192021
-N
-36H
-363730 *
-1 (210:7B$
-
-
-13
-31
-
-
-15
-38
-
-
-17
-39
-J
-10D
-101112 *
-1 (:7B$
-
-
-13
-14
-
-
-15
-16
-
-
-17
-18
-
-34
-343521
-
-26
-262721
-
-40
-404121
-
-24
-242521ré
-
-101922*
-1
- 
-(
-
-101923*
-1
- 
-(
-
-102422*
-1 (
-
-102423*
-1 (
-
-102622*
-1 (
-
-102623*
-1 (
-
-283422*
-1 (
-
-283423*
-1 (
-
-364022*
-1 (
-
-364023*
-1 (	

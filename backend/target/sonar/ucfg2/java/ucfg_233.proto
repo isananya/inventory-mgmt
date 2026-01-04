@@ -1,47 +1,0 @@
-
-xcom.chubb.inventoryapp.feign.OrderClientWrapper#getOrderById(Ljava/lang/Long;)Lcom/chubb/inventoryapp/dto/OrderResponse;—
-ŒD:/CHUBB_Training/CAPSTONE PROJECT/inventory-mgmt/backend/billing-service/src/main/java/com/chubb/inventoryapp/feign/OrderClientWrapper.java (%"startingBlock*«
-startingBlock% (.´
-±
- (K
-%2"
-__annotate*_
-
-__unknown_file (CA
-?io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker*2
-
-__unknown_file (
-
-idjava.lang.LongT
-R
-+ (-
-idjava.lang.Long"__annotation*"
-
-__unknown_file (
-
-%2*
-1*È
-1	 (¥
-¢
-	 (.
-%0(com.chubb.inventoryapp.feign.OrderClient"__id*`
-
-__unknown_file (D*B1
-/com.chubb.inventoryapp.feign.OrderClientWrapper"
-orderClientÒÏ
-	 (%.
-%1(com.chubb.inventoryapp.dto.OrderResponse"qcom.chubb.inventoryapp.feign.OrderClient#getOrderById(Ljava/lang/Long;)Lcom/chubb/inventoryapp/dto/OrderResponse;*L
-
-__unknown_file (0
-.
-%0(com.chubb.inventoryapp.feign.OrderClient*2
-
-__unknown_file (
-
-idjava.lang.Long2getOrderById(Ljava/lang/Long;)"<
- (&0
-.
-%1(com.chubb.inventoryapp.dto.OrderResponse: 
-& (-
-idjava.lang.LongB31
-/com.chubb.inventoryapp.feign.OrderClientWrapperH

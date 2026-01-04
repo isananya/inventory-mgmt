@@ -1,236 +1,0 @@
-
-1.0isananya_inventory-mgmtJavaFrontend"1767544931600*java2.B›
-
-P
-Kemail-service/src/main/java/com/chubb/inventoryapp/config/RabbitConfig.java2
-	
-type3
-	
-MAIN4
-
-
-module-key5
-
-email-service6
-
-package8
-0
-+email-service:com.chubb.inventoryapp.config9
-0
-*com.chubb.inventoryapp.config.RabbitConfig11
-
-class12
-
-access13
-
-public14
-
-
-full-range15
-
-(10:1)-(25:2)16
-
-simple-name17
-
-RabbitConfig18
-:
-4org.springframework.context.annotation.Configuration20
-
-unknown21
-
-annotated by22
-
-
-uses23
-A
-;com.chubb.inventoryapp.config.RabbitConfig.invoiceQueueName25
-
-field26
-
-private27
-
-(13:5)-(14:37)28
-
-invoiceQueueName29
-8
-2org.springframework.beans.factory.annotation.Value31
-d
-^com.chubb.inventoryapp.config.RabbitConfig#invoiceQueue()Lorg/springframework/amqp/core/Queue;33
-
-method34
-
-(16:5)-(19:6)35
-
-invoiceQueue36
-)
-#org.springframework.amqp.core.Queue38
-
-returns39
-1
-+org.springframework.context.annotation.Bean41
-
-calls42
-
-
-references43
-„
-~com.chubb.inventoryapp.config.RabbitConfig#jsonMessageConverter()Lorg/springframework/amqp/support/converter/MessageConverter;45
-
-(21:5)-(24:6)46
-
-jsonMessageConverter47
-A
-;org.springframework.amqp.support.converter.MessageConverter49
-M
-Gorg.springframework.amqp.support.converter.Jackson2JsonMessageConverter51J%
-#
-1
-12
-
-3
-4
-
-5
-6 Z
-
-7
-7982
-
-
-5
-68j´
-
-19
-192021
-
-30
-303121
-N
-44H
-444534 *
-1 (1210:7B$
-
-
-13
-14
-
-
-15
-46
-
-
-17
-47
-
-50
-505121
-
-37
-373821
-
-48
-484921
-N
-32H
-323334 *
-1 (210:7B$
-
-
-13
-14
-
-
-15
-35
-
-
-17
-36
-
-40
-404121
-N
-24H
-242526 *
-1 ($210:7B$
-
-
-13
-27
-
-
-15
-28
-
-
-17
-29
-J
-10D
-101112 *
-1 (:7B$
-
-
-13
-14
-
-
-15
-16
-
-
-17
-18r•
-
-101922*
-1
- 
-(
-
-101923*
-1
- 
-(
-
-243022*
-1 (1
-
-243023*
-1 (
-
-323739*
-1 (
-
-324022*
-1 (
-
-
-324023*
-1 (
-
-
-323723*
-1 (
-
-323742*
-1 (
-
-322443*
-1 (*
-
-444839*
-1 (
-
-444022*
-1 (
-
-
-444023*
-1 (
-
-
-444823*
-1 (
-
-445042*
-1 (0

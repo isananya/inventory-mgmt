@@ -1,231 +1,0 @@
-
-1.0isananya_inventory-mgmtJavaFrontend"1767544944854*java2.B¼	
-R
-Morder-service/src/main/java/com/chubb/inventoryapp/feign/InventoryClient.java2
-	
-type3
-	
-MAIN4
-
-
-module-key5
-
-order-service6
-
-package8
-/
-*order-service:com.chubb.inventoryapp.feign9
-2
-,com.chubb.inventoryapp.feign.InventoryClient11
-
-	interface12
-
-access13
-
-public14
-
-
-full-range15
-
-(14:1)-(25:2)16
-
-simple-name17
-
-InventoryClient18
-5
-/org.springframework.cloud.openfeign.FeignClient20
-
-unknown21
-
-annotated by22
-
-
-uses23
-_
-Ycom.chubb.inventoryapp.feign.InventoryClient#checkStock(Ljava/util/List;)Ljava/util/List;25
-
-method26
-
-(17:2)-(18:90)27
-
-
-checkStock28
-9
-3org.springframework.web.bind.annotation.PostMapping30
-3
--com.chubb.inventoryapp.dto.StockCheckResponse32
-9
-3org.springframework.web.bind.annotation.RequestBody34
-1
-+com.chubb.inventoryapp.dto.OrderItemRequest36
-Q
-Kcom.chubb.inventoryapp.feign.InventoryClient#deductStock(Ljava/util/List;)V38
-
-(20:2)-(21:73)39
-
-deductStock40
-8
-2org.springframework.web.bind.annotation.PutMapping42
-3
--com.chubb.inventoryapp.dto.StockUpdateRequest44
-N
-Hcom.chubb.inventoryapp.feign.InventoryClient#addStock(Ljava/util/List;)V46
-
-(23:2)-(24:70)47
-
-addStock48J%
-#
-1
-12
-
-3
-4
-
-5
-6 Z
-
-7
-7982
-
-
-5
-68jÈ
-J
-10D
-101112 *
-1 (!:7B$
-
-
-13
-14
-
-
-15
-16
-
-
-17
-18
-
-31
-313221
-
-33
-333421
-
-29
-293021
-
-41
-414221
-N
-24H
-242526 *
-1" (,210:7B$
-
-
-13
-14
-
-
-15
-27
-
-
-17
-28
-
-35
-353621
-N
-45H
-454626 *
-1 (210:7B$
-
-
-13
-14
-
-
-15
-47
-
-
-17
-48
-
-19
-192021
-
-43
-434421
-N
-37H
-373826 *
-1 (210:7B$
-
-
-13
-14
-
-
-15
-39
-
-
-17
-40ræ
-
-101922*
-1 (>
-
-101923*
-1 (
-
-242922*
-1 (
-
-242923*
-1 (
-
-243123*
-1 ( 
-
-243322*
-1- (9
-
-243323*
-1. (9
-
-243523*
-1? (O
-
-374122*
-1 (
-
-374123*
-1 (
-
-373322*
-1 (&
-
-373323*
-1 (&
-
-374323*
-1, (>
-
-454122*
-1 (
-
-454123*
-1 (
-
-453322*
-1 (#
-
-453323*
-1 (#
-
-454323*
-1) (;

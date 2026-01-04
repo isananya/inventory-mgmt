@@ -1,169 +1,0 @@
-
-1.0isananya_inventory-mgmtJavaFrontend"1767544944881*java2.BÝ
-W
-Rorder-service/src/main/java/com/chubb/inventoryapp/repository/OrderRepository.java2
-	
-type3
-	
-MAIN4
-
-
-module-key5
-
-order-service6
-
-package8
-4
-/order-service:com.chubb.inventoryapp.repository9
-7
-1com.chubb.inventoryapp.repository.OrderRepository11
-
-	interface12
-
-access13
-
-public14
-
-
-full-range15
-
-(10:1)-(13:2)16
-
-simple-name17
-
-OrderRepository18
-;
-5org.springframework.data.jpa.repository.JpaRepository20
-
-unknown21
-
-
-implements22
-/
-)org.springframework.stereotype.Repository24
-
-annotated by25
-
-
-uses26
-(
-"com.chubb.inventoryapp.model.Order28
-«
-¤com.chubb.inventoryapp.repository.OrderRepository#findByCustomerId(Ljava/lang/Long;Lorg/springframework/data/domain/Pageable;)Lorg/springframework/data/domain/Page;30
-
-method31
-
-(12:5)-(12:70)32
-
-findByCustomerId33
-*
-$org.springframework.data.domain.Page35
-
-returns36
-.
-(org.springframework.data.domain.Pageable38
-
-	has param39
-
-is type40J%
-#
-1
-12
-
-3
-4
-
-5
-6 Z
-
-7
-7982
-
-
-5
-68j€
-N
-29H
-293031 *
-1 (!210:7B$
-
-
-13
-14
-
-
-15
-32
-
-
-17
-33
-
-37
-373821
-J
-10D
-101112 *
-1 (!:7B$
-
-
-13
-14
-
-
-15
-16
-
-
-17
-18
-
-23
-232421
-
-27
-272821
-
-34
-343521
-
-19
-192021r©
-
-101922*
-1* (D
-
-102325*
-1
- 
-(
-
-102326*
-1
- 
-(
-
-101926*
-1* (7
-
-102726*
-18 (=
-
-293436*
-1 (
-
-293739*
-13 (;
-
-293426*
-1 (	
-
-292726*
-1
- (
-
-293740*
-1< (D
-
-293726*
-13 (;

@@ -1,1195 +1,0 @@
-
-1.0isananya_inventory-mgmtJavaFrontend"1767544945328*java2.B—(
-Q
-Lorder-service/src/main/java/com/chubb/inventoryapp/service/OrderService.java2
-	
-type3
-	
-MAIN4
-
-
-module-key5
-
-order-service6
-
-package8
-1
-,order-service:com.chubb.inventoryapp.service9
-1
-+com.chubb.inventoryapp.service.OrderService11
-
-class12
-
-access13
-
-public14
-
-
-full-range15
-
-(31:1)-(191:2)16
-
-simple-name17
-
-OrderService18
-,
-&org.springframework.stereotype.Service20
-
-unknown21
-
-annotated by22
-
-
-uses23
-A
-;com.chubb.inventoryapp.service.OrderService.orderRepository25
-
-field26
-
-private27
-
-(34:2)-(34:48)28
-
-orderRepository29
-7
-1com.chubb.inventoryapp.repository.OrderRepository31
-
-is type32
-E
-?com.chubb.inventoryapp.service.OrderService.orderItemRepository34
-
-(35:2)-(35:56)35
-
-orderItemRepository36
-;
-5com.chubb.inventoryapp.repository.OrderItemRepository38
-A
-;com.chubb.inventoryapp.service.OrderService.inventoryClient40
-
-(36:5)-(36:58)41
-
-inventoryClient42
-9
-3com.chubb.inventoryapp.feign.InventoryClientWrapper44
-Û
-Ôcom.chubb.inventoryapp.service.OrderService#<init>(Lcom/chubb/inventoryapp/repository/OrderRepository;Lcom/chubb/inventoryapp/feign/InventoryClientWrapper;Lcom/chubb/inventoryapp/repository/OrderItemRepository;)V46
-
-method47
-
-(38:2)-(43:3)48
-
-	has param49
-
-calls50
-
-
-references51
-w
-qcom.chubb.inventoryapp.service.OrderService#placeOrder(Lcom/chubb/inventoryapp/dto/OrderRequest;)Ljava/lang/Long;53
-
-(45:2)-(96:6)54
-
-
-placeOrder55
--
-'com.chubb.inventoryapp.dto.OrderRequest57
-1
-+com.chubb.inventoryapp.dto.OrderItemRequest59
-3
--com.chubb.inventoryapp.dto.StockCheckResponse61
-f
-`com.chubb.inventoryapp.feign.InventoryClientWrapper#checkStock(Ljava/util/List;)Ljava/util/List;63
-:
-4com.chubb.inventoryapp.exception.OutOfStockException65
-(
-"com.chubb.inventoryapp.model.Order67
-.
-(com.chubb.inventoryapp.model.OrderStatus69
-6
-0com.chubb.inventoryapp.model.OrderStatus.CREATED71
-
-returns72
-,
-&com.chubb.inventoryapp.model.OrderItem74
-3
--com.chubb.inventoryapp.dto.StockUpdateRequest76
-X
-Rcom.chubb.inventoryapp.feign.InventoryClientWrapper#deductStock(Ljava/util/List;)V78
-8
-2org.springframework.data.repository.CrudRepository80
-c
-]org.springframework.data.repository.CrudRepository#save(Ljava/lang/Object;)Ljava/lang/Object;82
-z
-tcom.chubb.inventoryapp.service.OrderService#getOrderById(Ljava/lang/Long;)Lcom/chubb/inventoryapp/dto/OrderResponse;84
-
-(98:2)-(102:3)85
-
-getOrderById86
-.
-(com.chubb.inventoryapp.dto.OrderResponse88
-i
-corg.springframework.data.repository.CrudRepository#findById(Ljava/lang/Object;)Ljava/util/Optional;90
-=
-7com.chubb.inventoryapp.exception.OrderNotFoundException92
-•
-Žcom.chubb.inventoryapp.service.OrderService#mapToOrderResponse(Lcom/chubb/inventoryapp/model/Order;)Lcom/chubb/inventoryapp/dto/OrderResponse;94
-¨
-¡com.chubb.inventoryapp.service.OrderService#getOrdersByCustomer(Ljava/lang/Long;Lorg/springframework/data/domain/Pageable;)Lorg/springframework/data/domain/Page;96
-
-(104:2)-(108:3)97
-
-getOrdersByCustomer98
-+
-$org.springframework.data.domain.Page100
-/
-(org.springframework.data.domain.Pageable102
-¬
-¤com.chubb.inventoryapp.repository.OrderRepository#findByCustomerId(Ljava/lang/Long;Lorg/springframework/data/domain/Pageable;)Lorg/springframework/data/domain/Page;104
-t
-morg.springframework.data.domain.Page#map(Ljava/util/function/Function;)Lorg/springframework/data/domain/Page;106
-Q
-Jcom.chubb.inventoryapp.service.OrderService#cancelOrder(Ljava/lang/Long;)V108
-
-(110:2)-(131:3)109
-
-cancelOrder110
-(
-!jakarta.transaction.Transactional112
-9
-2com.chubb.inventoryapp.model.OrderStatus.CANCELLED114
-?
-8com.chubb.inventoryapp.exception.StatusConflictException116
-V
-Ocom.chubb.inventoryapp.feign.InventoryClientWrapper#addStock(Ljava/util/List;)V118
-’
-Šcom.chubb.inventoryapp.service.OrderService#getAllOrders(Lorg/springframework/data/domain/Pageable;)Lorg/springframework/data/domain/Page;120
-
-(133:2)-(137:3)121
-
-getAllOrders122
-E
->org.springframework.data.repository.PagingAndSortingRepository124
- 
-˜org.springframework.data.repository.PagingAndSortingRepository#findAll(Lorg/springframework/data/domain/Pageable;)Lorg/springframework/data/domain/Page;126
-}
-vcom.chubb.inventoryapp.service.OrderService#getOrderStatus(Ljava/lang/Long;)Lcom/chubb/inventoryapp/model/OrderStatus;128
-
-(139:2)-(143:3)129
-
-getOrderStatus130
-
-zcom.chubb.inventoryapp.service.OrderService#updateOrderStatus(Ljava/lang/Long;Lcom/chubb/inventoryapp/model/OrderStatus;)V132
-
-(145:2)-(160:3)133
-
-updateOrderStatus134
-9
-2com.chubb.inventoryapp.model.OrderStatus.DELIVERED136
-b
-[com.chubb.inventoryapp.service.OrderService#getOrderItems(Ljava/lang/Long;)Ljava/util/List;138
-
-(162:2)-(178:3)139
-
-getOrderItems140
-3
-,com.chubb.inventoryapp.dto.OrderItemResponse142
-Y
-Rorg.springframework.data.repository.CrudRepository#existsById(Ljava/lang/Object;)Z144
-l
-ecom.chubb.inventoryapp.repository.OrderItemRepository#findByOrderId(Ljava/lang/Long;)Ljava/util/List;146
-
-(180:2)-(189:3)147
-
-mapToOrderResponse148J%
-#
-1
-12
-
-3
-4
-
-5
-6 Z
-
-7
-7982
-
-
-5
-68jÑ
-
-43
-434421
-
-113
-11311421
-U
-131N
-13113247 *
-1’ ’(210:7B&
-
-
-13
-14
-
-15
-133
-
-17
-134
-
-66
-666721
-
-79
-798021
-N
-39H
-394026 *
-1$* $(9210:7B$
-
-
-13
-27
-
-
-15
-41
-
-
-17
-42
-
-73
-737421
-N
-52H
-525347 *
-1- -(210:7B$
-
-
-13
-14
-
-
-15
-54
-
-
-17
-55
-U
-137N
-13713847 *
-1¢! ¢(.210:7B&
-
-
-13
-14
-
-15
-139
-
-17
-140
-
-19
-192021
-
-103
-10310421
-
-101
-10110221
-J
-10D
-101112 *
-1   (:7B$
-
-
-13
-14
-
-
-15
-16
-
-
-17
-18
-
-68
-686921
-
-91
-919221
-
-135
-13513621
-
-115
-11511621
-
-81
-818221
-
-117
-11711821
-
-56
-565721
-R
-93L
-939447 *
-1´ ´(*210:7B&
-
-
-13
-27
-
-15
-147
-
-17
-148
-N
-33H
-333426 *
-1#$ #(7210:7B$
-
-
-13
-27
-
-
-15
-35
-
-
-17
-36
-
-123
-12312421
-
-125
-12512621
-S
-107L
-10710847 *
-1o o(210:7B&
-
-
-13
-14
-
-15
-109
-
-17
-110
-U
-119N
-11912047 *
-1… …()210:7B&
-
-
-13
-14
-
-15
-121
-
-17
-122
-
-37
-373821
-
-30
-303121
-
-75
-757621
-
-87
-878821
-
-99
-9910021
-
-105
-10510621
-
-141
-14114221
-N
-24H
-242526 *
-1"  "(/210:7B$
-
-
-13
-27
-
-
-15
-28
-
-
-17
-29
-
-60
-606121
-N
-95H
-959647 *
-1h h(0210:7B$
-
-
-13
-14
-
-
-15
-97
-
-
-17
-98
-U
-127N
-12712847 *
-1‹ ‹(#210:7B&
-
-
-13
-14
-
-15
-129
-
-17
-130
-
-143
-14314421
-
-62
-626321
-
-77
-777821
-N
-83H
-838447 *
-1b b(#210:7B$
-
-
-13
-14
-
-
-15
-85
-
-
-17
-86
-
-145
-14514621
-
-58
-585921
-
-111
-11111221
-
-89
-899021
-
-70
-707121
-N
-45H
-454647 *
-1&	 &(210:7B$
-
-
-13
-14
-
-
-15
-48
-
-
-17
-18
-
-64
-646521r³0
-
-101922*
-1 (	
-
-101923*
-1 (	
-
-243032*
-1" "(
-
-243023*
-1" "(
-
-243023*
-1"  "(/
-
-333732*
-1# #(#
-
-333723*
-1# #(#
-
-333723*
-1#$ #(7
-
-394332*
-1$ $()
-
-394323*
-1$ $()
-
-394323*
-1$* $(9
-
-453049*
-1& &(%
-
-454349*
-1&7 &(M
-
-453749*
-1&_ &(r
-
-451050*
-1&	 &(
-
-453032*
-1&& &(5
-
-453023*
-1& &(%
-
-454332*
-1&N &(]
-
-454323*
-1&7 &(M
-
-453732*
-1&s &(†
-
-453723*
-1&_ &(r
-
-451023*
-1( ((
-
-451051*
-1( ((
-
-453023*
-1( ((
-
-452451*
-1( ((
-
-451023*
-1) )(
-
-451051*
-1) )(
-
-454323*
-1) )(
-
-453951*
-1) )(
-
-451023*
-1* *(
-
-451051*
-1* *(
-
-453723*
-1* *(
-
-453351*
-1* *(
-
-525649*
-1- -(%
-
-525632*
-1-& -(-
-
-525623*
-1- -(%
-
-525823*
-1/ /(
-
-526023*
-13 3( 
-
-524351*
-133 3(M
-
-526250*
-13C 3(M
-
-523951*
-133 3(B
-
-524323*
-133 3(B
-
-523951*
-133 3(B
-
-526032*
-15! 5($
-
-526023*
-15 5( 
-
-526450*
-17 7(.
-
-526632*
-1; ;(
-
-526623*
-1;	 ;(
-
-526650*
-1; ;( 
-
-526823*
-1= =($
-
-526823*
-1=% =(,
-
-527051*
-1=% =(,
-
-525832*
-1C C(%
-
-525823*
-1C C(
-
-526032*
-1D  D((
-
-526023*
-1D D(
-
-526072*
-1D+ D(=
-
-527332*
-1H H(
-
-527323*
-1H H(
-
-527350*
-1H" H(+
-
-527523*
-1T T( 
-
-524351*
-1[	 [($
-
-527750*
-1[ [($
-
-523951*
-1[	 [(
-
-524323*
-1[	 [(
-
-523951*
-1[	 [(
-
-526672*
-1]	 ](
-
-527951*
-1]	 ](
-
-528150*
-1] ](
-
-522451*
-1]	 ](
-
-523023*
-1]	 ](
-
-522451*
-1]	 ](
-
-838772*
-1b	 b(
-
-838723*
-1b	 b(
-
-836632*
-1c c(
-
-836623*
-1c c(
-
-836672*
-1c d(
-
-837951*
-1c c(,
-
-838950*
-1c$ c(,
-
-832451*
-1c c(#
-
-833023*
-1c c(#
-
-832451*
-1c c(#
-
-839150*
-1d% d(;
-
-838772*
-1e e(
-
-831051*
-1e e(
-
-839350*
-1e e(
-
-959972*
-1h	 h(
-
-9510149*
-1hB h(J
-
-959923*
-1h	 h(
-
-958723*
-1h h(
-
-9510132*
-1hK h(S
-
-9510123*
-1hB h(J
-
-959932*
-1i i(
-
-959923*
-1i i(
-
-
-956623*
-1i i(
-
-959972*
-1i i(>
-
-953051*
-1i i(>
-
-9510350*
-1i. i(>
-
-952451*
-1i i(-
-
-953023*
-1i i(-
-
-952451*
-1i i(-
-
-959972*
-1k k(
-
-959951*
-1k k(
-
-9510550*
-1k k(
-
-951023*
-1k k(
-
-951051*
-1k k(
-
-10711122*
-1n n(
-
-10711123*
-1n n(
-
-1076632*
-1p p(
-
-1076623*
-1p p(
-
-1076672*
-1p q(
-
-1077951*
-1p p(,
-
-1078950*
-1p$ p(,
-
-1072451*
-1p p(#
-
-1073023*
-1p p(#
-
-1072451*
-1p p(#
-
-1079150*
-1q% q(;
-
-1076823*
-1s# s(.
-
-1076823*
-1s/ s(8
-
-10711351*
-1s/ s(8
-
-10711550*
-1t t(+
-
-1076823*
-1w w(!
-
-1076823*
-1w" w(+
-
-10711351*
-1w" w(+
-
-1076672*
-1x x(
-
-1077951*
-1x x(
-
-1078150*
-1x x(
-
-1072451*
-1x x(
-
-1073023*
-1x x(
-
-1072451*
-1x x(
-
-1077523*
-1z z(
-
-1074351*
-1‚ ‚(
-
-10711750*
-1‚ ‚(
-
-1073951*
-1‚ ‚(
-
-1074323*
-1‚ ‚(
-
-1073951*
-1‚ ‚(
-
-1199972*
-1…	 …(
-
-11910149*
-1…* …(2
-
-1199923*
-1…	 …(
-
-1198723*
-1… …(
-
-11910132*
-1…3 …(;
-
-11910123*
-1…* …(2
-
-1199932*
-1† †(
-
-1199923*
-1† †(
-
-
-1196623*
-1† †(
-
-1199972*
-1† †(5
-
-11912351*
-1† †(5
-
-11912550*
-1†. †(5
-
-1192451*
-1† †(-
-
-1193023*
-1† †(-
-
-1192451*
-1† †(-
-
-1199972*
-1ˆ ˆ(
-
-1199951*
-1ˆ ˆ(
-
-11910550*
-1ˆ ˆ(
-
-1191023*
-1ˆ ˆ(
-
-1191051*
-1ˆ ˆ(
-
-1276872*
-1‹	 ‹(
-
-1276823*
-1‹	 ‹(
-
-1277951*
-1Œ Œ(%
-
-1278950*
-1Œ Œ(%
-
-1272451*
-1Œ Œ(
-
-1273023*
-1Œ Œ(
-
-1272451*
-1Œ Œ(
-
-1276623*
-1 (
-
-1316849*
-1’) ’(4
-
-13111122*
-1‘ ‘(
-
-13111123*
-1‘ ‘(
-
-1316832*
-1’5 ’(>
-
-1316823*
-1’) ’(4
-
-1316632*
-1“ “(
-
-1316623*
-1“ “(
-
-1316672*
-1“ “(<
-
-1317951*
-1“ “(,
-
-1318950*
-1“$ “(,
-
-1312451*
-1“ “(#
-
-1313023*
-1“ “(#
-
-1312451*
-1“ “(#
-
-1319150*
-1“G “(]
-
-1316823*
-1• •(*
-
-1316823*
-1•+ •(4
-
-13111351*
-1•+ •(4
-
-1316823*
-1•M •(X
-
-1316823*
-1•Y •(b
-
-13113551*
-1•Y •(b
-
-13111550*
-1– –(,
-
-1316823*
-1™ ™("
-
-1316823*
-1™# ™(,
-
-13111351*
-1™# ™(,
-
-1311051*
-1š
- š(
-
-13110750*
-1š š(
-
-1311051*
-1š
- š(
-
-1311023*
-1š
- š(
-
-1311051*
-1š
- š(
-
-1316672*
-1Ÿ Ÿ(
-
-1317951*
-1Ÿ Ÿ(
-
-1318150*
-1Ÿ Ÿ(
-
-1312451*
-1Ÿ Ÿ(
-
-1313023*
-1Ÿ Ÿ(
-
-1312451*
-1Ÿ Ÿ(
-
-13714123*
-1¢ ¢(
-
-1377951*
-1£ £(%
-
-13714350*
-1£ £(%
-
-1372451*
-1£ £(
-
-1373023*
-1£ £(
-
-1372451*
-1£ £(
-
-1379150*
-1¤ ¤(*
-
-1377323*
-1§ §(
-
-1373751*
-1§ §(?
-
-13714550*
-1§2 §(?
-
-1373351*
-1§ §(1
-
-1373723*
-1§ §(1
-
-1373351*
-1§ §(1
-
-1377332*
-1ª ª(
-
-938772*
-1´
- ´(
-
-936649*
-1´+ ´(0
-
-938723*
-1´
- ´(
-
-936632*
-1´1 ´(6
-
-936623*
-1´+ ´(0

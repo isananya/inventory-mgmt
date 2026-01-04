@@ -1,240 +1,0 @@
-
-1.0isananya_inventory-mgmtJavaFrontend"1767544931851*java2.BÊ
-
-Q
-Lemail-service/src/main/java/com/chubb/inventoryapp/service/EmailService.java2
-	
-type3
-	
-MAIN4
-
-
-module-key5
-
-email-service6
-
-package8
-1
-,email-service:com.chubb.inventoryapp.service9
-1
-+com.chubb.inventoryapp.service.EmailService11
-
-class12
-
-access13
-
-public14
-
-
-full-range15
-
-(8:1)-(25:2)16
-
-simple-name17
-
-EmailService18
-,
-&org.springframework.stereotype.Service20
-
-unknown21
-
-annotated by22
-
-
-uses23
-<
-6com.chubb.inventoryapp.service.EmailService.mailSender25
-
-field26
-
-private27
-
-(11:5)-(12:39)28
-
-
-mailSender29
-6
-0org.springframework.mail.javamail.JavaMailSender31
-
-is type32
-<
-6org.springframework.beans.factory.annotation.Autowired34
-h
-bcom.chubb.inventoryapp.service.EmailService#sendInvoiceEmail(Ljava/lang/String;Ljava/lang/Long;F)V36
-
-method37
-
-(14:5)-(24:6)38
-
-sendInvoiceEmail39
-0
-*org.springframework.mail.SimpleMailMessage41
-
-calls42
-
-
-references43
-K
-Eorg.springframework.mail.SimpleMailMessage#setTo(Ljava/lang/String;)V45
-P
-Jorg.springframework.mail.SimpleMailMessage#setSubject(Ljava/lang/String;)V47
-M
-Gorg.springframework.mail.SimpleMailMessage#setText(Ljava/lang/String;)V49
-)
-#org.springframework.mail.MailSender51
-]
-Worg.springframework.mail.MailSender#send(Lorg/springframework/mail/SimpleMailMessage;)V53J%
-#
-1
-12
-
-3
-4
-
-5
-6 Z
-
-7
-7982
-
-
-5
-68j 
-N
-24H
-242526 *
-1 (&210:7B$
-
-
-13
-27
-
-
-15
-28
-
-
-17
-29
-
-52
-525321
-
-48
-484921
-
-19
-192021
-
-50
-505121
-
-44
-444521
-
-33
-333421
-
-40
-404121
-
-30
-303121
-
-46
-464721
-J
-10D
-101112 *
-1	 	(:7B$
-
-
-13
-14
-
-
-15
-16
-
-
-17
-18
-N
-35H
-353637 *
-1 (!210:7B$
-
-
-13
-14
-
-
-15
-38
-
-
-17
-39r·
-
-101922*
-1 (	
-
-101923*
-1 (	
-
-243032*
-1 (
-
-243322*
-1 (
-
-243323*
-1 (
-
-243023*
-1 (
-
-243023*
-1 (&
-
-354032*
-1 ("
-
-354023*
-1	 (
-
-354042*
-1) (:
-
-354043*
-1	 (
-
-354442*
-1 (
-
-354043*
-1	 (
-
-354642*
-1 (
-
-354043*
-1	 (
-
-354842*
-1 (
-
-355043*
-1	 (
-
-355242*
-1 (
-
-352443*
-1	 (
-
-353023*
-1	 (
-
-352443*
-1	 (

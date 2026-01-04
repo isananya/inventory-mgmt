@@ -1,242 +1,0 @@
-
-1.0isananya_inventory-mgmtJavaFrontend"1767544944770*java2.Bç
-M
-Horder-service/src/main/java/com/chubb/inventoryapp/dto/OrderRequest.java2
-	
-type3
-	
-MAIN4
-
-
-module-key5
-
-order-service6
-
-package8
--
-(order-service:com.chubb.inventoryapp.dto9
--
-'com.chubb.inventoryapp.dto.OrderRequest11
-
-class12
-
-access13
-
-public14
-
-
-full-range15
-
-(14:1)-(27:2)16
-
-simple-name17
-
-OrderRequest18
-
-lombok.Data20
-
-unknown21
-
-annotated by22
-
-
-uses23
-
-lombok.NoArgsConstructor25
-
-lombok.AllArgsConstructor27
-8
-2com.chubb.inventoryapp.dto.OrderRequest.customerId29
-
-field30
-
-private31
-
-(18:2)-(19:29)32
-
-
-customerId33
-,
-&jakarta.validation.constraints.NotNull35
-5
-/com.chubb.inventoryapp.dto.OrderRequest.address37
-
-(21:5)-(23:29)38
-
-address39
-*
-$com.chubb.inventoryapp.model.Address41
-
-is type42
-
-jakarta.validation.Valid44
-3
--com.chubb.inventoryapp.dto.OrderRequest.items46
-
-(25:5)-(26:42)47
-
-items48
--
-'jakarta.validation.constraints.NotEmpty50
-1
-+com.chubb.inventoryapp.dto.OrderItemRequest52J%
-#
-1
-12
-
-3
-4
-
-5
-6 Z
-
-7
-7982
-
-
-5
-68j‹
-J
-10D
-101112 *
-1 (:7B$
-
-
-13
-14
-
-
-15
-16
-
-
-17
-18
-N
-28H
-282930 *
-1 (210:7B$
-
-
-13
-31
-
-
-15
-32
-
-
-17
-33
-
-40
-404121
-
-19
-192021
-N
-36H
-363730 *
-1 (210:7B$
-
-
-13
-31
-
-
-15
-38
-
-
-17
-39
-
-49
-495021
-
-51
-515221
-
-34
-343521
-
-43
-434421
-
-26
-262721
-N
-45H
-454630 *
-1$ ()210:7B$
-
-
-13
-31
-
-
-15
-47
-
-
-17
-48
-
-24
-242521rÊ
-
-101922*
-1 (
-
-101923*
-1 (
-
-102422*
-1 (
-
-102423*
-1 (
-
-102622*
-1 (
-
-102623*
-1 (
-
-283422*
-1 (
-
-
-283423*
-1 (
-
-
-364042*
-1 (
-
-363422*
-1 (
-
-363423*
-1 (
-
-364322*
-1 (
-
-364323*
-1 (
-
-364023*
-1 (
-
-364023*
-1 (
-
-454922*
-1 (
-
-454923*
-1 (
-
-455123*
-1 ("

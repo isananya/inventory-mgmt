@@ -1,164 +1,0 @@
-
-1.0isananya_inventory-mgmtJavaFrontend"1767544935769*java2.BÜ
-M
-Huser-service/src/main/java/com/chubb/inventoryapp/dto/LoginResponse.java2
-	
-type3
-	
-MAIN4
-
-
-module-key5
-
-user-service6
-
-package8
-,
-'user-service:com.chubb.inventoryapp.dto9
-.
-(com.chubb.inventoryapp.dto.LoginResponse11
-
-class12
-
-access13
-
-public14
-
-
-full-range15
-
-(10:1)-(15:2)16
-
-simple-name17
-
-LoginResponse18
-
-lombok.Data20
-
-unknown21
-
-annotated by22
-
-
-uses23
-
-lombok.AllArgsConstructor25
-5
-/com.chubb.inventoryapp.dto.LoginResponse.cookie27
-
-field28
-
-private29
-
-(13:5)-(13:35)30
-
-cookie31
--
-'org.springframework.http.ResponseCookie33
-
-is type34
-3
--com.chubb.inventoryapp.dto.LoginResponse.body36
-
-(14:5)-(14:38)37
-
-
-body38J%
-#
-1
-12
-
-3
-4
-
-5
-6 Z
-
-7
-7982
-
-
-5
-68j¨
-N
-35H
-353628 *
-1! (%210:7B$
-
-
-13
-29
-
-
-15
-37
-
-
-17
-38
-
-19
-192021
-N
-26H
-262728 *
-1 ("210:7B$
-
-
-13
-29
-
-
-15
-30
-
-
-17
-31
-
-24
-242521
-J
-10D
-101112 *
-1 (:7B$
-
-
-13
-14
-
-
-15
-16
-
-
-17
-18
-
-32
-323321r½
-
-101922*
-1
- 
-(
-
-101923*
-1
- 
-(
-
-102422*
-1 (
-
-102423*
-1 (
-
-263234*
-1 (
-
-263223*
-1 (
-
-263223*
-1 ("

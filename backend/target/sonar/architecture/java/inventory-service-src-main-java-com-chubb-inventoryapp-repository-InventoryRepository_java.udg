@@ -1,279 +1,0 @@
-
-1.0isananya_inventory-mgmtJavaFrontend"1767544941522*java2.BÒ
-_
-Zinventory-service/src/main/java/com/chubb/inventoryapp/repository/InventoryRepository.java2
-	
-type3
-	
-MAIN4
-
-
-module-key5
-
-inventory-service6
-
-package8
-8
-3inventory-service:com.chubb.inventoryapp.repository9
-;
-5com.chubb.inventoryapp.repository.InventoryRepository11
-
-	interface12
-
-access13
-
-public14
-
-
-full-range15
-
-(15:1)-(31:2)16
-
-simple-name17
-
-InventoryRepository18
-;
-5org.springframework.data.jpa.repository.JpaRepository20
-
-unknown21
-
-
-implements22
-
-
-uses23
-,
-&com.chubb.inventoryapp.model.Inventory25
-ê
-âcom.chubb.inventoryapp.repository.InventoryRepository#findByProductIdAndWarehouseId(Ljava/lang/Long;Ljava/lang/Long;)Ljava/util/Optional;27
-
-method28
-
-(17:5)-(17:89)29
-#
-findByProductIdAndWarehouseId30
-~
-xcom.chubb.inventoryapp.repository.InventoryRepository#existsByProductIdAndWarehouseId(Ljava/lang/Long;Ljava/lang/Long;)Z32
-
-(19:5)-(19:79)33
-%
-existsByProductIdAndWarehouseId34
-Å
-{com.chubb.inventoryapp.repository.InventoryRepository#findByProduct(Lcom/chubb/inventoryapp/model/Product;)Ljava/util/List;36
-
-(21:2)-(21:49)37
-
-findByProduct38
-*
-$com.chubb.inventoryapp.model.Product40
-
-	has param41
-
-is type42
-Ö
-com.chubb.inventoryapp.repository.InventoryRepository#findByWarehouse(Lcom/chubb/inventoryapp/model/Warehouse;)Ljava/util/List;44
-
-(23:2)-(23:55)45
-
-findByWarehouse46
-,
-&com.chubb.inventoryapp.model.Warehouse48
-à
-Åcom.chubb.inventoryapp.repository.InventoryRepository#findAvailableStock(Ljava/lang/Long;Ljava/lang/Integer;)Ljava/util/Optional;50
-
-(25:2)-(30:81)51
-
-findAvailableStock52
-3
--org.springframework.data.jpa.repository.Query54
-
-annotated by55
-5
-/org.springframework.data.repository.query.Param57J%
-#
-1
-12
-
-3
-4
-
-5
-6 Z
-
-7
-7982
-
-
-5
-68j‘
-
-39
-394021
-
-53
-535421
-
-56
-565721
-
-24
-242521
-N
-35H
-353628 *
-1 (210:7B$
-
-
-13
-14
-
-
-15
-37
-
-
-17
-38
-N
-31H
-313228 *
-1 (,210:7B$
-
-
-13
-14
-
-
-15
-33
-
-
-17
-34
-N
-43H
-434428 *
-1 (!210:7B$
-
-
-13
-14
-
-
-15
-45
-
-
-17
-46
-N
-49H
-495028 *
-1 (+210:7B$
-
-
-13
-14
-
-
-15
-51
-
-
-17
-52
-
-47
-474821
-J
-10D
-101112 *
-1 (%:7B$
-
-
-13
-14
-
-
-15
-16
-
-
-17
-18
-N
-26H
-262728 *
-1 (6210:7B$
-
-
-13
-14
-
-
-15
-29
-
-
-17
-30
-
-19
-192021rÅ
-
-101922*
-1. (L
-
-101923*
-1. (;
-
-102423*
-1< (E
-
-262423*
-1 (
-
-353941*
-1  ('
-
-352423*
-1 (
-
-353942*
-1( (/
-
-353923*
-1  ('
-
-434741*
-1" (+
-
-432423*
-1 (
-
-434742*
-1, (5
-
-434723*
-1" (+
-
-495355*
-1 (,
-
-495323*
-1 (
-
-492423*
-1 (
-
-495655*
-1, (?
-
-495623*
-1- (2
-
-495655*
-1, (>
-
-495623*
-1- (2

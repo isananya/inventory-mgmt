@@ -1,9 +1,0 @@
-
-•com.chubb.inventoryapp.service.WarehouseService#mapToResponse(Lcom/chubb/inventoryapp/model/Warehouse;)Lcom/chubb/inventoryapp/dto/WarehouseResponse;™
-ŽD:/CHUBB_Training/CAPSTONE PROJECT/inventory-mgmt/backend/inventory-service/src/main/java/com/chubb/inventoryapp/service/WarehouseService.java% %()"1*!
-1' '("
-&	 +(
-"":?
-%* %(=3
-	warehouse&com.chubb.inventoryapp.model.WarehouseB31
-/com.chubb.inventoryapp.service.WarehouseService

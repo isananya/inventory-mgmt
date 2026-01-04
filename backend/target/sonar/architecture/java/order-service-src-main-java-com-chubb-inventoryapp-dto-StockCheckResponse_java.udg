@@ -1,178 +1,0 @@
-
-1.0isananya_inventory-mgmtJavaFrontend"1767544944749*java2.Bê
-S
-Norder-service/src/main/java/com/chubb/inventoryapp/dto/StockCheckResponse.java2
-	
-type3
-	
-MAIN4
-
-
-module-key5
-
-order-service6
-
-package8
--
-(order-service:com.chubb.inventoryapp.dto9
-3
--com.chubb.inventoryapp.dto.StockCheckResponse11
-
-class12
-
-access13
-
-public14
-
-
-full-range15
-
-(5:1)-(11:2)16
-
-simple-name17
-
-StockCheckResponse18
-
-lombok.Data20
-
-unknown21
-
-annotated by22
-
-
-uses23
-=
-7com.chubb.inventoryapp.dto.StockCheckResponse.productId25
-
-field26
-
-private27
-
-(7:2)-(7:25)28
-
-	productId29
-=
-7com.chubb.inventoryapp.dto.StockCheckResponse.available31
-
-(8:5)-(8:31)32
-
-	available33
-?
-9com.chubb.inventoryapp.dto.StockCheckResponse.warehouseId35
-
-(9:5)-(9:30)36
-
-warehouseId37
-9
-3com.chubb.inventoryapp.dto.StockCheckResponse.price39
-
-(10:5)-(10:25)40
-
-price41J%
-#
-1
-12
-
-3
-4
-
-5
-6 Z
-
-7
-7982
-
-
-5
-68j 
-J
-10D
-101112 *
-1 ( :7B$
-
-
-13
-14
-
-
-15
-16
-
-
-17
-18
-N
-24H
-242526 *
-1 (210:7B$
-
-
-13
-27
-
-
-15
-28
-
-
-17
-29
-
-19
-192021
-N
-34H
-343526 *
-1	 	(210:7B$
-
-
-13
-27
-
-
-15
-36
-
-
-17
-37
-N
-30H
-303126 *
-1 (210:7B$
-
-
-13
-27
-
-
-15
-32
-
-
-17
-33
-N
-38H
-383926 *
-1
- 
-(210:7B$
-
-
-13
-27
-
-
-15
-40
-
-
-17
-41r6
-
-101922*
-1 (
-
-101923*
-1 (

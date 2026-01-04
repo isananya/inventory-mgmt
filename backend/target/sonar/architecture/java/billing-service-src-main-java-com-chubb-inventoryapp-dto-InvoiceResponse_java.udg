@@ -1,296 +1,0 @@
-
-1.0isananya_inventory-mgmtJavaFrontend"1767544943507*java2.BÁ
-
-R
-Mbilling-service/src/main/java/com/chubb/inventoryapp/dto/InvoiceResponse.java2
-	
-type3
-	
-MAIN4
-
-
-module-key5
-
-billing-service6
-
-package8
-/
-*billing-service:com.chubb.inventoryapp.dto9
-0
-*com.chubb.inventoryapp.dto.InvoiceResponse11
-
-class12
-
-access13
-
-public14
-
-
-full-range15
-
-(17:1)-(28:2)16
-
-simple-name17
-
-InvoiceResponse18
-
-lombok.Data20
-
-unknown21
-
-annotated by22
-
-
-uses23
-
-lombok.AllArgsConstructor25
-
-lombok.NoArgsConstructor27
-3
--com.chubb.inventoryapp.dto.InvoiceResponse.id29
-
-field30
-
-private31
-
-(21:2)-(21:18)32
-
-id33
-8
-2com.chubb.inventoryapp.dto.InvoiceResponse.orderId35
-
-(22:5)-(22:26)36
-
-orderId37
-;
-5com.chubb.inventoryapp.dto.InvoiceResponse.customerId39
-
-(23:5)-(23:29)40
-
-
-customerId41
-<
-6com.chubb.inventoryapp.dto.InvoiceResponse.totalAmount43
-
-(24:5)-(24:31)44
-
-totalAmount45
-<
-6com.chubb.inventoryapp.dto.InvoiceResponse.paymentMode47
-
-(25:5)-(25:37)48
-
-paymentMode49
-.
-(com.chubb.inventoryapp.model.PaymentMode51
-
-is type52
->
-8com.chubb.inventoryapp.dto.InvoiceResponse.paymentStatus54
-
-(26:5)-(26:41)55
-
-paymentStatus56
-0
-*com.chubb.inventoryapp.model.PaymentStatus58
-:
-4com.chubb.inventoryapp.dto.InvoiceResponse.createdAt60
-
-(27:5)-(27:37)61
-
-	createdAt62J%
-#
-1
-12
-
-3
-4
-
-5
-6 Z
-
-7
-7982
-
-
-5
-68jà
-J
-10D
-101112 *
-1 (:7B$
-
-
-13
-14
-
-
-15
-16
-
-
-17
-18
-
-57
-575821
-N
-59H
-596030 *
-1 ($210:7B$
-
-
-13
-31
-
-
-15
-61
-
-
-17
-62
-N
-42H
-424330 *
-1 (210:7B$
-
-
-13
-31
-
-
-15
-44
-
-
-17
-45
-N
-38H
-383930 *
-1 (210:7B$
-
-
-13
-31
-
-
-15
-40
-
-
-17
-41
-
-50
-505121
-N
-34H
-343530 *
-1 (210:7B$
-
-
-13
-31
-
-
-15
-36
-
-
-17
-37
-
-19
-192021
-N
-46H
-464730 *
-1 ($210:7B$
-
-
-13
-31
-
-
-15
-48
-
-
-17
-49
-N
-28H
-282930 *
-1 (210:7B$
-
-
-13
-31
-
-
-15
-32
-
-
-17
-33
-
-24
-242521
-
-26
-262721
-N
-53H
-535430 *
-1 ((210:7B$
-
-
-13
-31
-
-
-15
-55
-
-
-17
-56rÄ
-
-101922*
-1 (
-
-101923*
-1 (
-
-102422*
-1 (
-
-102423*
-1 (
-
-102622*
-1 (
-
-102623*
-1 (
-
-465052*
-1 (
-
-465023*
-1 (
-
-465023*
-1 ($
-
-535752*
-1 (
-
-535723*
-1 (
-
-535723*
-1 ((

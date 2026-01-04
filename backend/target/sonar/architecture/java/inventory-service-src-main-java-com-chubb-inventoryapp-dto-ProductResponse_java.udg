@@ -1,327 +1,0 @@
-
-1.0isananya_inventory-mgmtJavaFrontend"1767544939729*java2.B¾
-T
-Oinventory-service/src/main/java/com/chubb/inventoryapp/dto/ProductResponse.java2
-	
-type3
-	
-MAIN4
-
-
-module-key5
-
-inventory-service6
-
-package8
-1
-,inventory-service:com.chubb.inventoryapp.dto9
-0
-*com.chubb.inventoryapp.dto.ProductResponse11
-
-class12
-
-access13
-
-public14
-
-
-full-range15
-
-(12:1)-(25:2)16
-
-simple-name17
-
-ProductResponse18
-
-lombok.Data20
-
-unknown21
-
-annotated by22
-
-
-uses23
-
-lombok.NoArgsConstructor25
-
-lombok.AllArgsConstructor27
-3
--com.chubb.inventoryapp.dto.ProductResponse.id29
-
-field30
-
-private31
-
-(16:2)-(16:18)32
-
-id33
-<
-6com.chubb.inventoryapp.dto.ProductResponse.productCode35
-
-(17:2)-(17:29)36
-
-productCode37
-5
-/com.chubb.inventoryapp.dto.ProductResponse.name39
-
-(18:2)-(18:22)40
-
-
-name41
-6
-0com.chubb.inventoryapp.dto.ProductResponse.brand43
-
-(19:2)-(19:23)44
-
-brand45
-6
-0com.chubb.inventoryapp.dto.ProductResponse.price47
-
-(20:2)-(20:22)48
-
-price49
-<
-6com.chubb.inventoryapp.dto.ProductResponse.description51
-
-(21:2)-(21:29)52
-
-description53
-?
-9com.chubb.inventoryapp.dto.ProductResponse.specifications55
-
-(22:2)-(22:63)56
-
-specifications57
-9
-3com.chubb.inventoryapp.dto.ProductResponse.imageUrl59
-
-(23:2)-(23:26)60
-
-imageUrl61
-9
-3com.chubb.inventoryapp.dto.ProductResponse.category63
-
-(24:2)-(24:28)64
-
-category65
-+
-%com.chubb.inventoryapp.model.Category67
-
-is type68J%
-#
-1
-12
-
-3
-4
-
-5
-6 Z
-
-7
-7982
-
-
-5
-68jì
-N
-50H
-505130 *
-1 (210:7B$
-
-
-13
-31
-
-
-15
-52
-
-
-17
-53
-
-66
-666721
-N
-46H
-464730 *
-1 (210:7B$
-
-
-13
-31
-
-
-15
-48
-
-
-17
-49
-N
-42H
-424330 *
-1 (210:7B$
-
-
-13
-31
-
-
-15
-44
-
-
-17
-45
-N
-54H
-545530 *
-1 (,210:7B$
-
-
-13
-31
-
-
-15
-56
-
-
-17
-57
-N
-62H
-626330 *
-1 (210:7B$
-
-
-13
-31
-
-
-15
-64
-
-
-17
-65
-
-19
-192021
-N
-28H
-282930 *
-1 (210:7B$
-
-
-13
-31
-
-
-15
-32
-
-
-17
-33
-
-26
-262721
-N
-34H
-343530 *
-1 (210:7B$
-
-
-13
-31
-
-
-15
-36
-
-
-17
-37
-N
-38H
-383930 *
-1 (210:7B$
-
-
-13
-31
-
-
-15
-40
-
-
-17
-41
-J
-10D
-101112 *
-1 (:7B$
-
-
-13
-14
-
-
-15
-16
-
-
-17
-18
-
-24
-242521
-N
-58H
-585930 *
-1 (210:7B$
-
-
-13
-31
-
-
-15
-60
-
-
-17
-61ró
-
-101922*
-1 (
-
-101923*
-1 (
-
-102422*
-1 (
-
-102423*
-1 (
-
-102622*
-1 (
-
-102623*
-1 (
-
-626668*
-1
- (
-
-626623*
-1
- (
-
-626623*
-1 (

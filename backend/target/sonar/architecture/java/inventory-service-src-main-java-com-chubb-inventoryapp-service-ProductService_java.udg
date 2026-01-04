@@ -1,791 +1,0 @@
-
-1.0isananya_inventory-mgmtJavaFrontend"1767544941241*java2.B˜
-W
-Rinventory-service/src/main/java/com/chubb/inventoryapp/service/ProductService.java2
-	
-type3
-	
-MAIN4
-
-
-module-key5
-
-inventory-service6
-
-package8
-5
-0inventory-service:com.chubb.inventoryapp.service9
-3
--com.chubb.inventoryapp.service.ProductService11
-
-class12
-
-access13
-
-public14
-
-
-full-range15
-
-(19:1)-(110:2)16
-
-simple-name17
-
-ProductService18
-,
-&org.springframework.stereotype.Service20
-
-unknown21
-
-annotated by22
-
-
-uses23
-
-lombok.AllArgsConstructor25
-E
-?com.chubb.inventoryapp.service.ProductService.productRepository27
-
-field28
-
-private29
-
-(22:2)-(22:52)30
-
-productRepository31
-9
-3com.chubb.inventoryapp.repository.ProductRepository33
-
-is type34
-F
-@com.chubb.inventoryapp.service.ProductService.categoryRepository36
-
-(23:5)-(23:57)37
-
-categoryRepository38
-:
-4com.chubb.inventoryapp.repository.CategoryRepository40
-{
-ucom.chubb.inventoryapp.service.ProductService#addProduct(Lcom/chubb/inventoryapp/dto/ProductRequest;)Ljava/lang/Long;42
-
-method43
-
-(25:5)-(47:6)44
-
-
-addProduct45
-/
-)com.chubb.inventoryapp.dto.ProductRequest47
-
-	has param48
-
-
-references49
-b
-\com.chubb.inventoryapp.repository.ProductRepository#existsByProductCode(Ljava/lang/String;)Z51
-
-calls52
-D
->com.chubb.inventoryapp.exception.ProductAlreadyExistsException54
-+
-%com.chubb.inventoryapp.model.Category56
-8
-2org.springframework.data.repository.CrudRepository58
-i
-corg.springframework.data.repository.CrudRepository#findById(Ljava/lang/Object;)Ljava/util/Optional;60
-*
-$com.chubb.inventoryapp.model.Product62
-
-returns63
-c
-]org.springframework.data.repository.CrudRepository#save(Ljava/lang/Object;)Ljava/lang/Object;65
-ñ
-ècom.chubb.inventoryapp.service.ProductService#mapToResponse(Lcom/chubb/inventoryapp/model/Product;)Lcom/chubb/inventoryapp/dto/ProductResponse;67
-
-(49:5)-(61:6)68
-
-mapToResponse69
-0
-*com.chubb.inventoryapp.dto.ProductResponse71
-ï
-écom.chubb.inventoryapp.service.ProductService#getAllProducts(Lorg/springframework/data/domain/Pageable;)Lorg/springframework/data/domain/Page;73
-
-(63:5)-(65:6)74
-
-getAllProducts75
-*
-$org.springframework.data.domain.Page77
-.
-(org.springframework.data.domain.Pageable79
-s
-morg.springframework.data.domain.Page#map(Ljava/util/function/Function;)Lorg/springframework/data/domain/Page;81
-D
->org.springframework.data.repository.PagingAndSortingRepository83
-ü
-òorg.springframework.data.repository.PagingAndSortingRepository#findAll(Lorg/springframework/data/domain/Pageable;)Lorg/springframework/data/domain/Page;85
-Ä
-zcom.chubb.inventoryapp.service.ProductService#getProductById(Ljava/lang/Long;)Lcom/chubb/inventoryapp/dto/ProductResponse;87
-
-(67:5)-(70:6)88
-
-getProductById89
-?
-9com.chubb.inventoryapp.exception.ProductNotFoundException91
-¨
-•com.chubb.inventoryapp.service.ProductService#getProductsByCategory(Ljava/lang/Long;Lorg/springframework/data/domain/Pageable;)Lorg/springframework/data/domain/Page;93
-
-(72:5)-(79:10)94
-
-getProductsByCategory95
-@
-:com.chubb.inventoryapp.exception.CategoryNotFoundException97
-¬
-ªcom.chubb.inventoryapp.repository.ProductRepository#findByCategory(Lcom/chubb/inventoryapp/model/Category;Lorg/springframework/data/domain/Pageable;)Lorg/springframework/data/domain/Page;99
-´
-£com.chubb.inventoryapp.service.ProductService#getProductsByName(Ljava/lang/String;Lorg/springframework/data/domain/Pageable;)Lorg/springframework/data/domain/Page;101
-
-(81:5)-(86:10)102
-
-getProductsByName103
-æ
-∂com.chubb.inventoryapp.repository.ProductRepository#findByNameContainingIgnoreCase(Ljava/lang/String;Lorg/springframework/data/domain/Pageable;)Lorg/springframework/data/domain/Page;105
-ã
-Écom.chubb.inventoryapp.service.ProductService#updateProductProperties(Ljava/lang/Long;Lcom/chubb/inventoryapp/dto/ProductRequest;)V107
-
-(88:5)-(109:6)108
-
-updateProductProperties109J%
-#
-1
-12
-
-3
-4
-
-5
-6 Z
-
-7
-7982
-
-
-5
-68j·	
-N
-26H
-262728 *
-1" (3210:7B$
-
-
-13
-29
-
-
-15
-30
-
-
-17
-31
-S
-100L
-10010143 *
-1Q" Q(3210:7B&
-
-
-13
-14
-
-15
-102
-
-17
-103
-
-55
-555621
-
-39
-394021
-
-57
-575821
-
-50
-505121
-
-61
-616221
-N
-41H
-414243 *
-1 (210:7B$
-
-
-13
-14
-
-
-15
-44
-
-
-17
-45
-
-90
-909121
-
-19
-192021
-
-46
-464721
-
-78
-787921
-J
-10D
-101112 *
-1 (:7B$
-
-
-13
-14
-
-
-15
-16
-
-
-17
-18
-
-32
-323321
-N
-72H
-727343 *
-1?" ?(0210:7B$
-
-
-13
-14
-
-
-15
-74
-
-
-17
-75
-N
-92H
-929343 *
-1H" H(7210:7B$
-
-
-13
-14
-
-
-15
-94
-
-
-17
-95
-
-104
-10410521
-
-64
-646521
-
-82
-828321
-
-84
-848521
-
-53
-535421
-
-76
-767721
-
-98
-989921
-
-80
-808121
-N
-66H
-666743 *
-11 1(*210:7B$
-
-
-13
-29
-
-
-15
-68
-
-
-17
-69
-N
-86H
-868743 *
-1C C(*210:7B$
-
-
-13
-14
-
-
-15
-88
-
-
-17
-89
-S
-106L
-10610743 *
-1X X((210:7B&
-
-
-13
-14
-
-15
-108
-
-17
-109
-N
-35H
-353628 *
-1& (8210:7B$
-
-
-13
-29
-
-
-15
-37
-
-
-17
-38
-
-59
-596021
-
-24
-242521
-
-96
-969721
-
-70
-707121rê
-
-101922*
-1 (	
-
-101923*
-1 (	
-
-102422*
-1 (
-
-102423*
-1 (
-
-263234*
-1 (!
-
-263223*
-1 (!
-
-263223*
-1" (3
-
-353934*
-1 (%
-
-353923*
-1 (%
-
-353923*
-1& (8
-
-414648*
-1 (*
-
-414634*
-1+ (2
-
-414623*
-1 (*
-
-413249*
-1 (2
-
-415052*
-1 (2
-
-412649*
-1 (
-
-413223*
-1 (
-
-412649*
-1 (
-
-415352*
-1 (4
-
-415534*
-1 (
-
-415523*
-1	 (
-
-415749*
-1 (8
-
-415952*
-10 (8
-
-413549*
-1 (/
-
-413923*
-1 (/
-
-413549*
-1 (/
-
-416134*
-1" "(
-
-416123*
-1"	 "(
-
-416152*
-1" "(&
-
-416163*
-1,	 ,(
-
-415749*
-1,	 ,(
-
-416452*
-1, ,(
-
-412649*
-1,	 ,(
-
-413223*
-1,	 ,(
-
-412649*
-1,	 ,(
-
-667063*
-11 1(
-
-666148*
-11+ 1(2
-
-667023*
-11 1(
-
-666134*
-113 1(4
-
-666123*
-11+ 1(2
-
-727663*
-1? ?(!
-
-727848*
-1?1 ?(9
-
-727623*
-1? ?(
-
-727023*
-1? ?( 
-
-727834*
-1?: ?(B
-
-727823*
-1?1 ?(9
-
-727663*
-1@ @(4
-
-727649*
-1@ @(4
-
-728052*
-1@1 @(4
-
-727663*
-1@ @(&
-
-728249*
-1@ @(&
-
-728452*
-1@ @(&
-
-722649*
-1@ @(
-
-723223*
-1@ @(
-
-722649*
-1@ @(
-
-721023*
-1@5 @(9
-
-721049*
-1@5 @(9
-
-867063*
-1C C(
-
-867023*
-1C C(
-
-866134*
-1D D(
-
-866123*
-1D D(
-
-866163*
-1D D(B
-
-865749*
-1D D(2
-
-865952*
-1D* D(2
-
-862649*
-1D D()
-
-863223*
-1D D()
-
-862649*
-1D D()
-
-869052*
-1DM D(e
-
-867063*
-1E E(
-
-861049*
-1E E(
-
-866652*
-1E E(
-
-927663*
-1H H(!
-
-927848*
-1HI H(Q
-
-927623*
-1H H(
-
-927023*
-1H H( 
-
-927834*
-1HR H(Z
-
-927823*
-1HI H(Q
-
-925534*
-1J J(
-
-925523*
-1J	 J(
-
-925563*
-1J K(
-
-925749*
-1J J(8
-
-925952*
-1J0 J(8
-
-923549*
-1J J(/
-
-923923*
-1J J(/
-
-923549*
-1J J(/
-
-929652*
-1K( K(A
-
-927663*
-1M N(
-
-927649*
-1M N(
-
-928052*
-1N N(
-
-927663*
-1M M(0
-
-923249*
-1M M(0
-
-929852*
-1M" M(0
-
-922649*
-1M M(!
-
-923223*
-1M M(!
-
-922649*
-1M M(!
-
-921023*
-1N N(
-
-921049*
-1N N(
-
-1007663*
-1Q Q(!
-
-1007848*
-1QA Q(I
-
-1007623*
-1Q Q(
-
-1007023*
-1Q Q( 
-
-1007834*
-1QJ Q(R
-
-1007823*
-1QA Q(I
-
-1007663*
-1S U(
-
-1007649*
-1S U(
-
-1008052*
-1U U(
-
-1007663*
-1S T(0
-
-1003249*
-1S T(0
-
-10010452*
-1T T(0
-
-1002649*
-1S S(!
-
-1003223*
-1S S(!
-
-1002649*
-1S S(!
-
-1001023*
-1U U(
-
-1001049*
-1U U(
-
-1064648*
-1X9 X(G
-
-1064634*
-1XH X(O
-
-1064623*
-1X9 X(G
-
-1066134*
-1Z Z(
-
-1066123*
-1Z	 Z(
-
-1066163*
-1Z Z(L
-
-1065749*
-1Z Z(5
-
-1065952*
-1Z- Z(5
-
-1062649*
-1Z Z(,
-
-1063223*
-1Z Z(,
-
-1062649*
-1Z Z(,
-
-1069052*
-1ZW Z(o
-
-1066163*
-1l	 l(
-
-1065749*
-1l	 l(
-
-1066452*
-1l l(
-
-1062649*
-1l	 l(
-
-1063223*
-1l	 l(
-
-1062649*
-1l	 l(

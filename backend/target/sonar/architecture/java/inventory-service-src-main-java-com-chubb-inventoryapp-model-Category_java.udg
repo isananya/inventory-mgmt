@@ -1,305 +1,0 @@
-
-1.0isananya_inventory-mgmtJavaFrontend"1767544940887*java2.Bè	
-O
-Jinventory-service/src/main/java/com/chubb/inventoryapp/model/Category.java2
-	
-type3
-	
-MAIN4
-
-
-module-key5
-
-inventory-service6
-
-package8
-3
-.inventory-service:com.chubb.inventoryapp.model9
-+
-%com.chubb.inventoryapp.model.Category11
-
-class12
-
-access13
-
-public14
-
-
-full-range15
-
-(15:1)-(34:2)16
-
-simple-name17
-
-Category18
- 
-jakarta.persistence.Entity20
-
-unknown21
-
-annotated by22
-
-
-uses23
-
-jakarta.persistence.Table25
-
-lombok.Data27
-
-lombok.NoArgsConstructor29
-
-lombok.AllArgsConstructor31
-.
-(com.chubb.inventoryapp.model.Category.id33
-
-field34
-
-private35
-
-(21:5)-(23:21)36
-
-id37
-
-jakarta.persistence.Id39
-(
-"jakarta.persistence.GeneratedValue41
-(
-"jakarta.persistence.GenerationType43
-1
-+jakarta.persistence.GenerationType.IDENTITY45
-
-
-references46
-0
-*com.chubb.inventoryapp.model.Category.name48
-
-(25:5)-(28:25)49
-
-
-name50
--
-'jakarta.validation.constraints.NotBlank52
-)
-#jakarta.validation.constraints.Size54
- 
-jakarta.persistence.Column56
-7
-1com.chubb.inventoryapp.model.Category.description58
-
-(30:5)-(31:32)59
-
-description60
-3
--com.chubb.inventoryapp.model.Category.iconUrl62
-
-(33:5)-(33:28)63
-
-iconUrl64J%
-#
-1
-12
-
-3
-4
-
-5
-6 Z
-
-7
-7982
-
-
-5
-68jü
-
-19
-192021
-
-53
-535421
-N
-57H
-575834 *
-1 (210:7B$
-
-
-13
-35
-
-
-15
-59
-
-
-17
-60
-J
-10D
-101112 *
-1 (:7B$
-
-
-13
-14
-
-
-15
-16
-
-
-17
-18
-
-38
-383921
-
-40
-404121
-
-44
-444521
-
-42
-424321
-N
-32H
-323334 *
-1 (210:7B$
-
-
-13
-35
-
-
-15
-36
-
-
-17
-37
-
-24
-242521
-N
-47H
-474834 *
-1 (210:7B$
-
-
-13
-35
-
-
-15
-49
-
-
-17
-50
-
-55
-555621
-
-51
-515221
-N
-61H
-616234 *
-1! !(210:7B$
-
-
-13
-35
-
-
-15
-63
-
-
-17
-64
-
-26
-262721
-
-30
-303121
-
-28
-282921r£
-
-101922*
-1 (
-
-101923*
-1 (
-
-102422*
-1 (
-
-102423*
-1 (
-
-102622*
-1 (
-
-102623*
-1 (
-
-102822*
-1 (
-
-102823*
-1 (
-
-103022*
-1 (
-
-103023*
-1 (
-
-323822*
-1 (
-
-323823*
-1 (
-
-324022*
-1 (8
-
-324023*
-1 (
-
-324223*
-1  (.
-
-324223*
-1/ (7
-
-324446*
-1/ (7
-
-475122*
-1 (5
-
-475123*
-1 (
-
-475322*
-1 (\
-
-475323*
-1 (
-
-
-475522*
-1 (-
-
-475523*
-1 (
-
-575322*
-1 (L
-
-575323*
-1 (

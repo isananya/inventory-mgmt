@@ -1,1038 +1,0 @@
-
-1.0isananya_inventory-mgmtJavaFrontend"1767544939845*java2.Bˆ(
-a
-\inventory-service/src/main/java/com/chubb/inventoryapp/exception/GlobalExceptionHandler.java2
-	
-type3
-	
-MAIN4
-
-
-module-key5
-
-inventory-service6
-
-package8
-7
-2inventory-service:com.chubb.inventoryapp.exception9
-=
-7com.chubb.inventoryapp.exception.GlobalExceptionHandler11
-
-class12
-
-access13
-
-public14
-
-
-full-range15
-
-(9:1)-(69:2)16
-
-simple-name17
-
-GlobalExceptionHandler18
-B
-<org.springframework.web.bind.annotation.RestControllerAdvice20
-
-unknown21
-
-annotated by22
-
-
-uses23
-Æ
-¿com.chubb.inventoryapp.exception.GlobalExceptionHandler#handleCategoryAlreadyExists(Lcom/chubb/inventoryapp/exception/CategoryAlreadyExistsException;)Lorg/springframework/http/ResponseEntity;25
-
-method26
-
-(12:2)-(15:3)27
-!
-handleCategoryAlreadyExists28
--
-'org.springframework.http.ResponseEntity30
-
-returns31
-E
-?com.chubb.inventoryapp.exception.CategoryAlreadyExistsException33
-
-	has param34
->
-8org.springframework.web.bind.annotation.ExceptionHandler36
-
-is type37
-9
-3org.springframework.http.ResponseEntity$BodyBuilder39
-
-
-references40
-{
-uorg.springframework.http.ResponseEntity$BodyBuilder#body(Ljava/lang/Object;)Lorg/springframework/http/ResponseEntity;42
-
-calls43
-•
-Žorg.springframework.http.ResponseEntity#status(Lorg/springframework/http/HttpStatusCode;)Lorg/springframework/http/ResponseEntity$BodyBuilder;45
-)
-#org.springframework.http.HttpStatus47
-2
-,org.springframework.http.HttpStatus.CONFLICT49
-¼
-µcom.chubb.inventoryapp.exception.GlobalExceptionHandler#handleCategoryNotFound(Lcom/chubb/inventoryapp/exception/CategoryNotFoundException;)Lorg/springframework/http/ResponseEntity;51
-
-(17:2)-(20:3)52
-
-handleCategoryNotFound53
-@
-:com.chubb.inventoryapp.exception.CategoryNotFoundException55
-3
--org.springframework.http.HttpStatus.NOT_FOUND57
-Ä
-½com.chubb.inventoryapp.exception.GlobalExceptionHandler#handleProductAlreadyExists(Lcom/chubb/inventoryapp/exception/ProductAlreadyExistsException;)Lorg/springframework/http/ResponseEntity;59
-
-(22:2)-(25:3)60
- 
-handleProductAlreadyExists61
-D
->com.chubb.inventoryapp.exception.ProductAlreadyExistsException63
-º
-³com.chubb.inventoryapp.exception.GlobalExceptionHandler#handleProductNotFound(Lcom/chubb/inventoryapp/exception/ProductNotFoundException;)Lorg/springframework/http/ResponseEntity;65
-
-(27:2)-(30:3)66
-
-handleProductNotFound67
-?
-9com.chubb.inventoryapp.exception.ProductNotFoundException69
-È
-Ácom.chubb.inventoryapp.exception.GlobalExceptionHandler#handleWarehouseAlreadyExists(Lcom/chubb/inventoryapp/exception/WarehouseAlreadyExistsException;)Lorg/springframework/http/ResponseEntity;71
-
-(32:2)-(35:3)72
-"
-handleWarehouseAlreadyExists73
-F
-@com.chubb.inventoryapp.exception.WarehouseAlreadyExistsException75
-¾
-·com.chubb.inventoryapp.exception.GlobalExceptionHandler#handleWarehouseNotFound(Lcom/chubb/inventoryapp/exception/WarehouseNotFoundException;)Lorg/springframework/http/ResponseEntity;77
-
-(37:2)-(40:3)78
-
-handleWarehouseNotFound79
-A
-;com.chubb.inventoryapp.exception.WarehouseNotFoundException81
-È
-Ácom.chubb.inventoryapp.exception.GlobalExceptionHandler#handleInventoryAlreadyExists(Lcom/chubb/inventoryapp/exception/InventoryAlreadyExistsException;)Lorg/springframework/http/ResponseEntity;83
-
-(42:2)-(45:3)84
-"
-handleInventoryAlreadyExists85
-F
-@com.chubb.inventoryapp.exception.InventoryAlreadyExistsException87
-¾
-·com.chubb.inventoryapp.exception.GlobalExceptionHandler#handleInventoryNotFound(Lcom/chubb/inventoryapp/exception/InventoryNotFoundException;)Lorg/springframework/http/ResponseEntity;89
-
-(47:2)-(50:3)90
-
-handleInventoryNotFound91
-A
-;com.chubb.inventoryapp.exception.InventoryNotFoundException93
-¾
-·com.chubb.inventoryapp.exception.GlobalExceptionHandler#handleInsufficientStock(Lcom/chubb/inventoryapp/exception/InsufficientStockException;)Lorg/springframework/http/ResponseEntity;95
-
-(52:2)-(55:3)96
-
-handleInsufficientStock97
-A
-;com.chubb.inventoryapp.exception.InsufficientStockException99
-6
-/org.springframework.http.HttpStatus.BAD_REQUEST101
-¿
-·com.chubb.inventoryapp.exception.GlobalExceptionHandler#handleValidationErrors(Lorg/springframework/web/bind/MethodArgumentNotValidException;)Lorg/springframework/http/ResponseEntity;103
-
-(57:2)-(68:3)104
-
-handleValidationErrors105
-C
-<org.springframework.web.bind.MethodArgumentNotValidException107
-,
-%org.springframework.validation.Errors109
-M
-Forg.springframework.validation.Errors#getFieldErrors()Ljava/util/List;111
-3
-,org.springframework.validation.BindingResult113
-3
-,org.springframework.validation.BindException115
-t
-morg.springframework.validation.BindException#getBindingResult()Lorg/springframework/validation/BindingResult;117
-0
-)org.springframework.validation.FieldError119
-M
-Forg.springframework.validation.FieldError#getField()Ljava/lang/String;121
-I
-Borg.springframework.context.support.DefaultMessageSourceResolvable123
-o
-horg.springframework.context.support.DefaultMessageSourceResolvable#getDefaultMessage()Ljava/lang/String;125J%
-#
-1
-12
-
-3
-4
-
-5
-6 Z
-
-7
-7982
-
-
-5
-68jÖ
-
-32
-323321
-
-116
-11611721
-N
-70H
-707126 *
-1!  !(<210:7B$
-
-
-13
-14
-
-
-15
-72
-
-
-17
-73
-N
-76H
-767726 *
-1&  &(7210:7B$
-
-
-13
-14
-
-
-15
-78
-
-
-17
-79
-
-80
-808121
-N
-88H
-888926 *
-10  0(7210:7B$
-
-
-13
-14
-
-
-15
-90
-
-
-17
-91
-
-108
-10810921
-
-56
-565721
-
-74
-747521
-
-112
-11211321
-
-38
-383921
-
-124
-12412521
-N
-82H
-828326 *
-1+  +(<210:7B$
-
-
-13
-14
-
-
-15
-84
-
-
-17
-85
-
-98
-989921
-
-68
-686921
-
-122
-12212321
-
-41
-414221
-
-35
-353621
-N
-50H
-505126 *
-1  (6210:7B$
-
-
-13
-14
-
-
-15
-52
-
-
-17
-53
-J
-10D
-101112 *
-1
- 
-($:7B$
-
-
-13
-14
-
-
-15
-16
-
-
-17
-18
-N
-64H
-646526 *
-1  (5210:7B$
-
-
-13
-14
-
-
-15
-66
-
-
-17
-67
-
-114
-11411521
-
-92
-929321
-
-44
-444521
-S
-102L
-10210326 *
-1:  :(6210:7B&
-
-
-13
-14
-
-15
-104
-
-17
-105
-
-118
-11811921
-
-100
-10010121
-
-62
-626321
-
-120
-12012121
-N
-24H
-242526 *
-1  (;210:7B$
-
-
-13
-14
-
-
-15
-27
-
-
-17
-28
-
-86
-868721
-
-106
-10610721
-
-46
-464721
-
-19
-192021
-N
-58H
-585926 *
-1  (:210:7B$
-
-
-13
-14
-
-
-15
-60
-
-
-17
-61
-
-48
-484921
-
-29
-293021
-N
-94H
-949526 *
-15  5(7210:7B$
-
-
-13
-14
-
-
-15
-96
-
-
-17
-97
-
-54
-545521
-
-110
-11011121rÝ&
-
-101922*
-1	 	(
-
-101923*
-1	 	(
-
-242931*
-1	 (
-
-243234*
-1< (Z
-
-243522*
-1 (9
-
-243523*
-1 (
-
-243223*
-1 (2
-
-242923*
-1	 (
-
-243237*
-1[ (]
-
-243223*
-1< (Z
-
-242931*
-1
- (9
-
-243840*
-1
- (9
-
-244143*
-15 (9
-
-243831*
-1
- (
-
-242940*
-1
- (
-
-244443*
-1 (
-
-244623*
-1  (*
-
-244623*
-1+ (3
-
-244840*
-1+ (3
-
-502931*
-1	 (
-
-505434*
-17 (P
-
-503522*
-1 (4
-
-503523*
-1 (
-
-505423*
-1 (-
-
-502923*
-1	 (
-
-505437*
-1Q (S
-
-505423*
-17 (P
-
-502931*
-1
- (:
-
-503840*
-1
- (:
-
-504143*
-16 (:
-
-503831*
-1
- (
-
-502940*
-1
- (
-
-504443*
-1 (
-
-504623*
-1  (*
-
-504623*
-1+ (4
-
-505640*
-1+ (4
-
-582931*
-1	 (
-
-586234*
-1; (X
-
-583522*
-1 (8
-
-583523*
-1 (
-
-586223*
-1 (1
-
-582923*
-1	 (
-
-586237*
-1Y ([
-
-586223*
-1; (X
-
-582931*
-1
- (9
-
-583840*
-1
- (9
-
-584143*
-15 (9
-
-583831*
-1
- (
-
-582940*
-1
- (
-
-584443*
-1 (
-
-584623*
-1  (*
-
-584623*
-1+ (3
-
-584840*
-1+ (3
-
-642931*
-1	 (
-
-646834*
-16 (N
-
-643522*
-1 (3
-
-643523*
-1 (
-
-646823*
-1 (,
-
-642923*
-1	 (
-
-646837*
-1O (Q
-
-646823*
-16 (N
-
-642931*
-1
- (:
-
-643840*
-1
- (:
-
-644143*
-16 (:
-
-643831*
-1
- (
-
-642940*
-1
- (
-
-644443*
-1 (
-
-644623*
-1  (*
-
-644623*
-1+ (4
-
-645640*
-1+ (4
-
-702931*
-1!	 !(
-
-707434*
-1!= !(\
-
-703522*
-1   (:
-
-703523*
-1   (
-
-707423*
-1   (3
-
-702923*
-1!	 !(
-
-707437*
-1!] !(_
-
-707423*
-1!= !(\
-
-702931*
-1"
- "(9
-
-703840*
-1"
- "(9
-
-704143*
-1"5 "(9
-
-703831*
-1"
- "(
-
-702940*
-1"
- "(
-
-704443*
-1" "(
-
-704623*
-1"  "(*
-
-704623*
-1"+ "(3
-
-704840*
-1"+ "(3
-
-762931*
-1&	 &(
-
-768034*
-1&8 &(R
-
-763522*
-1% %(5
-
-763523*
-1% %(
-
-768023*
-1% %(.
-
-762923*
-1&	 &(
-
-768037*
-1&S &(U
-
-768023*
-1&8 &(R
-
-762931*
-1'
- '(:
-
-763840*
-1'
- '(:
-
-764143*
-1'6 '(:
-
-763831*
-1'
- '(
-
-762940*
-1'
- '(
-
-764443*
-1' '(
-
-764623*
-1'  '(*
-
-764623*
-1'+ '(4
-
-765640*
-1'+ '(4
-
-822931*
-1+	 +(
-
-828634*
-1+= +(\
-
-823522*
-1* *(:
-
-823523*
-1* *(
-
-828623*
-1* *(3
-
-822923*
-1+	 +(
-
-828637*
-1+] +(_
-
-828623*
-1+= +(\
-
-822931*
-1,
- ,(9
-
-823840*
-1,
- ,(9
-
-824143*
-1,5 ,(9
-
-823831*
-1,
- ,(
-
-822940*
-1,
- ,(
-
-824443*
-1, ,(
-
-824623*
-1,  ,(*
-
-824623*
-1,+ ,(3
-
-824840*
-1,+ ,(3
-
-882931*
-10	 0(
-
-889234*
-108 0(R
-
-883522*
-1/ /(5
-
-883523*
-1/ /(
-
-889223*
-1/ /(.
-
-882923*
-10	 0(
-
-889237*
-10S 0(U
-
-889223*
-108 0(R
-
-882931*
-11
- 1(:
-
-883840*
-11
- 1(:
-
-884143*
-116 1(:
-
-883831*
-11
- 1(
-
-882940*
-11
- 1(
-
-884443*
-11 1(
-
-884623*
-11  1(*
-
-884623*
-11+ 1(4
-
-885640*
-11+ 1(4
-
-942931*
-15	 5(
-
-949834*
-158 5(R
-
-943522*
-14 4(5
-
-943523*
-14 4(
-
-949823*
-14 4(.
-
-942923*
-15	 5(
-
-949837*
-15S 5(U
-
-949823*
-158 5(R
-
-942931*
-16
- 6(<
-
-943840*
-16
- 6(<
-
-944143*
-168 6(<
-
-943831*
-16
- 6(
-
-942940*
-16
- 6(
-
-944443*
-16 6(
-
-944623*
-16  6(*
-
-944623*
-16+ 6(6
-
-9410040*
-16+ 6(6
-
-1022931*
-1:	 :(
-
-10210634*
-1:7 :(V
-
-1023522*
-19 9(:
-
-1023523*
-19 9(
-
-10210623*
-19 9(3
-
-1022923*
-1:	 :(
-
-10210637*
-1:W :(Y
-
-10210623*
-1:7 :(V
-
-10210840*
-1< =(
-
-10211043*
-1= =(
-
-10211231*
-1< <('
-
-10211440*
-1< <('
-
-10211643*
-1< <('
-
-10211837*
-1?
- ?(
-
-10211840*
-1? ?(
-
-10212043*
-1? ?(
-
-10212240*
-1?) ?(>
-
-10212443*
-1?- ?(>
-
-1022931*
-1C
- C(<
-
-1023840*
-1C
- C(<
-
-1024143*
-1C8 C(<
-
-1023831*
-1C
- C(
-
-1022940*
-1C
- C(
-
-1024443*
-1C C(
-
-1024623*
-1C  C(*
-
-1024623*
-1C+ C(6
-
-10210040*
-1C+ C(6

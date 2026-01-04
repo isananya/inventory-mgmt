@@ -1,0 +1,197 @@
+name: inventory-mgmt-app
+
+services:
+  mysql-shared:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "3306:3306"
+    command:
+      - --default-authentication-plugin=mysql_native_password
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - inventory-network
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
+    networks:
+      - inventory-network
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "check_port_connectivity"]
+      interval: 30s
+      timeout: 30s
+      retries: 5
+      start_period: 30s
+
+  eureka-server:
+    build: 
+      context: ./eureka-server
+      dockerfile: Dockerfile
+    ports:
+      - "8761:8761"
+    environment:
+      - JAVA_TOOL_OPTIONS=-Xmx256m
+    networks:
+      - inventory-network
+
+  config-server:
+    build: 
+      context: ./config-server
+      dockerfile: Dockerfile
+    ports:
+      - "8888:8888"
+    environment:
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://eureka-server:8761/eureka/
+      - JAVA_TOOL_OPTIONS=-Xmx256m
+    networks:
+      - inventory-network
+    depends_on:
+      eureka-server:
+        condition: service_started
+
+  api-gateway:
+    build: 
+      context: ./api-gateway
+      dockerfile: Dockerfile
+    ports:
+      - "8765:8765"
+    restart: on-failure
+    environment:
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://eureka-server:8761/eureka/
+      - SPRING_CONFIG_IMPORT=optional:configserver:http://config-server:8888/
+      - JAVA_TOOL_OPTIONS=-Xmx256m
+    depends_on:
+      eureka-server:
+        condition: service_started
+      config-server:
+        condition: service_started
+    networks:
+      - inventory-network
+
+  user-service:
+    build: 
+      context: ./user-service
+      dockerfile: Dockerfile
+    restart: on-failure
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql-shared:3306/user_db?createDatabaseIfNotExist=true&allowPublicKeyRetrieval=true&useSSL=false
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=root
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+      - JAVA_TOOL_OPTIONS=-Xmx350m -Deureka.client.serviceUrl.defaultZone=http://eureka-server:8761/eureka/
+      - JWT_SECRET=5367566B59703373367639792F423F4528482B4D6251655468576D5A71347437
+      - JWT_EXPIRATION=7200000
+    depends_on:
+      mysql-shared:
+        condition: service_healthy
+      eureka-server:
+        condition: service_started
+    networks:
+      - inventory-network
+
+  inventory-service:
+      build: 
+        context: ./inventory-service
+        dockerfile: Dockerfile
+      restart: on-failure
+      environment:
+        - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://eureka-server:8761/eureka/
+        - SPRING_DATASOURCE_URL=jdbc:mysql://mysql-shared:3306/inventory_db?createDatabaseIfNotExist=true&allowPublicKeyRetrieval=true&useSSL=false
+        - SPRING_DATASOURCE_USERNAME=root
+        - SPRING_DATASOURCE_PASSWORD=root
+        - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+        - JAVA_TOOL_OPTIONS=-Xmx350m
+      depends_on:
+        mysql-shared:
+          condition: service_healthy
+        eureka-server:
+          condition: service_started
+      networks:
+        - inventory-network
+
+  order-service:
+    build: 
+      context: ./order-service
+      dockerfile: Dockerfile
+    restart: on-failure
+    environment:
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://eureka-server:8761/eureka/
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql-shared:3306/order_db?createDatabaseIfNotExist=true&allowPublicKeyRetrieval=true&useSSL=false
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=root
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+      - JAVA_TOOL_OPTIONS=-Xmx350m
+    depends_on:
+      mysql-shared:
+        condition: service_healthy
+      eureka-server:
+        condition: service_started
+    networks:
+      - inventory-network
+
+  billing-service:
+    build: 
+      context: ./billing-service
+      dockerfile: Dockerfile
+    restart: on-failure
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql-shared:3306/billing_db?createDatabaseIfNotExist=true&allowPublicKeyRetrieval=true&useSSL=false
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=root
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+      - SPRING_RABBITMQ_HOST=rabbitmq
+      - SPRING_RABBITMQ_PORT=5672
+      - SPRING_RABBITMQ_USERNAME=guest
+      - SPRING_RABBITMQ_PASSWORD=guest
+      - JAVA_TOOL_OPTIONS=-Xmx350m -Deureka.client.serviceUrl.defaultZone=http://eureka-server:8761/eureka/ -Dapp.queue.invoice=invoice_queue -Dapp.queue.exchange=invoice_exchange -Dapp.queue.routing.generated=invoice_routing_key
+    depends_on:
+      mysql-shared:
+        condition: service_healthy
+      eureka-server:
+        condition: service_started
+    networks:
+      - inventory-network
+
+  email-service:
+    build: 
+      context: ./email-service
+      dockerfile: Dockerfile
+    restart: on-failure
+    environment:
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://eureka-server:8761/eureka/
+      - SPRING_CONFIG_IMPORT=optional:configserver:http://config-server:8888/
+      - SPRING_RABBITMQ_HOST=rabbitmq
+      - SPRING_RABBITMQ_PORT=5672
+      - SPRING_RABBITMQ_USERNAME=guest
+      - SPRING_RABBITMQ_PASSWORD=guest
+      - JAVA_TOOL_OPTIONS=-Xmx256m
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+      eureka-server:
+        condition: service_started
+    networks:
+      - inventory-network
+
+volumes:
+  mysql_data:
+
+networks:
+  inventory-network:
+    driver: bridge

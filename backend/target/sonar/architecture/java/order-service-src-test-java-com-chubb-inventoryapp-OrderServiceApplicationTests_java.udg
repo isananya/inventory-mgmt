@@ -1,110 +1,0 @@
-
-1.0isananya_inventory-mgmtJavaFrontend"1767544945581*java2.Bå
-Y
-Torder-service/src/test/java/com/chubb/inventoryapp/OrderServiceApplicationTests.java2
-	
-type3
-	
-TEST4
-
-
-module-key5
-
-order-service6
-
-package8
-)
-$order-service:com.chubb.inventoryapp9
-9
-3com.chubb.inventoryapp.OrderServiceApplicationTests11
-
-class12
-
-access13
-
-	protected14
-
-
-full-range15
-
-(7:1)-(13:2)16
-
-simple-name17
-"
-OrderServiceApplicationTests18
-I
-Ccom.chubb.inventoryapp.OrderServiceApplicationTests#contextLoads()V20
-
-method21
-
-(9:2)-(11:3)22
-
-contextLoads23
- 
-org.junit.jupiter.api.Test25
-
-unknown26
-
-annotated by27
-
-
-uses28J%
-#
-1
-12
-
-3
-4
-
-5
-6 Z
-
-7
-7982
-
-
-5
-68j°
-
-24
-242526
-J
-10D
-101112 *
-1 (#:7B$
-
-
-13
-14
-
-
-15
-16
-
-
-17
-18
-N
-19H
-192021 *
-1
- 
-(210:7B$
-
-
-13
-14
-
-
-15
-22
-
-
-17
-23r6
-
-192427*
-1	 	(
-
-192428*
-1	 	(

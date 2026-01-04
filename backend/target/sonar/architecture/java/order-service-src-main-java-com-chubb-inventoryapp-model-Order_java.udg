@@ -1,493 +1,0 @@
-
-1.0isananya_inventory-mgmtJavaFrontend"1767544945169*java2.B∫
-H
-Corder-service/src/main/java/com/chubb/inventoryapp/model/Order.java2
-	
-type3
-	
-MAIN4
-
-
-module-key5
-
-order-service6
-
-package8
-/
-*order-service:com.chubb.inventoryapp.model9
-(
-"com.chubb.inventoryapp.model.Order11
-
-class12
-
-access13
-
-public14
-
-
-full-range15
-
-(26:1)-(54:2)16
-
-simple-name17
-
-Order18
- 
-jakarta.persistence.Entity20
-
-unknown21
-
-annotated by22
-
-
-uses23
-
-jakarta.persistence.Table25
-
-lombok.Data27
-
-lombok.NoArgsConstructor29
-
-lombok.AllArgsConstructor31
-+
-%com.chubb.inventoryapp.model.Order.id33
-
-field34
-
-private35
-
-(32:5)-(34:21)36
-
-id37
-
-jakarta.persistence.Id39
-(
-"jakarta.persistence.GeneratedValue41
-(
-"jakarta.persistence.GenerationType43
-1
-+jakarta.persistence.GenerationType.IDENTITY45
-
-
-references46
-3
--com.chubb.inventoryapp.model.Order.customerId48
-
-(36:5)-(37:29)49
-
-
-customerId50
-,
-&jakarta.validation.constraints.NotNull52
-/
-)com.chubb.inventoryapp.model.Order.status54
-
-(39:5)-(41:54)55
-
-status56
-.
-(com.chubb.inventoryapp.model.OrderStatus58
-
-is type59
-$
-jakarta.persistence.Enumerated61
-"
-jakarta.persistence.EnumType63
-)
-#jakarta.persistence.EnumType.STRING65
- 
-jakarta.persistence.Column67
-6
-0com.chubb.inventoryapp.model.OrderStatus.CREATED69
-4
-.com.chubb.inventoryapp.model.Order.totalAmount71
-
-(43:5)-(45:31)72
-
-totalAmount73
--
-'jakarta.validation.constraints.Positive75
-0
-*com.chubb.inventoryapp.model.Order.address77
-
-(47:5)-(48:29)78
-
-address79
-*
-$com.chubb.inventoryapp.model.Address81
-"
-jakarta.persistence.Embedded83
-.
-(com.chubb.inventoryapp.model.Order.items85
-
-(50:5)-(51:55)86
-
-items87
-#
-jakarta.persistence.OneToMany89
-%
-jakarta.persistence.CascadeType91
-)
-#jakarta.persistence.CascadeType.ALL93
-,
-&com.chubb.inventoryapp.model.OrderItem95
-2
-,com.chubb.inventoryapp.model.Order.createdAt97
-
-(53:5)-(53:59)98
-
-	createdAt99J%
-#
-1
-12
-
-3
-4
-
-5
-6 Z
-
-7
-7982
-
-
-5
-68j»
-
-19
-192021
-
-88
-888921
-
-51
-515221
-J
-10D
-101112 *
-1 (:7B$
-
-
-13
-14
-
-
-15
-16
-
-
-17
-18
-
-42
-424321
-N
-70H
-707134 *
-1- -(210:7B$
-
-
-13
-35
-
-
-15
-72
-
-
-17
-73
-
-82
-828321
-N
-84H
-848534 *
-13 3("210:7B$
-
-
-13
-35
-
-
-15
-86
-
-
-17
-87
-
-24
-242521
-
-64
-646521
-
-94
-949521
-
-92
-929321
-
-74
-747521
-
-57
-575821
-N
-53H
-535434 *
-1) )(210:7B$
-
-
-13
-35
-
-
-15
-55
-
-
-17
-56
-N
-32H
-323334 *
-1" "(210:7B$
-
-
-13
-35
-
-
-15
-36
-
-
-17
-37
-
-38
-383921
-
-90
-909121
-
-40
-404121
-
-44
-444521
-
-60
-606121
-N
-47H
-474834 *
-1% %(210:7B$
-
-
-13
-35
-
-
-15
-49
-
-
-17
-50
-
-66
-666721
-
-62
-626321
-
-80
-808121
-
-26
-262721
-N
-96H
-969734 *
-15 5($210:7B$
-
-
-13
-35
-
-
-15
-98
-
-
-17
-99
-
-30
-303121
-
-68
-686921
-N
-76H
-767734 *
-10 0(210:7B$
-
-
-13
-35
-
-
-15
-78
-
-
-17
-79
-
-28
-282921rı	
-
-101922*
-1 (
-
-101923*
-1 (
-
-102422*
-1 (
-
-102423*
-1 (
-
-102622*
-1 (
-
-102623*
-1 (
-
-102822*
-1 (
-
-102823*
-1 (
-
-103022*
-1 (
-
-103023*
-1 (
-
-323822*
-1   (
-
-323823*
-1   (
-
-324022*
-1! !(8
-
-324023*
-1! !(
-
-324223*
-1!  !(.
-
-324223*
-1!/ !(7
-
-324446*
-1!/ !(7
-
-475122*
-1$ $(
-
-475123*
-1$ $(
-
-535759*
-1) )(
-
-536022*
-1' '(!
-
-536023*
-1' '(
-
-536223*
-1' '(
-
-536223*
-1' '( 
-
-536446*
-1' '( 
-
-536622*
-1( ((
-
-536623*
-1( ((
-
-535723*
-1) )(
-
-535723*
-1) )(
-
-535723*
-1)" )(-
-
-535723*
-1). )(5
-
-536846*
-1). )(5
-
-705122*
-1+ +(
-
-705123*
-1+ +(
-
-707422*
-1, ,(
-
-707423*
-1, ,(
-
-768059*
-10 0(
-
-768222*
-1/ /(
-
-768223*
-1/ /(
-
-768023*
-10 0(
-
-768023*
-10 0(
-
-848822*
-12 2(T
-
-848823*
-12 2(
-
-849023*
-12. 2(9
-
-849023*
-12: 2(=
-
-849246*
-12: 2(=
-
-849423*
-13 3(
