@@ -1,37 +1,39 @@
 
-ycom.chubb.inventoryapp.controller.InvoiceController#getInvoice(Ljava/lang/Long;)Lorg/springframework/http/ResponseEntity;›
-D:/CHUBB_Training/CAPSTONE PROJECT/inventory-mgmt/backend/billing-service/src/main/java/com/chubb/inventoryapp/controller/InvoiceController.java0+ 0(5"1*ž
-11 1(±
-®
-1! 1(/3
-%0-com.chubb.inventoryapp.service.InvoiceService"__id*g
+?__sonar_lambda_31$com.chubb.inventoryapp.service.InvoiceService•
+ŠD:/CHUBB_Training/CAPSTONE PROJECT/inventory-mgmt/backend/billing-service/src/main/java/com/chubb/inventoryapp/service/InvoiceService.javaF F(m"startingBlock*»
+startingBlockF F(mš
+—
 
-__unknown_file (K*I5
-3com.chubb.inventoryapp.controller.InvoiceController"
-invoiceServiceÜÙ
-1! 1(>0
-%1*com.chubb.inventoryapp.dto.InvoiceResponse"vcom.chubb.inventoryapp.service.InvoiceService#getInvoice(Ljava/lang/Long;)Lcom/chubb/inventoryapp/dto/InvoiceResponse;*Q
+__unknown_file (
+orderIdjava.lang.Long"__id*Z
 
-__unknown_file (5
-3
-%0-com.chubb.inventoryapp.service.InvoiceService*2
+__unknown_file (>*</
+-com.chubb.inventoryapp.service.InvoiceService"	
+orderId*
+1*÷
+1F@ F(bŠ
+‡
+F@ F(l
+%3java.lang.String"__concat*0
+F@ F(b$"
+ Invoice not found for Order ID: *'
+Fe F(l
+
+orderIdjava.lang.Long‰†
+F' F(??
+%49com.chubb.inventoryapp.exception.InvoiceNotFoundException"9com.chubb.inventoryapp.exception.InvoiceNotFoundExceptionÿ
+ü
+F# F(m
+%5"Ucom.chubb.inventoryapp.exception.InvoiceNotFoundException#<init>(Ljava/lang/String;)V*]
 
-__unknown_file (
-
-idjava.lang.Long2getInvoice(Ljava/lang/Long;)¾
-»
-1 1(?-
-%2'org.springframework.http.ResponseEntity"gorg.springframework.http.ResponseEntity#ok(Ljava/lang/Object;)Lorg/springframework/http/ResponseEntity;*G
+__unknown_file (A
+?
+%49com.chubb.inventoryapp.exception.InvoiceNotFoundException*4
 
-__unknown_file (+")
-'org.springframework.http.ResponseEntity*N
-
-__unknown_file (2
-0
-%1*com.chubb.inventoryapp.dto.InvoiceResponse";
-1 1(@/
--
-%2'org.springframework.http.ResponseEntity: 
-06 0(K
-idjava.lang.LongB75
-3com.chubb.inventoryapp.controller.InvoiceControllerH
+__unknown_file (
+
+%3java.lang.String"M
+F# F(mA
+?
+%49com.chubb.inventoryapp.exception.InvoiceNotFoundExceptionB
+java.util.function.Supplier

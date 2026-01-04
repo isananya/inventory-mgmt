@@ -1,0 +1,635 @@
+
+1.0isananya_inventory-mgmtJavaFrontend"1767544944607*java2.BÍ
+]
+Xorder-service/src/main/java/com/chubb/inventoryapp/exception/GlobalExceptionHandler.java2
+	
+type3
+	
+MAIN4
+
+
+module-key5
+
+order-service6
+
+package8
+3
+.order-service:com.chubb.inventoryapp.exception9
+=
+7com.chubb.inventoryapp.exception.GlobalExceptionHandler11
+
+class12
+
+access13
+
+public14
+
+
+full-range15
+
+(9:1)-(38:2)16
+
+simple-name17
+
+GlobalExceptionHandler18
+B
+<org.springframework.web.bind.annotation.RestControllerAdvice20
+
+unknown21
+
+annotated by22
+
+
+uses23
+Ò
+Ëcom.chubb.inventoryapp.exception.GlobalExceptionHandler#handleInventoryServiceUnavailable(Lcom/chubb/inventoryapp/exception/InventoryServiceUnavailableException;)Lorg/springframework/http/ResponseEntity;25
+
+method26
+
+(12:2)-(15:3)27
+'
+!handleInventoryServiceUnavailable28
+-
+'org.springframework.http.ResponseEntity30
+
+returns31
+K
+Ecom.chubb.inventoryapp.exception.InventoryServiceUnavailableException33
+
+	has param34
+>
+8org.springframework.web.bind.annotation.ExceptionHandler36
+
+is type37
+9
+3org.springframework.http.ResponseEntity$BodyBuilder39
+
+
+references40
+{
+uorg.springframework.http.ResponseEntity$BodyBuilder#body(Ljava/lang/Object;)Lorg/springframework/http/ResponseEntity;42
+
+calls43
+•
+Žorg.springframework.http.ResponseEntity#status(Lorg/springframework/http/HttpStatusCode;)Lorg/springframework/http/ResponseEntity$BodyBuilder;45
+)
+#org.springframework.http.HttpStatus47
+=
+7org.springframework.http.HttpStatus.SERVICE_UNAVAILABLE49
+¶
+¯com.chubb.inventoryapp.exception.GlobalExceptionHandler#handleOrderNotFound(Lcom/chubb/inventoryapp/exception/OrderNotFoundException;)Lorg/springframework/http/ResponseEntity;51
+
+(17:2)-(20:3)52
+
+handleOrderNotFound53
+=
+7com.chubb.inventoryapp.exception.OrderNotFoundException55
+3
+-org.springframework.http.HttpStatus.NOT_FOUND57
+°
+©com.chubb.inventoryapp.exception.GlobalExceptionHandler#handleOutOfStock(Lcom/chubb/inventoryapp/exception/OutOfStockException;)Lorg/springframework/http/ResponseEntity;59
+
+(22:2)-(25:3)60
+
+handleOutOfStock61
+:
+4com.chubb.inventoryapp.exception.OutOfStockException63
+5
+/org.springframework.http.HttpStatus.BAD_REQUEST65
+¸
+±com.chubb.inventoryapp.exception.GlobalExceptionHandler#handleStatusConflict(Lcom/chubb/inventoryapp/exception/StatusConflictException;)Lorg/springframework/http/ResponseEntity;67
+
+(27:2)-(30:3)68
+
+handleStatusConflict69
+>
+8com.chubb.inventoryapp.exception.StatusConflictException71
+2
+,org.springframework.http.HttpStatus.CONFLICT73
+¾
+·com.chubb.inventoryapp.exception.GlobalExceptionHandler#handleValidationErrors(Lorg/springframework/web/bind/MethodArgumentNotValidException;)Lorg/springframework/http/ResponseEntity;75
+
+(32:2)-(37:3)76
+
+handleValidationErrors77
+B
+<org.springframework.web.bind.MethodArgumentNotValidException79
++
+%org.springframework.validation.Errors81
+L
+Forg.springframework.validation.Errors#getFieldErrors()Ljava/util/List;83
+2
+,org.springframework.validation.BindingResult85
+2
+,org.springframework.validation.BindException87
+s
+morg.springframework.validation.BindException#getBindingResult()Lorg/springframework/validation/BindingResult;89
+/
+)org.springframework.validation.FieldError91
+L
+Forg.springframework.validation.FieldError#getField()Ljava/lang/String;93
+H
+Borg.springframework.context.support.DefaultMessageSourceResolvable95
+n
+horg.springframework.context.support.DefaultMessageSourceResolvable#getDefaultMessage()Ljava/lang/String;97J%
+#
+1
+12
+
+3
+4
+
+5
+6 Z
+
+7
+7982
+
+
+5
+68jÐ
+
+88
+888921
+
+80
+808121
+
+56
+565721
+N
+24H
+242526 *
+1  (A210:7B$
+
+
+13
+14
+
+
+15
+27
+
+
+17
+28
+
+84
+848521
+
+38
+383921
+
+96
+969721
+N
+50H
+505126 *
+1  (3210:7B$
+
+
+13
+14
+
+
+15
+52
+
+
+17
+53
+
+94
+949521
+
+41
+414221
+
+35
+353621
+J
+10D
+101112 *
+1
+ 
+($:7B$
+
+
+13
+14
+
+
+15
+16
+
+
+17
+18
+
+54
+545521
+N
+58H
+585926 *
+1  (0210:7B$
+
+
+13
+14
+
+
+15
+60
+
+
+17
+61
+
+86
+868721
+
+44
+444521
+
+70
+707121
+N
+74H
+747526 *
+1!  !(6210:7B$
+
+
+13
+14
+
+
+15
+76
+
+
+17
+77
+
+32
+323321
+N
+66H
+666726 *
+1  (4210:7B$
+
+
+13
+14
+
+
+15
+68
+
+
+17
+69
+
+90
+909121
+
+64
+646521
+
+48
+484921
+
+92
+929321
+
+78
+787921
+
+46
+464721
+
+19
+192021
+
+72
+727321
+
+29
+293021
+
+82
+828321
+
+62
+626321r»
+
+101922*
+1	 	(
+
+101923*
+1	 	(
+
+242931*
+1	 (
+
+243234*
+1B (f
+
+243522*
+1 (?
+
+243523*
+1 (
+
+243223*
+1 (8
+
+242923*
+1	 (
+
+243237*
+1g (i
+
+243223*
+1B (f
+
+242931*
+1
+ (D
+
+243840*
+1
+ (D
+
+244143*
+1@ (D
+
+243831*
+1
+ (
+
+242940*
+1
+ (
+
+244443*
+1 (
+
+244623*
+1  (*
+
+244623*
+1+ (>
+
+244840*
+1+ (>
+
+502931*
+1	 (
+
+505434*
+14 (J
+
+503522*
+1 (1
+
+503523*
+1 (
+
+505423*
+1 (*
+
+502923*
+1	 (
+
+505437*
+1K (M
+
+505423*
+14 (J
+
+502931*
+1
+ (:
+
+503840*
+1
+ (:
+
+504143*
+16 (:
+
+503831*
+1
+ (
+
+502940*
+1
+ (
+
+504443*
+1 (
+
+504623*
+1  (*
+
+504623*
+1+ (4
+
+505640*
+1+ (4
+
+582931*
+1	 (
+
+586234*
+11 (D
+
+583522*
+1 (.
+
+583523*
+1 (
+
+586223*
+1 ('
+
+582923*
+1	 (
+
+586237*
+1E (G
+
+586223*
+11 (D
+
+582931*
+1
+ (<
+
+583840*
+1
+ (<
+
+584143*
+18 (<
+
+583831*
+1
+ (
+
+582940*
+1
+ (
+
+584443*
+1 (
+
+584623*
+1  (*
+
+584623*
+1+ (6
+
+586440*
+1+ (6
+
+662931*
+1	 (
+
+667034*
+15 (L
+
+663522*
+1 (2
+
+663523*
+1 (
+
+667023*
+1 (+
+
+662923*
+1	 (
+
+667037*
+1M (O
+
+667023*
+15 (L
+
+662931*
+1
+ (9
+
+663840*
+1
+ (9
+
+664143*
+15 (9
+
+663831*
+1
+ (
+
+662940*
+1
+ (
+
+664443*
+1 (
+
+664623*
+1  (*
+
+664623*
+1+ (3
+
+667240*
+1+ (3
+
+742931*
+1!	 !(
+
+747834*
+1!7 !(V
+
+743522*
+1   (:
+
+743523*
+1   (
+
+747823*
+1   (3
+
+742923*
+1!	 !(
+
+747837*
+1!W !(Y
+
+747823*
+1!7 !(V
+
+748040*
+1" "(8
+
+748243*
+1"* "(8
+
+748431*
+1" "('
+
+748640*
+1" "('
+
+748843*
+1" "('
+
+749037*
+1#
+ #(
+
+749040*
+1# #(
+
+749243*
+1# #(
+
+749440*
+1#) #(>
+
+749643*
+1#- #(>
+
+742931*
+1$
+ $(<
+
+743840*
+1$
+ $(<
+
+744143*
+1$8 $(<
+
+743831*
+1$
+ $(
+
+742940*
+1$
+ $(
+
+744443*
+1$ $(
+
+744623*
+1$  $(*
+
+744623*
+1$+ $(6
+
+746440*
+1$+ $(6

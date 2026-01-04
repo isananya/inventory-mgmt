@@ -1,43 +1,30 @@
 
-écom.chubb.inventoryapp.service.InvoiceService#getAllInvoices(Lorg/springframework/data/domain/Pageable;)Lorg/springframework/data/domain/Page;ï
-äD:/CHUBB_Training/CAPSTONE PROJECT/inventory-mgmt/backend/billing-service/src/main/java/com/chubb/inventoryapp/service/InvoiceService.javaR R(,"1*í	
-1S$ S(5¥
-±
-S$ S(59
-%03com.chubb.inventoryapp.repository.InvoiceRepository"__id*d
+^com.chubb.inventoryapp.config.RabbitConfig#invoiceQueue()Lorg/springframework/amqp/core/Queue;í
+áD:/CHUBB_Training/CAPSTONE PROJECT/inventory-mgmt/backend/billing-service/src/main/java/com/chubb/inventoryapp/config/RabbitConfig.java ("1*≠
+1 ()ç
+ä
+ ()
+%0java.lang.String"__id*`
 
-__unknown_file (H*F/
--com.chubb.inventoryapp.service.InvoiceService"
-invoiceRepository∂≥
-S$ S(G*
-%1$org.springframework.data.domain.Page"òorg.springframework.data.repository.PagingAndSortingRepository#findAll(Lorg/springframework/data/domain/Pageable;)Lorg/springframework/data/domain/Page;*W
+__unknown_file (D*B,
+*com.chubb.inventoryapp.config.RabbitConfig"
+invoiceQueueName\Z
+ ()
+%1#org.springframework.amqp.core.Queue"#org.springframework.amqp.core.Queueˆ
+Û
+ (0
+%2"@org.springframework.amqp.core.Queue#<init>(Ljava/lang/String;Z)V*G
 
-__unknown_file (;
-9
-%03com.chubb.inventoryapp.repository.InvoiceRepository*R
+__unknown_file (+
+)
+%1#org.springframework.amqp.core.Queue*4
 
-__unknown_file (6
-4
-pageable(org.springframework.data.domain.Pageable23findAll(Lorg/springframework/data/domain/Pageable;)í
-è
-S S(H3
-invoicePage$org.springframework.data.domain.Page"__id*H
+__unknown_file (
+
+%0java.lang.String* 
 
-__unknown_file (,
-*
-%1$org.springframework.data.domain.Page√¿
-U U(3*
-%2$org.springframework.data.domain.Page"morg.springframework.data.domain.Page#map(Ljava/util/function/Function;)Lorg/springframework/data/domain/Page;*Q
-
-__unknown_file (5
-3
-invoicePage$org.springframework.data.domain.Page*"
-
-__unknown_file (
-""2"map(Ljava/util/function/Function;)"8
-U U(4,
-*
-%2$org.springframework.data.domain.Page:@
-R- R(>4
-pageable(org.springframework.data.domain.PageableB1/
--com.chubb.inventoryapp.service.InvoiceServiceH
+__unknown_file (2"7
+ (1+
+)
+%1#org.springframework.amqp.core.QueueB.,
+*com.chubb.inventoryapp.config.RabbitConfigH

@@ -1,7 +1,9 @@
 package com.chubb.inventoryapp.controller;
 
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.ArgumentMatchers.anyList;
+import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
@@ -21,8 +23,11 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import com.chubb.inventoryapp.dto.InventoryRequest;
+import com.chubb.inventoryapp.dto.InventoryResponse;
 import com.chubb.inventoryapp.dto.StockCheckResponse;
 import com.chubb.inventoryapp.dto.StockRequest;
+import com.chubb.inventoryapp.model.Product;
+import com.chubb.inventoryapp.model.Warehouse; 
 import com.chubb.inventoryapp.service.InventoryService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -30,13 +35,34 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 class InventoryControllerTest {
 
     private MockMvc mockMvc;
-    @Mock private InventoryService inventoryService;
-    @InjectMocks private InventoryController inventoryController;
+    
+    @Mock 
+    private InventoryService inventoryService;
+    
+    @InjectMocks 
+    private InventoryController inventoryController;
+    
     private ObjectMapper objectMapper = new ObjectMapper();
+    private InventoryResponse dummyResponse;
 
     @BeforeEach
     void setUp() {
         mockMvc = MockMvcBuilders.standaloneSetup(inventoryController).build();
+        
+        Product product = new Product();
+        product.setId(1L);
+        product.setName("Test Product");
+
+        Warehouse warehouse = new Warehouse();
+        warehouse.setId(2L);
+        warehouse.setName("Main Warehouse");
+
+        dummyResponse = new InventoryResponse();
+        dummyResponse.setId(10L);
+        dummyResponse.setProduct(product);  
+        dummyResponse.setWarehouse(warehouse); 
+        dummyResponse.setQuantity(100);
+        dummyResponse.setLowStockThreshold(10);
     }
 
     @Test
@@ -49,6 +75,35 @@ class InventoryControllerTest {
                 .content(objectMapper.writeValueAsString(req)))
                 .andExpect(status().isCreated())
                 .andExpect(content().string("55"));
+    }
+
+    @Test
+    void getInventoryByProduct_Success() throws Exception {
+        List<InventoryResponse> list = Collections.singletonList(dummyResponse);
+        when(inventoryService.getInventoryByProduct(1L)).thenReturn(list);
+
+        mockMvc.perform(get("/inventory/product/1"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$[0].product.id").value(1L)); 
+    }
+
+    @Test
+    void getInventoryByWarehouse_Success() throws Exception {
+        List<InventoryResponse> list = Collections.singletonList(dummyResponse);
+        when(inventoryService.getInventoryByWarehouse(2L)).thenReturn(list);
+
+        mockMvc.perform(get("/inventory/warehouse/2"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$[0].warehouse.id").value(2L)); 
+    }
+
+    @Test
+    void updateQuantity_Success() throws Exception {
+        doNothing().when(inventoryService).updateQuantity(eq(1L), anyInt());
+
+        mockMvc.perform(patch("/inventory/1")
+                .param("quantity", "20"))
+                .andExpect(status().isOk());
     }
 
     @Test
@@ -65,6 +120,32 @@ class InventoryControllerTest {
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(list)))
                 .andExpect(status().isOk());
+    }
+
+    @Test
+    void deductStock_Success() throws Exception {
+        StockRequest req = new StockRequest();
+        req.setProductId(1L);
+        req.setWarehouseId(2L);
+        req.setQuantity(5);
+        List<StockRequest> list = Collections.singletonList(req);
+        
+        doNothing().when(inventoryService).deductStock(anyList());
+
+        mockMvc.perform(put("/inventory/stock/deduct")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(objectMapper.writeValueAsString(list)))
+                .andExpect(status().isOk());
+    }
+
+    @Test
+    void lowStock_Success() throws Exception {
+        List<InventoryResponse> list = Collections.singletonList(dummyResponse);
+        when(inventoryService.getLowStock()).thenReturn(list);
+
+        mockMvc.perform(get("/inventory/low-stock"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$[0].id").value(10L));
     }
 
     @Test

@@ -1,0 +1,1061 @@
+
+1.0isananya_inventory-mgmtJavaFrontend"1767544945692*java2.B¬$
+a
+\order-service/src/test/java/com/chubb/inventoryapp/exception/GlobalExceptionHandlerTest.java2
+	
+type3
+	
+TEST4
+
+
+module-key5
+
+order-service6
+
+package8
+3
+.order-service:com.chubb.inventoryapp.exception9
+A
+;com.chubb.inventoryapp.exception.GlobalExceptionHandlerTest11
+
+class12
+
+access13
+
+	protected14
+
+
+full-range15
+
+(17:1)-(85:2)16
+
+simple-name17
+ 
+GlobalExceptionHandlerTest18
+I
+Ccom.chubb.inventoryapp.exception.GlobalExceptionHandlerTest.handler20
+
+field21
+
+private22
+
+(19:5)-(19:81)23
+
+handler24
+=
+7com.chubb.inventoryapp.exception.GlobalExceptionHandler26
+
+unknown27
+
+is type28
+
+
+uses29
+
+calls30
+€
+zcom.chubb.inventoryapp.exception.GlobalExceptionHandlerTest#handleInventoryServiceUnavailable_ReturnsServiceUnavailable()V32
+
+method33
+
+(21:5)-(28:6)34
+A
+;handleInventoryServiceUnavailable_ReturnsServiceUnavailable35
+ 
+org.junit.jupiter.api.Test37
+
+annotated by38
+K
+Ecom.chubb.inventoryapp.exception.InventoryServiceUnavailableException40
+-
+'org.springframework.http.ResponseEntity42
+
+returns43
+
+
+references44
+Ò
+Ëcom.chubb.inventoryapp.exception.GlobalExceptionHandler#handleInventoryServiceUnavailable(Lcom/chubb/inventoryapp/exception/InventoryServiceUnavailableException;)Lorg/springframework/http/ResponseEntity;46
+&
+ org.junit.jupiter.api.Assertions48
+Z
+Torg.junit.jupiter.api.Assertions#assertEquals(Ljava/lang/Object;Ljava/lang/Object;)V50
+)
+#org.springframework.http.HttpStatus52
+=
+7org.springframework.http.HttpStatus.SERVICE_UNAVAILABLE54
+-
+'org.springframework.http.HttpStatusCode56
+f
+`org.springframework.http.ResponseEntity#getStatusCode()Lorg/springframework/http/HttpStatusCode;58
+)
+#org.springframework.http.HttpEntity60
+E
+?org.springframework.http.HttpEntity#getBody()Ljava/lang/Object;62
+h
+bcom.chubb.inventoryapp.exception.GlobalExceptionHandlerTest#handleOrderNotFound_ReturnsNotFound()V64
+
+(30:5)-(37:6)65
+)
+#handleOrderNotFound_ReturnsNotFound66
+=
+7com.chubb.inventoryapp.exception.OrderNotFoundException68
+¶
+¯com.chubb.inventoryapp.exception.GlobalExceptionHandler#handleOrderNotFound(Lcom/chubb/inventoryapp/exception/OrderNotFoundException;)Lorg/springframework/http/ResponseEntity;70
+3
+-org.springframework.http.HttpStatus.NOT_FOUND72
+g
+acom.chubb.inventoryapp.exception.GlobalExceptionHandlerTest#handleOutOfStock_ReturnsBadRequest()V74
+
+(39:5)-(46:6)75
+(
+"handleOutOfStock_ReturnsBadRequest76
+:
+4com.chubb.inventoryapp.exception.OutOfStockException78
+°
+©com.chubb.inventoryapp.exception.GlobalExceptionHandler#handleOutOfStock(Lcom/chubb/inventoryapp/exception/OutOfStockException;)Lorg/springframework/http/ResponseEntity;80
+5
+/org.springframework.http.HttpStatus.BAD_REQUEST82
+i
+ccom.chubb.inventoryapp.exception.GlobalExceptionHandlerTest#handleStatusConflict_ReturnsConflict()V84
+
+(48:5)-(55:6)85
+*
+$handleStatusConflict_ReturnsConflict86
+>
+8com.chubb.inventoryapp.exception.StatusConflictException88
+¸
+±com.chubb.inventoryapp.exception.GlobalExceptionHandler#handleStatusConflict(Lcom/chubb/inventoryapp/exception/StatusConflictException;)Lorg/springframework/http/ResponseEntity;90
+2
+,org.springframework.http.HttpStatus.CONFLICT92
+m
+gcom.chubb.inventoryapp.exception.GlobalExceptionHandlerTest#handleValidationErrors_ReturnsBadRequest()V94
+
+(57:5)-(70:6)95
+.
+(handleValidationErrors_ReturnsBadRequest96
+B
+<org.springframework.web.bind.MethodArgumentNotValidException98
+
+org.mockito.Mockito100
+D
+=org.mockito.Mockito#mock(Ljava/lang/Class;)Ljava/lang/Object;102
+3
+,org.springframework.validation.BindingResult104
+0
+)org.springframework.validation.FieldError106
++
+$org.mockito.stubbing.OngoingStubbing108
+p
+iorg.mockito.stubbing.OngoingStubbing#thenReturn(Ljava/lang/Object;)Lorg/mockito/stubbing/OngoingStubbing;110
+Y
+Rorg.mockito.Mockito#when(Ljava/lang/Object;)Lorg/mockito/stubbing/OngoingStubbing;112
+3
+,org.springframework.validation.BindException114
+t
+morg.springframework.validation.BindException#getBindingResult()Lorg/springframework/validation/BindingResult;116
+,
+%org.springframework.validation.Errors118
+M
+Forg.springframework.validation.Errors#getFieldErrors()Ljava/util/List;120
+¿
+·com.chubb.inventoryapp.exception.GlobalExceptionHandler#handleValidationErrors(Lorg/springframework/web/bind/MethodArgumentNotValidException;)Lorg/springframework/http/ResponseEntity;122
+{
+tcom.chubb.inventoryapp.exception.GlobalExceptionHandlerTest#handleValidationErrors_NoErrors_ReturnsDefaultMessage()V124
+
+(72:5)-(84:6)125
+<
+5handleValidationErrors_NoErrors_ReturnsDefaultMessage126J%
+#
+1
+12
+
+3
+4
+
+5
+6 Z
+
+7
+7982
+
+
+5
+68jß
+
+
+115
+11511627
+
+117
+11711827
+
+71
+717227
+
+45
+454627
+
+103
+10310427
+
+101
+10110227
+J
+10D
+101112 *
+1 (!:7B$
+
+
+13
+14
+
+
+15
+16
+
+
+17
+18
+N
+19H
+192021 *
+1* (1210:7B$
+
+
+13
+22
+
+
+15
+23
+
+
+17
+24
+
+69
+697027
+N
+31H
+313233 *
+1
+ (E210:7B$
+
+
+13
+14
+
+
+15
+34
+
+
+17
+35
+
+61
+616227
+S
+123L
+12312433 *
+1I
+ I(?210:7B&
+
+
+13
+14
+
+15
+125
+
+17
+126
+
+25
+252627
+
+67
+676827
+
+79
+798027
+
+113
+11311427
+
+87
+878827
+
+121
+12112227
+
+39
+394027
+N
+63H
+636433 *
+1
+ (-210:7B$
+
+
+13
+14
+
+
+15
+65
+
+
+17
+66
+N
+73H
+737433 *
+1(
+ ((,210:7B$
+
+
+13
+14
+
+
+15
+75
+
+
+17
+76
+N
+83H
+838433 *
+11
+ 1(.210:7B$
+
+
+13
+14
+
+
+15
+85
+
+
+17
+86
+
+89
+899027
+
+105
+10510627
+
+81
+818227
+
+55
+555627
+
+107
+10710827
+
+53
+535427
+N
+93H
+939433 *
+1:
+ :(2210:7B$
+
+
+13
+14
+
+
+15
+95
+
+
+17
+96
+
+97
+979827
+
+109
+10911027
+
+36
+363727
+
+51
+515227
+
+99
+9910027
+
+59
+596027
+
+49
+495027
+
+57
+575827
+
+91
+919227
+
+47
+474827
+
+41
+414227
+
+111
+11111227
+
+119
+11912027
+
+77
+777827rí,
+
+192528*
+1 ()
+
+192529*
+1 ()
+
+192529*
+1* (1
+
+192530*
+18 (N
+
+313638*
+1 (
+
+
+313629*
+1 (
+
+
+313928*
+1. (0
+
+313929*
+1	 (-
+
+313930*
+17 ([
+
+314128*
+1  ((
+
+314129*
+1	 (
+
+314143*
+1+ (T
+
+312544*
+1+ (T
+
+314530*
+13 (T
+
+311944*
+1+ (2
+
+312529*
+1+ (2
+
+311944*
+1+ (2
+
+314744*
+1	 (
+
+314930*
+1	 (
+
+315129*
+1 ( 
+
+315129*
+1! (4
+
+315344*
+1! (4
+
+315543*
+16 (L
+
+314144*
+16 (L
+
+315730*
+1? (L
+
+314744*
+1	 (
+
+314930*
+1	 (
+
+315944*
+1& (6
+
+316130*
+1/ (6
+
+633638*
+1 (
+
+
+633629*
+1 (
+
+
+636728*
+1    ("
+
+636729*
+1 	  (
+
+636730*
+1 )  (?
+
+634128*
+1!  !((
+
+634129*
+1!	 !(
+
+634143*
+1!+ !(F
+
+632544*
+1!+ !(F
+
+636930*
+1!3 !(F
+
+631944*
+1!+ !(2
+
+632529*
+1!+ !(2
+
+631944*
+1!+ !(2
+
+634744*
+1#	 #(
+
+634930*
+1#	 #(
+
+635129*
+1# #( 
+
+635129*
+1#! #(*
+
+637144*
+1#! #(*
+
+635543*
+1#, #(B
+
+634144*
+1#, #(B
+
+635730*
+1#5 #(B
+
+634744*
+1$	 $(
+
+634930*
+1$	 $(
+
+635944*
+1$' $(7
+
+636130*
+1$0 $(7
+
+733638*
+1' '(
+
+
+733629*
+1' '(
+
+
+737728*
+1) )(
+
+737729*
+1)	 )(
+
+737730*
+1)& )(9
+
+734128*
+1*  *((
+
+734129*
+1*	 *(
+
+734143*
+1*+ *(C
+
+732544*
+1*+ *(C
+
+737930*
+1*3 *(C
+
+731944*
+1*+ *(2
+
+732529*
+1*+ *(2
+
+731944*
+1*+ *(2
+
+734744*
+1,	 ,(
+
+734930*
+1,	 ,(
+
+735129*
+1, ,( 
+
+735129*
+1,! ,(,
+
+738144*
+1,! ,(,
+
+735543*
+1,. ,(D
+
+734144*
+1,. ,(D
+
+735730*
+1,7 ,(D
+
+734744*
+1-	 -(
+
+734930*
+1-	 -(
+
+735944*
+1-" -(2
+
+736130*
+1-+ -(2
+
+833638*
+10 0(
+
+
+833629*
+10 0(
+
+
+838728*
+12! 2(#
+
+838729*
+12	 2( 
+
+838730*
+12* 2(A
+
+834128*
+13  3((
+
+834129*
+13	 3(
+
+834143*
+13+ 3(G
+
+832544*
+13+ 3(G
+
+838930*
+133 3(G
+
+831944*
+13+ 3(2
+
+832529*
+13+ 3(2
+
+831944*
+13+ 3(2
+
+834744*
+15	 5(
+
+834930*
+15	 5(
+
+835129*
+15 5( 
+
+835129*
+15! 5()
+
+839144*
+15! 5()
+
+835543*
+15+ 5(A
+
+834144*
+15+ 5(A
+
+835730*
+154 5(A
+
+834744*
+16	 6(
+
+834930*
+16	 6(
+
+835944*
+16) 6(9
+
+836130*
+162 6(9
+
+933638*
+19 9(
+
+
+933629*
+19 9(
+
+
+939728*
+1;) ;(+
+
+939729*
+1;	 ;((
+
+939743*
+1;. ;(2
+
+939944*
+1;. ;(2
+
+9310130*
+1;. ;(2
+
+939729*
+1;3 ;(R
+
+9310328*
+1< <($
+
+9310329*
+1<	 <(
+
+9310343*
+1<' <(+
+
+939944*
+1<' <(+
+
+9310130*
+1<' <(+
+
+9310329*
+1<, <(9
+
+9310528*
+1= =(
+
+9310529*
+1=	 =(
+
+9310530*
+1=% =(/
+
+9310743*
+1?	 ?(/
+
+9310744*
+1?	 ?(/
+
+9310930*
+1?% ?(/
+
+9310743*
+1?	 ?(
+
+939944*
+1?	 ?(
+
+9311130*
+1?	 ?(
+
+9310343*
+1? ?(!
+
+9311344*
+1? ?(!
+
+9311530*
+1? ?(!
+
+9310743*
+1@	 @(8
+
+9310744*
+1@	 @(8
+
+9310930*
+1@. @(8
+
+9310743*
+1@	 @(
+
+939944*
+1@	 @(
+
+9311130*
+1@	 @(
+
+9311744*
+1@ @(*
+
+9311930*
+1@ @(*
+
+934128*
+1B  B((
+
+934129*
+1B	 B(
+
+934143*
+1B+ B(I
+
+932544*
+1B+ B(I
+
+9312130*
+1B3 B(I
+
+931944*
+1B+ B(2
+
+932529*
+1B+ B(2
+
+931944*
+1B+ B(2
+
+934744*
+1D	 D(
+
+934930*
+1D	 D(
+
+935129*
+1D D( 
+
+935129*
+1D! D(,
+
+938144*
+1D! D(,
+
+935543*
+1D. D(D
+
+934144*
+1D. D(D
+
+935730*
+1D7 D(D
+
+934744*
+1E	 E(
+
+934930*
+1E	 E(
+
+935944*
+1E/ E(?
+
+936130*
+1E8 E(?
+
+1233638*
+1H H(
+
+
+1233629*
+1H H(
+
+
+1239728*
+1J) J(+
+
+1239729*
+1J	 J((
+
+1239743*
+1J. J(2
+
+1239944*
+1J. J(2
+
+12310130*
+1J. J(2
+
+1239729*
+1J3 J(R
+
+12310328*
+1K K($
+
+12310329*
+1K	 K(
+
+12310343*
+1K' K(+
+
+1239944*
+1K' K(+
+
+12310130*
+1K' K(+
+
+12310329*
+1K, K(9
+
+12310743*
+1M	 M(/
+
+12310744*
+1M	 M(/
+
+12310930*
+1M% M(/
+
+12310743*
+1M	 M(
+
+1239944*
+1M	 M(
+
+12311130*
+1M	 M(
+
+12310343*
+1M M(!
+
+12311344*
+1M M(!
+
+12311530*
+1M M(!
+
+12310743*
+1N	 N(8
+
+12310744*
+1N	 N(8
+
+12310930*
+1N. N(8
+
+12310743*
+1N	 N(
+
+1239944*
+1N	 N(
+
+12311130*
+1N	 N(
+
+12311744*
+1N N(*
+
+12311930*
+1N N(*
+
+1234128*
+1P  P((
+
+1234129*
+1P	 P(
+
+1234143*
+1P+ P(I
+
+1232544*
+1P+ P(I
+
+12312130*
+1P3 P(I
+
+1231944*
+1P+ P(2
+
+1232529*
+1P+ P(2
+
+1231944*
+1P+ P(2
+
+1234744*
+1R	 R(
+
+1234930*
+1R	 R(
+
+1235129*
+1R R( 
+
+1235129*
+1R! R(,
+
+1238144*
+1R! R(,
+
+1235543*
+1R. R(D
+
+1234144*
+1R. R(D
+
+1235730*
+1R7 R(D
+
+1234744*
+1S	 S(
+
+1234930*
+1S	 S(
+
+1235944*
+1S+ S(;
+
+1236130*
+1S4 S(;

@@ -1,10 +1,17 @@
 
-ècom.chubb.inventoryapp.service.InvoiceService#mapToResponse(Lcom/chubb/inventoryapp/model/Invoice;)Lcom/chubb/inventoryapp/dto/InvoiceResponse;ï
-äD:/CHUBB_Training/CAPSTONE PROJECT/inventory-mgmt/backend/billing-service/src/main/java/com/chubb/inventoryapp/service/InvoiceService.java` `(&"1*!
-1b b("
-a i(
-
-"":;
-`' `(6/
-invoice$com.chubb.inventoryapp.model.InvoiceB1/
--com.chubb.inventoryapp.service.InvoiceService
+~com.chubb.inventoryapp.config.RabbitConfig#jsonMessageConverter()Lorg/springframework/amqp/support/converter/MessageConverter;í
+áD:/CHUBB_Training/CAPSTONE PROJECT/inventory-mgmt/backend/billing-service/src/main/java/com/chubb/inventoryapp/config/RabbitConfig.java+ +(0"1*Ë
+1, ,(1•¢
+, ,(/M
+%0Gorg.springframework.amqp.support.converter.Jackson2JsonMessageConverter"Gorg.springframework.amqp.support.converter.Jackson2JsonMessageConverter”
+–
+, ,(1
+%1"Qorg.springframework.amqp.support.converter.Jackson2JsonMessageConverter#<init>()V*k
+
+__unknown_file (O
+M
+%0Gorg.springframework.amqp.support.converter.Jackson2JsonMessageConverter"[
+, ,(2O
+M
+%0Gorg.springframework.amqp.support.converter.Jackson2JsonMessageConverterB.,
+*com.chubb.inventoryapp.config.RabbitConfigH
