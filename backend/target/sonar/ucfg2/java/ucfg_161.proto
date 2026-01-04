@@ -1,0 +1,37 @@
+
+}com.chubb.inventoryapp.controller.ProductController#getProductById(Ljava/lang/Long;)Lorg/springframework/http/ResponseEntity;ù
+íD:/CHUBB_Training/CAPSTONE PROJECT/inventory-mgmt/backend/inventory-service/src/main/java/com/chubb/inventoryapp/controller/ProductController.java3( 3(6"1*¶
+14	 4(±
+Æ
+4 4()3
+%0-com.chubb.inventoryapp.service.ProductService"__id*g
+
+__unknown_file (K*I5
+3com.chubb.inventoryapp.controller.ProductController"
+productService‰·
+4 4(<0
+%1*com.chubb.inventoryapp.dto.ProductResponse"zcom.chubb.inventoryapp.service.ProductService#getProductById(Ljava/lang/Long;)Lcom/chubb/inventoryapp/dto/ProductResponse;*Q
+
+__unknown_file (5
+3
+%0-com.chubb.inventoryapp.service.ProductService*2
+
+__unknown_file (
+
+idjava.lang.Long2 getProductById(Ljava/lang/Long;)æ
+ª
+4	 4(=-
+%2'org.springframework.http.ResponseEntity"gorg.springframework.http.ResponseEntity#ok(Ljava/lang/Object;)Lorg/springframework/http/ResponseEntity;*G
+
+__unknown_file (+")
+'org.springframework.http.ResponseEntity*N
+
+__unknown_file (2
+0
+%1*com.chubb.inventoryapp.dto.ProductResponse";
+4 4(>/
+-
+%2'org.springframework.http.ResponseEntity: 
+37 3(L
+idjava.lang.LongB75
+3com.chubb.inventoryapp.controller.ProductControllerH

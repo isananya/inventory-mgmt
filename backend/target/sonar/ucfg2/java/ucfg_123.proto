@@ -1,0 +1,10 @@
+
+•com.chubb.inventoryapp.service.InventoryService#mapToResponse(Lcom/chubb/inventoryapp/model/Inventory;)Lcom/chubb/inventoryapp/dto/InventoryResponse;™
+ŽD:/CHUBB_Training/CAPSTONE PROJECT/inventory-mgmt/backend/inventory-service/src/main/java/com/chubb/inventoryapp/service/InventoryService.java? ?(("1*!
+1A A("
+@ F(
+
+"":?
+?) ?(<3
+	inventory&com.chubb.inventoryapp.model.InventoryB31
+/com.chubb.inventoryapp.service.InventoryService

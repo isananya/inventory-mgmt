@@ -1,0 +1,70 @@
+
+€com.chubb.inventoryapp.service.WarehouseService#getWarehouseById(Ljava/lang/Long;)Lcom/chubb/inventoryapp/dto/WarehouseResponse;™
+ŽD:/CHUBB_Training/CAPSTONE PROJECT/inventory-mgmt/backend/inventory-service/src/main/java/com/chubb/inventoryapp/service/WarehouseService.java< <(*"1*À
+1= =(+º
+·
+= =(+;
+%05com.chubb.inventoryapp.repository.WarehouseRepository"__id*h
+
+__unknown_file (L*J1
+/com.chubb.inventoryapp.service.WarehouseService"
+warehouseRepository¹¶
+= =(8
+%1java.util.Optional"corg.springframework.data.repository.CrudRepository#findById(Ljava/lang/Object;)Ljava/util/Optional;*Y
+
+__unknown_file (=
+;
+%05com.chubb.inventoryapp.repository.WarehouseRepository*2
+
+__unknown_file (
+
+idjava.lang.Long2findById(Ljava/lang/Object;)¦
+£
+=E =(m!
+%2java.util.function.Supplier"__declareFunction*a
+
+__unknown_file (EC
+A__sonar_lambda_21$com.chubb.inventoryapp.service.WarehouseService
+
+
+__unknown_file ()
+!
+%2java.util.function.Supplier"
+id"__id*2
+
+__unknown_file (
+
+idjava.lang.Long±®
+= =(n,
+%5&com.chubb.inventoryapp.model.Warehouse"Ojava.util.Optional#orElseThrow(Ljava/util/function/Supplier;)Ljava/lang/Object;*6
+
+__unknown_file (
+
+%1java.util.Optional*?
+
+__unknown_file (#
+!
+%2java.util.function.Supplier2*orElseThrow(Ljava/util/function/Supplier;)”
+‘
+= =(o3
+	warehouse&com.chubb.inventoryapp.model.Warehouse"__id*J
+
+__unknown_file (.
+,
+%5&com.chubb.inventoryapp.model.Warehouseý
+ú
+>	 >(!2
+%6,com.chubb.inventoryapp.dto.WarehouseResponse"•com.chubb.inventoryapp.service.WarehouseService#mapToResponse(Lcom/chubb/inventoryapp/model/Warehouse;)Lcom/chubb/inventoryapp/dto/WarehouseResponse;*O
+
+__unknown_file (31
+/com.chubb.inventoryapp.service.WarehouseService*Q
+
+__unknown_file (5
+3
+	warehouse&com.chubb.inventoryapp.model.Warehouse"@
+> >("4
+2
+%6,com.chubb.inventoryapp.dto.WarehouseResponse: 
+<+ <(2
+idjava.lang.LongB31
+/com.chubb.inventoryapp.service.WarehouseServiceH

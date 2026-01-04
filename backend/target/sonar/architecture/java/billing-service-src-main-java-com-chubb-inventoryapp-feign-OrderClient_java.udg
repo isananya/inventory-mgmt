@@ -1,0 +1,145 @@
+
+1.0isananya_inventory-mgmtJavaFrontend"1767529079079*java2.BÅ
+P
+Kbilling-service/src/main/java/com/chubb/inventoryapp/feign/OrderClient.java2
+	
+type3
+	
+MAIN4
+
+
+module-key5
+
+billing-service6
+
+package8
+1
+,billing-service:com.chubb.inventoryapp.feign9
+.
+(com.chubb.inventoryapp.feign.OrderClient11
+
+	interface12
+
+access13
+
+public14
+
+
+full-range15
+
+(9:1)-(14:2)16
+
+simple-name17
+
+OrderClient18
+5
+/org.springframework.cloud.openfeign.FeignClient20
+
+unknown21
+
+annotated by22
+
+
+uses23
+w
+qcom.chubb.inventoryapp.feign.OrderClient#getOrderById(Ljava/lang/Long;)Lcom/chubb/inventoryapp/dto/OrderResponse;25
+
+method26
+
+(12:5)-(13:68)27
+
+getOrderById28
+.
+(com.chubb.inventoryapp.dto.OrderResponse30
+
+returns31
+8
+2org.springframework.web.bind.annotation.GetMapping33
+:
+4org.springframework.web.bind.annotation.PathVariable35J%
+#
+1
+12
+
+3
+4
+
+5
+6 Z
+
+7
+7982
+
+
+5
+68jì
+J
+10D
+101112 *
+1
+ 
+(:7B$
+
+
+13
+14
+
+
+15
+16
+
+
+17
+18
+
+34
+343521
+
+32
+323321
+
+19
+192021
+N
+24H
+242526 *
+1 (&210:7B$
+
+
+13
+14
+
+
+15
+27
+
+
+17
+28
+
+29
+293021rØ
+
+101922*
+1	 	(%
+
+101923*
+1	 	(
+
+242931*
+1 (
+
+243222*
+1 (
+
+243223*
+1 (
+
+242923*
+1 (
+
+243422*
+1' (:
+
+243423*
+1( (4

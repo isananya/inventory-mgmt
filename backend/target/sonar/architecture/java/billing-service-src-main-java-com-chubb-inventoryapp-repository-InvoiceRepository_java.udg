@@ -1,0 +1,137 @@
+
+1.0isananya_inventory-mgmtJavaFrontend"1767529079018*java2.Bû
+[
+Vbilling-service/src/main/java/com/chubb/inventoryapp/repository/InvoiceRepository.java2
+	
+type3
+	
+MAIN4
+
+
+module-key5
+
+billing-service6
+
+package8
+6
+1billing-service:com.chubb.inventoryapp.repository9
+9
+3com.chubb.inventoryapp.repository.InvoiceRepository11
+
+	interface12
+
+access13
+
+public14
+
+
+full-range15
+
+(10:1)-(13:2)16
+
+simple-name17
+
+InvoiceRepository18
+;
+5org.springframework.data.jpa.repository.JpaRepository20
+
+unknown21
+
+
+implements22
+/
+)org.springframework.stereotype.Repository24
+
+annotated by25
+
+
+uses26
+*
+$com.chubb.inventoryapp.model.Invoice28
+m
+gcom.chubb.inventoryapp.repository.InvoiceRepository#findByOrderId(Ljava/lang/Long;)Ljava/util/Optional;30
+
+method31
+
+(12:5)-(12:51)32
+
+findByOrderId33J%
+#
+1
+12
+
+3
+4
+
+5
+6 Z
+
+7
+7982
+
+
+5
+68jÿ
+J
+10D
+101112 *
+1 (#:7B$
+
+
+13
+14
+
+
+15
+16
+
+
+17
+18
+
+23
+232421
+
+19
+192021
+
+27
+272821
+N
+29H
+293031 *
+1 ($210:7B$
+
+
+13
+14
+
+
+15
+32
+
+
+17
+33r¢
+
+101922*
+1, (H
+
+102325*
+1
+ 
+(
+
+102326*
+1
+ 
+(
+
+101926*
+1, (9
+
+102726*
+1: (A
+
+292726*
+1 (

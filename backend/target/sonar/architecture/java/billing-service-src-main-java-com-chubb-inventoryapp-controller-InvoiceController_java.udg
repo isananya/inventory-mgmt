@@ -1,0 +1,836 @@
+
+1.0isananya_inventory-mgmtJavaFrontend"1767529078606*java2.Bø"
+[
+Vbilling-service/src/main/java/com/chubb/inventoryapp/controller/InvoiceController.java2
+	
+type3
+	
+MAIN4
+
+
+module-key5
+
+billing-service6
+
+package8
+6
+1billing-service:com.chubb.inventoryapp.controller9
+9
+3com.chubb.inventoryapp.controller.InvoiceController11
+
+class12
+
+access13
+
+public14
+
+
+full-range15
+
+(25:1)-(77:2)16
+
+simple-name17
+
+InvoiceController18
+<
+6org.springframework.web.bind.annotation.RestController20
+
+unknown21
+
+annotated by22
+
+
+uses23
+<
+6org.springframework.web.bind.annotation.RequestMapping25
+H
+Bcom.chubb.inventoryapp.controller.InvoiceController.invoiceService27
+
+field28
+
+private29
+
+(29:2)-(29:46)30
+
+invoiceService31
+3
+-com.chubb.inventoryapp.service.InvoiceService33
+
+is type34
+r
+lcom.chubb.inventoryapp.controller.InvoiceController#<init>(Lcom/chubb/inventoryapp/service/InvoiceService;)V36
+
+method37
+
+(31:2)-(34:3)38
+
+	has param39
+
+calls40
+
+
+references41
+°
+©com.chubb.inventoryapp.controller.InvoiceController#generateInvoice(Ljava/lang/Long;Lcom/chubb/inventoryapp/dto/InvoiceRequest;)Lorg/springframework/http/ResponseEntity;43
+
+(36:2)-(40:6)44
+
+generateInvoice45
+-
+'org.springframework.http.ResponseEntity47
+
+returns48
+/
+)com.chubb.inventoryapp.dto.InvoiceRequest50
+9
+3org.springframework.web.bind.annotation.PostMapping52
+:
+4org.springframework.web.bind.annotation.PathVariable54
+9
+3org.springframework.web.bind.annotation.RequestBody56
+
+jakarta.validation.Valid58
+9
+3org.springframework.http.ResponseEntity$BodyBuilder60
+{
+uorg.springframework.http.ResponseEntity$BodyBuilder#body(Ljava/lang/Object;)Lorg/springframework/http/ResponseEntity;62
+•
+Žorg.springframework.http.ResponseEntity#status(Lorg/springframework/http/HttpStatusCode;)Lorg/springframework/http/ResponseEntity$BodyBuilder;64
+)
+#org.springframework.http.HttpStatus66
+1
++org.springframework.http.HttpStatus.CREATED68
+‘
+Šcom.chubb.inventoryapp.service.InvoiceService#generateInvoice(Ljava/lang/Long;Lcom/chubb/inventoryapp/dto/InvoiceRequest;)Ljava/lang/Long;70
+‡
+€com.chubb.inventoryapp.controller.InvoiceController#getInvoiceByOrder(Ljava/lang/Long;)Lorg/springframework/http/ResponseEntity;72
+
+(42:2)-(45:6)73
+
+getInvoiceByOrder74
+8
+2org.springframework.web.bind.annotation.GetMapping76
+0
+*com.chubb.inventoryapp.dto.InvoiceResponse78
+m
+gorg.springframework.http.ResponseEntity#ok(Ljava/lang/Object;)Lorg/springframework/http/ResponseEntity;80
+…
+com.chubb.inventoryapp.service.InvoiceService#getInvoiceByOrderId(Ljava/lang/Long;)Lcom/chubb/inventoryapp/dto/InvoiceResponse;82
+
+ycom.chubb.inventoryapp.controller.InvoiceController#getInvoice(Ljava/lang/Long;)Lorg/springframework/http/ResponseEntity;84
+
+(47:2)-(50:6)85
+
+
+getInvoice86
+|
+vcom.chubb.inventoryapp.service.InvoiceService#getInvoice(Ljava/lang/Long;)Lcom/chubb/inventoryapp/dto/InvoiceResponse;88
+š
+“com.chubb.inventoryapp.controller.InvoiceController#getAllInvoices(IILjava/lang/String;Ljava/lang/String;)Lorg/springframework/http/ResponseEntity;90
+
+(52:2)-(67:6)91
+
+getAllInvoices92
+*
+$org.springframework.data.domain.Page94
+:
+4org.springframework.web.bind.annotation.RequestParam96
+*
+$org.springframework.data.domain.Sort98
+^
+Worg.springframework.data.domain.Sort#descending()Lorg/springframework/data/domain/Sort;100
+i
+borg.springframework.data.domain.Sort#by([Ljava/lang/String;)Lorg/springframework/data/domain/Sort;102
+]
+Vorg.springframework.data.domain.Sort#ascending()Lorg/springframework/data/domain/Sort;104
+/
+(org.springframework.data.domain.Pageable106
+2
++org.springframework.data.domain.PageRequest108
+
+…org.springframework.data.domain.PageRequest#of(IILorg/springframework/data/domain/Sort;)Lorg/springframework/data/domain/PageRequest;110
+–
+Žcom.chubb.inventoryapp.service.InvoiceService#getAllInvoices(Lorg/springframework/data/domain/Pageable;)Lorg/springframework/data/domain/Page;112
+´
+¬com.chubb.inventoryapp.controller.InvoiceController#updateStatus(Ljava/lang/Long;Lcom/chubb/inventoryapp/dto/InvoiceStatusRequest;)Lorg/springframework/http/ResponseEntity;114
+
+(69:2)-(76:6)115
+
+updateStatus116
+6
+/com.chubb.inventoryapp.dto.InvoiceStatusRequest118
+;
+4org.springframework.web.bind.annotation.PatchMapping120
+ˆ
+€com.chubb.inventoryapp.service.InvoiceService#updateInvoiceStatus(Ljava/lang/Long;Lcom/chubb/inventoryapp/model/PaymentStatus;)V122J%
+#
+1
+12
+
+3
+4
+
+5
+6 Z
+
+7
+7982
+
+
+5
+68j±
+
+J
+10D
+101112 *
+1 (:7B$
+
+
+13
+14
+
+
+15
+16
+
+
+17
+18
+
+53
+535421
+
+67
+676821
+
+95
+959621
+
+77
+777821
+
+49
+495021
+
+24
+242521
+
+57
+575821
+
+59
+596021
+N
+42H
+424337 *
+1%! %(0210:7B$
+
+
+13
+14
+
+
+15
+44
+
+
+17
+45
+
+119
+11912021
+
+55
+555621
+
+81
+818221
+
+117
+11711821
+
+79
+798021
+
+111
+11111221
+
+61
+616221
+
+75
+757621
+
+97
+979821
+
+105
+10510621
+
+69
+697021
+
+63
+636421
+
+51
+515221
+N
+71H
+717237 *
+1+, +(=210:7B$
+
+
+13
+14
+
+
+15
+73
+
+
+17
+74
+S
+113L
+11311437 *
+1F! F(-210:7B&
+
+
+13
+14
+
+15
+115
+
+17
+116
+
+107
+10710821
+
+93
+939421
+
+19
+192021
+
+87
+878821
+
+65
+656621
+N
+83H
+838437 *
+10, 0(6210:7B$
+
+
+13
+14
+
+
+15
+85
+
+
+17
+86
+
+103
+10310421
+
+32
+323321
+N
+26H
+262728 *
+1 (-210:7B$
+
+
+13
+29
+
+
+15
+30
+
+
+17
+31
+
+109
+10911021
+
+121
+12112221
+N
+35H
+353637 *
+1	 (210:7B$
+
+
+13
+14
+
+
+15
+38
+
+
+17
+18
+
+46
+464721
+
+99
+9910021
+N
+89H
+899037 *
+152 5(@210:7B$
+
+
+13
+14
+
+
+15
+91
+
+
+17
+92
+
+101
+10110221rº
+
+101922*
+1 (
+
+101923*
+1 (
+
+102422*
+1 (
+
+102423*
+1 (
+
+263234*
+1 (
+
+263223*
+1 (
+
+263223*
+1 (-
+
+353239*
+1 ()
+
+351040*
+1	 (
+
+353234*
+1* (8
+
+353223*
+1 ()
+
+351023*
+1! !(
+
+351041*
+1! !(
+
+353223*
+1! !(
+
+352641*
+1! !(
+
+424648*
+1% %( 
+
+424939*
+1& &()
+
+425122*
+1$ $("
+
+425123*
+1$ $(
+
+424623*
+1% %(
+
+425322*
+1%1 %(>
+
+425323*
+1%2 %(>
+
+424934*
+1&* &(1
+
+425522*
+1& &(
+
+425523*
+1& &(
+
+425722*
+1& &(
+
+425723*
+1& &(
+
+424923*
+1& &()
+
+424648*
+1' '(>
+
+425941*
+1' '(>
+
+426140*
+1': '(>
+
+425948*
+1' '(%
+
+424641*
+1' '(%
+
+426340*
+1' '(%
+
+426523*
+1'& '(0
+
+426523*
+1'1 '(8
+
+426741*
+1'1 '(8
+
+423241*
+1'? '(]
+
+426940*
+1'N '(]
+
+422641*
+1'? '(M
+
+423223*
+1'? '(M
+
+422641*
+1'? '(M
+
+714648*
+1+ +(+
+
+717522*
+1* *(!
+
+717523*
+1* *(
+
+714623*
+1+ +(
+
+717723*
+1+ +(*
+
+715322*
+1+> +(K
+
+715323*
+1+? +(K
+
+714648*
+1, ,(!
+
+714641*
+1, ,(!
+
+717940*
+1, ,(!
+
+717748*
+1," ,(D
+
+713241*
+1," ,(D
+
+718140*
+1,1 ,(D
+
+712641*
+1," ,(0
+
+713223*
+1," ,(0
+
+712641*
+1," ,(0
+
+834648*
+10 0(+
+
+837522*
+1/ /(
+
+837523*
+1/ /(
+
+834623*
+10 0(
+
+837723*
+10 0(*
+
+835322*
+107 0(D
+
+835323*
+108 0(D
+
+834648*
+11 1(!
+
+834641*
+11 1(!
+
+837940*
+11 1(!
+
+837748*
+11" 1(;
+
+833241*
+11" 1(;
+
+838740*
+111 1(;
+
+832641*
+11" 1(0
+
+833223*
+11" 1(0
+
+832641*
+11" 1(0
+
+894648*
+15 5(1
+
+897522*
+14 4(
+
+897523*
+14 4(
+
+894623*
+15 5(
+
+899323*
+15 5(
+
+897723*
+15  5(/
+
+899522*
+16 6(.
+
+899523*
+16 6(
+
+899522*
+17 7(/
+
+899523*
+17 7(
+
+899522*
+18 8(6
+
+899523*
+18 8(
+
+899522*
+19 9(1
+
+899523*
+19 9(
+
+899734*
+1; ;(
+
+899723*
+1;	 ;(
+
+899748*
+1< <(-
+
+899741*
+1< <(-
+
+899940*
+1<# <(-
+
+899748*
+1< <(
+
+899741*
+1< <(
+
+8910140*
+1< <(
+
+899723*
+1< <(
+
+899748*
+1= =(,
+
+899741*
+1= =(,
+
+8910340*
+1=# =(,
+
+899748*
+1= =(
+
+899741*
+1= =(
+
+8910140*
+1= =(
+
+899723*
+1= =(
+
+8910534*
+1? ?(
+
+8910523*
+1?	 ?(
+
+8910748*
+1? ?(+
+
+8910741*
+1? ?(+
+
+8910940*
+1?) ?(+
+
+8910723*
+1? ?((
+
+899334*
+1A A('
+
+899323*
+1A	 A(
+
+897723*
+1A A(
+
+899348*
+1A* A(G
+
+893241*
+1A* A(G
+
+8911140*
+1A9 A(G
+
+892641*
+1A* A(8
+
+893223*
+1A* A(8
+
+892641*
+1A* A(8
+
+894648*
+1B B(!
+
+894641*
+1B B(!
+
+897940*
+1B B(!
+
+1134648*
+1F F( 
+
+11311739*
+1H! H(5
+
+11311922*
+1E E(*
+
+11311923*
+1E E(
+
+1134623*
+1F F(
+
+1135322*
+1G G(
+
+1135323*
+1G G(
+
+11311734*
+1H6 H(=
+
+1135522*
+1H H(
+
+1135523*
+1H H(
+
+1135722*
+1H H( 
+
+1135723*
+1H H( 
+
+11311723*
+1H! H(5
+
+1133241*
+1J J((
+
+11312140*
+1J J((
+
+1132641*
+1J J(
+
+1133223*
+1J J(
+
+1132641*
+1J J(
+
+1134648*
+1K K(!
+
+1134641*
+1K K(!
+
+1137940*
+1K K(!

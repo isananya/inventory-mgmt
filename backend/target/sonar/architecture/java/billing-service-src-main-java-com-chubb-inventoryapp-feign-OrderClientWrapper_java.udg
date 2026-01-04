@@ -1,0 +1,254 @@
+
+1.0isananya_inventory-mgmtJavaFrontend"1767529078859*java2.Bµ
+W
+Rbilling-service/src/main/java/com/chubb/inventoryapp/feign/OrderClientWrapper.java2
+	
+type3
+	
+MAIN4
+
+
+module-key5
+
+billing-service6
+
+package8
+1
+,billing-service:com.chubb.inventoryapp.feign9
+5
+/com.chubb.inventoryapp.feign.OrderClientWrapper11
+
+class12
+
+access13
+
+public14
+
+
+full-range15
+
+(11:1)-(26:2)16
+
+simple-name17
+
+OrderClientWrapper18
+,
+&org.springframework.stereotype.Service20
+
+unknown21
+
+annotated by22
+
+
+uses23
+$
+lombok.RequiredArgsConstructor25
+A
+;com.chubb.inventoryapp.feign.OrderClientWrapper.orderClient27
+
+field28
+
+private29
+
+(15:2)-(15:40)30
+
+orderClient31
+.
+(com.chubb.inventoryapp.feign.OrderClient33
+
+is type34
+~
+xcom.chubb.inventoryapp.feign.OrderClientWrapper#getOrderById(Ljava/lang/Long;)Lcom/chubb/inventoryapp/dto/OrderResponse;36
+
+method37
+
+(17:2)-(20:3)38
+
+getOrderById39
+.
+(com.chubb.inventoryapp.dto.OrderResponse41
+
+returns42
+E
+?io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker44
+
+
+references45
+w
+qcom.chubb.inventoryapp.feign.OrderClient#getOrderById(Ljava/lang/Long;)Lcom/chubb/inventoryapp/dto/OrderResponse;47
+
+calls48
+ï
+écom.chubb.inventoryapp.feign.OrderClientWrapper#orderFallback(Ljava/lang/Long;Ljava/lang/Throwable;)Lcom/chubb/inventoryapp/dto/OrderResponse;50
+
+(22:2)-(24:3)51
+
+orderFallback52
+G
+Acom.chubb.inventoryapp.exception.OrderServiceUnavailableException54J%
+#
+1
+12
+
+3
+4
+
+5
+6 Z
+
+7
+7982
+
+
+5
+68j»
+
+32
+323321
+
+19
+192021
+
+24
+242521
+J
+10D
+101112 *
+1 ( :7B$
+
+
+13
+14
+
+
+15
+16
+
+
+17
+18
+N
+49H
+495037 *
+1 ($210:7B$
+
+
+13
+14
+
+
+15
+51
+
+
+17
+52
+
+43
+434421
+
+53
+535421
+N
+35H
+353637 *
+1 (&210:7B$
+
+
+13
+14
+
+
+15
+38
+
+
+17
+39
+
+40
+404121
+
+46
+464721
+N
+26H
+262728 *
+1 ('210:7B$
+
+
+13
+29
+
+
+15
+30
+
+
+17
+31rú
+
+101922*
+1 (	
+
+101923*
+1 (	
+
+102422*
+1 (
+
+102423*
+1 (
+
+263234*
+1 (
+
+263223*
+1 (
+
+263223*
+1 ('
+
+354042*
+1 (
+
+354322*
+1 (L
+
+354323*
+1 (
+
+354023*
+1 (
+
+354042*
+1
+ ("
+
+353245*
+1
+ ("
+
+354648*
+1 ("
+
+352645*
+1
+ (
+
+353223*
+1
+ (
+
+352645*
+1
+ (
+
+494042*
+1	 (
+
+494023*
+1	 (
+
+495348*
+1 (-

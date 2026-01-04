@@ -1,0 +1,83 @@
+
+òcom.chubb.inventoryapp.security.UserDetailsServiceImpl#loadUserByUsername(Ljava/lang/String;)Lorg/springframework/security/core/userdetails/UserDetails;õ
+êD:/CHUBB_Training/CAPSTONE PROJECT/inventory-mgmt/backend/user-service/src/main/java/com/chubb/inventoryapp/security/UserDetailsServiceImpl.java ()"startingBlock*à
+startingBlock) (7å
+â
+ (
+%8"
+__annotate*2
+
+__unknown_file (
+java.lang.Override*7
+
+__unknown_file (
+
+emailjava.lang.StringY
+W
+1 (6
+emailjava.lang.String"__annotation*"
+
+__unknown_file (
+
+%8*
+1*∫
+1 ("∑
+¥
+ ("6
+%00com.chubb.inventoryapp.repository.UserRepository"__id*j
+
+__unknown_file (N*L8
+6com.chubb.inventoryapp.security.UserDetailsServiceImpl"
+userRepositoryΩ∫
+ (5
+%1java.util.Optional"dcom.chubb.inventoryapp.repository.UserRepository#findByEmail(Ljava/lang/String;)Ljava/util/Optional;*T
+
+__unknown_file (8
+6
+%00com.chubb.inventoryapp.repository.UserRepository*7
+
+__unknown_file (
+
+emailjava.lang.String2findByEmail(Ljava/lang/String;)¨
+©
+ (R!
+%2java.util.function.Supplier"__declareFunction*g
+
+__unknown_file (KI
+G__sonar_lambda_4$com.chubb.inventoryapp.security.UserDetailsServiceImpl¨©
+ (S'
+%5!com.chubb.inventoryapp.model.User"Ojava.util.Optional#orElseThrow(Ljava/util/function/Supplier;)Ljava/lang/Object;*6
+
+__unknown_file (
+
+%1java.util.Optional*?
+
+__unknown_file (#
+!
+%2java.util.function.Supplier2*orElseThrow(Ljava/util/function/Supplier;)Ö
+Ç
+ (T)
+user!com.chubb.inventoryapp.model.User"__id*E
+
+__unknown_file ()
+'
+%5!com.chubb.inventoryapp.model.Usertr
+ ("5
+%6/com.chubb.inventoryapp.security.UserDetailsImpl"/com.chubb.inventoryapp.security.UserDetailsImplè
+å
+ ((
+%7"\com.chubb.inventoryapp.security.UserDetailsImpl#<init>(Lcom/chubb/inventoryapp/model/User;)V*S
+
+__unknown_file (7
+5
+%6/com.chubb.inventoryapp.security.UserDetailsImpl*G
+
+__unknown_file (+
+)
+user!com.chubb.inventoryapp.model.User"C
+ ()7
+5
+%6/com.chubb.inventoryapp.security.UserDetailsImpl:%
+* (6
+emailjava.lang.StringB:8
+6com.chubb.inventoryapp.security.UserDetailsServiceImplH

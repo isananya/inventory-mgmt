@@ -1,0 +1,201 @@
+
+1.0isananya_inventory-mgmtJavaFrontend"1767529075441*java2.Bö
+V
+Qinventory-service/src/main/java/com/chubb/inventoryapp/dto/WarehouseResponse.java2
+	
+type3
+	
+MAIN4
+
+
+module-key5
+
+inventory-service6
+
+package8
+1
+,inventory-service:com.chubb.inventoryapp.dto9
+2
+,com.chubb.inventoryapp.dto.WarehouseResponse11
+
+class12
+
+access13
+
+public14
+
+
+full-range15
+
+(7:1)-(15:2)16
+
+simple-name17
+
+WarehouseResponse18
+
+lombok.Data20
+
+unknown21
+
+annotated by22
+
+
+uses23
+
+lombok.NoArgsConstructor25
+
+lombok.AllArgsConstructor27
+5
+/com.chubb.inventoryapp.dto.WarehouseResponse.id29
+
+field30
+
+private31
+
+(11:2)-(11:18)32
+
+id33
+7
+1com.chubb.inventoryapp.dto.WarehouseResponse.name35
+
+(12:2)-(12:22)36
+
+
+name37
+;
+5com.chubb.inventoryapp.dto.WarehouseResponse.location39
+
+(13:2)-(13:26)40
+
+location41
+9
+3com.chubb.inventoryapp.dto.WarehouseResponse.active43
+
+(14:2)-(14:25)44
+
+active45J%
+#
+1
+12
+
+3
+4
+
+5
+6 Z
+
+7
+7982
+
+
+5
+68j»
+N
+42H
+424330 *
+1 (210:7B$
+
+
+13
+31
+
+
+15
+44
+
+
+17
+45
+J
+10D
+101112 *
+1
+ 
+(:7B$
+
+
+13
+14
+
+
+15
+16
+
+
+17
+18
+N
+28H
+282930 *
+1 (210:7B$
+
+
+13
+31
+
+
+15
+32
+
+
+17
+33
+
+19
+192021
+N
+38H
+383930 *
+1 (210:7B$
+
+
+13
+31
+
+
+15
+40
+
+
+17
+41
+N
+34H
+343530 *
+1 (210:7B$
+
+
+13
+31
+
+
+15
+36
+
+
+17
+37
+
+26
+262721
+
+24
+242521r¢
+
+101922*
+1 (
+
+101923*
+1 (
+
+102422*
+1 (
+
+102423*
+1 (
+
+102622*
+1	 	(
+
+102623*
+1	 	(

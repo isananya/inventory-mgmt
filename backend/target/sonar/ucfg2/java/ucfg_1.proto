@@ -1,0 +1,17 @@
+
+~com.chubb.inventoryapp.config.RabbitConfig#jsonMessageConverter()Lorg/springframework/amqp/support/converter/MessageConverter;ê
+ÖD:/CHUBB_Training/CAPSTONE PROJECT/inventory-mgmt/backend/email-service/src/main/java/com/chubb/inventoryapp/config/RabbitConfig.java (0"1*Ë
+1 (1•¢
+ (/M
+%0Gorg.springframework.amqp.support.converter.Jackson2JsonMessageConverter"Gorg.springframework.amqp.support.converter.Jackson2JsonMessageConverter”
+–
+ (1
+%1"Qorg.springframework.amqp.support.converter.Jackson2JsonMessageConverter#<init>()V*k
+
+__unknown_file (O
+M
+%0Gorg.springframework.amqp.support.converter.Jackson2JsonMessageConverter"[
+ (2O
+M
+%0Gorg.springframework.amqp.support.converter.Jackson2JsonMessageConverterB.,
+*com.chubb.inventoryapp.config.RabbitConfigH

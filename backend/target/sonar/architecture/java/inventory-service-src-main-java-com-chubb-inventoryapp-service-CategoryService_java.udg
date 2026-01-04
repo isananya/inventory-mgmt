@@ -1,0 +1,349 @@
+
+1.0isananya_inventory-mgmtJavaFrontend"1767529075531*java2.BÇ
+X
+Sinventory-service/src/main/java/com/chubb/inventoryapp/service/CategoryService.java2
+	
+type3
+	
+MAIN4
+
+
+module-key5
+
+inventory-service6
+
+package8
+5
+0inventory-service:com.chubb.inventoryapp.service9
+4
+.com.chubb.inventoryapp.service.CategoryService11
+
+class12
+
+access13
+
+public14
+
+
+full-range15
+
+(13:1)-(49:2)16
+
+simple-name17
+
+CategoryService18
+,
+&org.springframework.stereotype.Service20
+
+unknown21
+
+annotated by22
+
+
+uses23
+G
+Acom.chubb.inventoryapp.service.CategoryService.categoryRepository25
+
+field26
+
+private27
+
+(15:5)-(15:57)28
+
+categoryRepository29
+:
+4com.chubb.inventoryapp.repository.CategoryRepository31
+
+is type32
+t
+ncom.chubb.inventoryapp.service.CategoryService#<init>(Lcom/chubb/inventoryapp/repository/CategoryRepository;)V34
+
+method35
+
+(17:2)-(20:3)36
+
+	has param37
+
+calls38
+
+
+references39
+~
+xcom.chubb.inventoryapp.service.CategoryService#addCategory(Lcom/chubb/inventoryapp/dto/CategoryRequest;)Ljava/lang/Long;41
+
+(22:2)-(36:6)42
+
+addCategory43
+0
+*com.chubb.inventoryapp.dto.CategoryRequest45
+f
+`com.chubb.inventoryapp.repository.CategoryRepository#existsByNameIgnoreCase(Ljava/lang/String;)Z47
+E
+?com.chubb.inventoryapp.exception.CategoryAlreadyExistsException49
++
+%com.chubb.inventoryapp.model.Category51
+
+returns52
+8
+2org.springframework.data.repository.CrudRepository54
+c
+]org.springframework.data.repository.CrudRepository#save(Ljava/lang/Object;)Ljava/lang/Object;56
+W
+Qcom.chubb.inventoryapp.service.CategoryService#getAllCategories()Ljava/util/List;58
+
+(38:2)-(48:6)59
+
+getAllCategories60
+1
++com.chubb.inventoryapp.dto.CategoryResponse62
+<
+6org.springframework.data.repository.ListCrudRepository64
+V
+Porg.springframework.data.repository.ListCrudRepository#findAll()Ljava/util/List;66J%
+#
+1
+12
+
+3
+4
+
+5
+6 Z
+
+7
+7982
+
+
+5
+68jè
+
+48
+484921
+
+65
+656621
+
+55
+555621
+N
+33H
+333435 *
+1	 (210:7B$
+
+
+13
+14
+
+
+15
+36
+
+
+17
+18
+
+50
+505121
+
+63
+636421
+
+30
+303121
+
+53
+535421
+
+44
+444521
+N
+24H
+242526 *
+1& (8210:7B$
+
+
+13
+27
+
+
+15
+28
+
+
+17
+29
+
+46
+464721
+J
+10D
+101112 *
+1 (:7B$
+
+
+13
+14
+
+
+15
+16
+
+
+17
+18
+
+19
+192021
+N
+40H
+404135 *
+1 (210:7B$
+
+
+13
+14
+
+
+15
+42
+
+
+17
+43
+
+61
+616221
+N
+57H
+575835 *
+1&  &(0210:7B$
+
+
+13
+14
+
+
+15
+59
+
+
+17
+60r‚
+
+101922*
+1 (	
+
+101923*
+1 (	
+
+243032*
+1 (%
+
+243023*
+1 (%
+
+243023*
+1& (8
+
+333037*
+1 (+
+
+331038*
+1	 (
+
+333032*
+1, (>
+
+333023*
+1 (+
+
+331023*
+1 (
+
+331039*
+1 (
+
+333023*
+1 (
+
+332439*
+1 (
+
+404437*
+1 ()
+
+404432*
+1* (1
+
+404423*
+1 ()
+
+403039*
+1 (6
+
+404638*
+1  (6
+
+402439*
+1 (
+
+403023*
+1 (
+
+402439*
+1 (
+
+404838*
+1 (5
+
+405032*
+1 (
+
+405023*
+1	 (
+
+405038*
+1! ()
+
+405052*
+1!	 !( 
+
+405339*
+1!	 !( 
+
+405538*
+1! !( 
+
+402439*
+1!	 !(
+
+403023*
+1!	 !(
+
+402439*
+1!	 !(
+
+576123*
+1& &(
+
+576339*
+1'
+ '($
+
+576538*
+1' '($
+
+572439*
+1'
+ '(
+
+573023*
+1'
+ '(
+
+572439*
+1'
+ '(
+
+575032*
+1) )(

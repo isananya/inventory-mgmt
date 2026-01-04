@@ -1,0 +1,104 @@
+
+Âcom.chubb.inventoryapp.config.SecurityConfig#securityFilterChain(Lorg/springframework/security/config/annotation/web/builders/HttpSecurity;)Lorg/springframework/security/web/SecurityFilterChain;‘
+†D:/CHUBB_Training/CAPSTONE PROJECT/inventory-mgmt/backend/user-service/src/main/java/com/chubb/inventoryapp/config/SecurityConfig.java   (2"startingBlock*“
+startingBlock 2  (EÝ
+Ú
+ (	
+%26"
+__annotate*K
+
+__unknown_file (/-
++org.springframework.context.annotation.Bean*n
+
+__unknown_file (R
+P
+httpHorg.springframework.security.config.annotation.web.builders.HttpSecurity’
+
+ @  (DP
+httpHorg.springframework.security.config.annotation.web.builders.HttpSecurity"__annotation*#
+
+__unknown_file (
+
+%26*
+1*ü
+1" "(	µ
+²
+# #($4
+%0.org.springframework.security.config.Customizer"__declareFunction*]
+
+__unknown_file (A?
+=__sonar_lambda_7$com.chubb.inventoryapp.config.SecurityConfig¥¢
+" #(%N
+%2Horg.springframework.security.config.annotation.web.builders.HttpSecurity"Éorg.springframework.security.config.annotation.web.builders.HttpSecurity#csrf(Lorg/springframework/security/config/Customizer;)Lorg/springframework/security/config/annotation/web/builders/HttpSecurity;*n
+
+__unknown_file (R
+P
+httpHorg.springframework.security.config.annotation.web.builders.HttpSecurity*R
+
+__unknown_file (6
+4
+%0.org.springframework.security.config.Customizer26csrf(Lorg/springframework/security/config/Customizer;)µ
+²
+$ '(-4
+%3.org.springframework.security.config.Customizer"__declareFunction*]
+
+__unknown_file (A?
+=__sonar_lambda_8$com.chubb.inventoryapp.config.SecurityConfigÆÃ
+" ((	O
+%10Horg.springframework.security.config.annotation.web.builders.HttpSecurity"Úorg.springframework.security.config.annotation.web.builders.HttpSecurity#authorizeHttpRequests(Lorg/springframework/security/config/Customizer;)Lorg/springframework/security/config/annotation/web/builders/HttpSecurity;*l
+
+__unknown_file (P
+N
+%2Horg.springframework.security.config.annotation.web.builders.HttpSecurity*R
+
+__unknown_file (6
+4
+%3.org.springframework.security.config.Customizer2GauthorizeHttpRequests(Lorg/springframework/security/config/Customizer;)¶
+³
+) /(5
+%11.org.springframework.security.config.Customizer"__declareFunction*]
+
+__unknown_file (A?
+=__sonar_lambda_9$com.chubb.inventoryapp.config.SecurityConfigÀ½
+" 0(O
+%22Horg.springframework.security.config.annotation.web.builders.HttpSecurity"Öorg.springframework.security.config.annotation.web.builders.HttpSecurity#exceptionHandling(Lorg/springframework/security/config/Customizer;)Lorg/springframework/security/config/annotation/web/builders/HttpSecurity;*m
+
+__unknown_file (Q
+O
+%10Horg.springframework.security.config.annotation.web.builders.HttpSecurity*S
+
+__unknown_file (7
+5
+%11.org.springframework.security.config.Customizer2CexceptionHandling(Lorg/springframework/security/config/Customizer;)°
+­
+1 1(">
+%237com.chubb.inventoryapp.security.JwtAuthenticationFilter"__id*[
+
+__unknown_file (?*=.
+,com.chubb.inventoryapp.config.SecurityConfig"
+	jwtFilterÛØ
+" 1(OO
+%24Horg.springframework.security.config.annotation.web.builders.HttpSecurity"Íorg.springframework.security.config.annotation.web.builders.HttpSecurity#addFilterBefore(Ljakarta/servlet/Filter;Ljava/lang/Class;)Lorg/springframework/security/config/annotation/web/builders/HttpSecurity;*m
+
+__unknown_file (Q
+O
+%22Horg.springframework.security.config.annotation.web.builders.HttpSecurity*\
+
+__unknown_file (@
+>
+%237com.chubb.inventoryapp.security.JwtAuthenticationFilter*"
+
+__unknown_file (
+""2:addFilterBefore(Ljakarta/servlet/Filter;Ljava/lang/Class;)¬©
+4 4(B
+%25;org.springframework.security.web.DefaultSecurityFilterChain"`org.springframework.security.config.annotation.AbstractSecurityBuilder#build()Ljava/lang/Object;*n
+
+__unknown_file (R
+P
+httpHorg.springframework.security.config.annotation.web.builders.HttpSecurity2build()"P
+4 4(D
+B
+%25;org.springframework.security.web.DefaultSecurityFilterChain:\
+ 3  (DP
+httpHorg.springframework.security.config.annotation.web.builders.HttpSecurityB0.
+,com.chubb.inventoryapp.config.SecurityConfigH

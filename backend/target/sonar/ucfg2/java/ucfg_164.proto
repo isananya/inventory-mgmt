@@ -1,0 +1,224 @@
+
+±com.chubb.inventoryapp.controller.ProductController#updateProductProperties(Ljava/lang/Long;Lcom/chubb/inventoryapp/dto/ProductRequest;)Lorg/springframework/http/ResponseEntity;
+’D:/CHUBB_Training/CAPSTONE PROJECT/inventory-mgmt/backend/inventory-service/src/main/java/com/chubb/inventoryapp/controller/ProductController.javaP P(4"startingBlock*Ë
+startingBlockP4 R(-ˆ
+…
+
+__unknown_file (
+%4"__id*]
+
+__unknown_file (A*?
+4
+request)com.chubb.inventoryapp.dto.ProductRequest"
+brandŽ
+‹
+
+__unknown_file (
+%5"__id*c
+
+__unknown_file (G*E
+4
+request)com.chubb.inventoryapp.dto.ProductRequest"
+description‹
+ˆ
+
+__unknown_file (
+%6"__id*`
+
+__unknown_file (D*B
+4
+request)com.chubb.inventoryapp.dto.ProductRequest"
+
+imageUrl‡
+„
+
+__unknown_file (
+%7"__id*\
+
+__unknown_file (@*>
+4
+request)com.chubb.inventoryapp.dto.ProductRequest"
+nameŽ
+‹
+
+__unknown_file (
+%8"__id*c
+
+__unknown_file (G*E
+4
+request)com.chubb.inventoryapp.dto.ProductRequest"
+productCode‘
+Ž
+
+__unknown_file (
+%9"__id*f
+
+__unknown_file (J*H
+4
+request)com.chubb.inventoryapp.dto.ProductRequest"
+specifications™
+–
+R	 R(
+%10"
+__annotate*S
+
+__unknown_file (75
+3org.springframework.web.bind.annotation.RequestBody*"
+
+__unknown_file (
+
+%8‡
+„
+R% R(,E
+4
+request)com.chubb.inventoryapp.dto.ProductRequest"
+productCode"__annotation*#
+
+__unknown_file (
+
+%10™
+–
+R	 R(
+%11"
+__annotate*S
+
+__unknown_file (75
+3org.springframework.web.bind.annotation.RequestBody*"
+
+__unknown_file (
+
+%6„
+
+R% R(,B
+4
+request)com.chubb.inventoryapp.dto.ProductRequest"
+
+imageUrl"__annotation*#
+
+__unknown_file (
+
+%11™
+–
+R	 R(
+%12"
+__annotate*S
+
+__unknown_file (75
+3org.springframework.web.bind.annotation.RequestBody*"
+
+__unknown_file (
+
+%9Š
+‡
+R% R(,H
+4
+request)com.chubb.inventoryapp.dto.ProductRequest"
+specifications"__annotation*#
+
+__unknown_file (
+
+%12™
+–
+R	 R(
+%13"
+__annotate*S
+
+__unknown_file (75
+3org.springframework.web.bind.annotation.RequestBody*"
+
+__unknown_file (
+
+%7
+}
+R% R(,>
+4
+request)com.chubb.inventoryapp.dto.ProductRequest"
+name"__annotation*#
+
+__unknown_file (
+
+%13™
+–
+R	 R(
+%14"
+__annotate*S
+
+__unknown_file (75
+3org.springframework.web.bind.annotation.RequestBody*"
+
+__unknown_file (
+
+%5‡
+„
+R% R(,E
+4
+request)com.chubb.inventoryapp.dto.ProductRequest"
+description"__annotation*#
+
+__unknown_file (
+
+%14™
+–
+R	 R(
+%15"
+__annotate*S
+
+__unknown_file (75
+3org.springframework.web.bind.annotation.RequestBody*"
+
+__unknown_file (
+
+%4€
+~
+R% R(,?
+4
+request)com.chubb.inventoryapp.dto.ProductRequest"
+brand"__annotation*#
+
+__unknown_file (
+
+%15*
+1*Ò	
+1T T(±
+®
+T T(3
+%0-com.chubb.inventoryapp.service.ProductService"__id*g
+
+__unknown_file (K*I5
+3com.chubb.inventoryapp.controller.ProductController"
+productServiceÐÍ
+T T(8
+
+%1void"ƒcom.chubb.inventoryapp.service.ProductService#updateProductProperties(Ljava/lang/Long;Lcom/chubb/inventoryapp/dto/ProductRequest;)V*Q
+
+__unknown_file (5
+3
+%0-com.chubb.inventoryapp.service.ProductService*2
+
+__unknown_file (
+
+idjava.lang.Long*R
+
+__unknown_file (6
+4
+request)com.chubb.inventoryapp.dto.ProductRequest2TupdateProductProperties(Ljava/lang/Long;Lcom/chubb/inventoryapp/dto/ProductRequest;)ô
+ñ
+U U(9
+%23org.springframework.http.ResponseEntity$BodyBuilder"aorg.springframework.http.ResponseEntity#ok()Lorg/springframework/http/ResponseEntity$BodyBuilder;*G
+
+__unknown_file (+")
+'org.springframework.http.ResponseEntity‡„
+U U('-
+%3'org.springframework.http.ResponseEntity"gorg.springframework.http.ResponseEntity$HeadersBuilder#build()Lorg/springframework/http/ResponseEntity;*W
+
+__unknown_file (;
+9
+%23org.springframework.http.ResponseEntity$BodyBuilder2build()";
+U U((/
+-
+%3'org.springframework.http.ResponseEntity: 
+Q	 Q(
+idjava.lang.Long:@
+R	 R(,4
+request)com.chubb.inventoryapp.dto.ProductRequestB75
+3com.chubb.inventoryapp.controller.ProductControllerH

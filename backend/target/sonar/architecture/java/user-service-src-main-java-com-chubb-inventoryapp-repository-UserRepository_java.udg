@@ -1,0 +1,142 @@
+
+1.0isananya_inventory-mgmtJavaFrontend"1767529067486*java2.BÄ
+U
+Puser-service/src/main/java/com/chubb/inventoryapp/repository/UserRepository.java2
+	
+type3
+	
+MAIN4
+
+
+module-key5
+
+user-service6
+
+package8
+3
+.user-service:com.chubb.inventoryapp.repository9
+6
+0com.chubb.inventoryapp.repository.UserRepository11
+
+	interface12
+
+access13
+
+public14
+
+
+full-range15
+
+(9:1)-(14:3)16
+
+simple-name17
+
+UserRepository18
+;
+5org.springframework.data.jpa.repository.JpaRepository20
+
+unknown21
+
+
+implements22
+
+
+uses23
+'
+!com.chubb.inventoryapp.model.User25
+j
+dcom.chubb.inventoryapp.repository.UserRepository#findByEmail(Ljava/lang/String;)Ljava/util/Optional;27
+
+method28
+
+(11:4)-(11:45)29
+
+findByEmail30
+Y
+Scom.chubb.inventoryapp.repository.UserRepository#existsByEmail(Ljava/lang/String;)Z32
+
+(13:4)-(13:40)33
+
+existsByEmail34J%
+#
+1
+12
+
+3
+4
+
+5
+6 Z
+
+7
+7982
+
+
+5
+68j”
+N
+31H
+313228 *
+1 (210:7B$
+
+
+13
+14
+
+
+15
+33
+
+
+17
+34
+N
+26H
+262728 *
+1 (210:7B$
+
+
+13
+14
+
+
+15
+29
+
+
+17
+30
+J
+10D
+101112 *
+1	 	( :7B$
+
+
+13
+14
+
+
+15
+16
+
+
+17
+18
+
+19
+192021
+
+24
+242521rl
+
+101922*
+1	) 	(B
+
+101923*
+1	) 	(6
+
+102423*
+1	7 	(;
+
+262423*
+1 (

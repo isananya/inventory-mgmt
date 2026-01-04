@@ -1,0 +1,36 @@
+
+Žcom.chubb.inventoryapp.service.ProductService#getAllProducts(Lorg/springframework/data/domain/Pageable;)Lorg/springframework/data/domain/Page;—
+ŒD:/CHUBB_Training/CAPSTONE PROJECT/inventory-mgmt/backend/inventory-service/src/main/java/com/chubb/inventoryapp/service/ProductService.java?! ?(/"1*ô
+1@ @(´
+±
+@ @(9
+%03com.chubb.inventoryapp.repository.ProductRepository"__id*d
+
+__unknown_file (H*F/
+-com.chubb.inventoryapp.service.ProductService"
+productRepository¶³
+@ @(/*
+%1$org.springframework.data.domain.Page"˜org.springframework.data.repository.PagingAndSortingRepository#findAll(Lorg/springframework/data/domain/Pageable;)Lorg/springframework/data/domain/Page;*W
+
+__unknown_file (;
+9
+%03com.chubb.inventoryapp.repository.ProductRepository*R
+
+__unknown_file (6
+4
+pageable(org.springframework.data.domain.Pageable23findAll(Lorg/springframework/data/domain/Pageable;)º·
+@ @(H*
+%2$org.springframework.data.domain.Page"morg.springframework.data.domain.Page#map(Ljava/util/function/Function;)Lorg/springframework/data/domain/Page;*H
+
+__unknown_file (,
+*
+%1$org.springframework.data.domain.Page*"
+
+__unknown_file (
+""2"map(Ljava/util/function/Function;)"8
+@ @(I,
+*
+%2$org.springframework.data.domain.Page:@
+?0 ?(A4
+pageable(org.springframework.data.domain.PageableB1/
+-com.chubb.inventoryapp.service.ProductServiceH

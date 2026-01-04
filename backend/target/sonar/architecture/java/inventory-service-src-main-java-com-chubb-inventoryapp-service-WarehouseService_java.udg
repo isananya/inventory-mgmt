@@ -1,0 +1,731 @@
+
+1.0isananya_inventory-mgmtJavaFrontend"1767529075378*java2.BÎ
+Y
+Tinventory-service/src/main/java/com/chubb/inventoryapp/service/WarehouseService.java2
+	
+type3
+	
+MAIN4
+
+
+module-key5
+
+inventory-service6
+
+package8
+5
+0inventory-service:com.chubb.inventoryapp.service9
+5
+/com.chubb.inventoryapp.service.WarehouseService11
+
+class12
+
+access13
+
+public14
+
+
+full-range15
+
+(14:1)-(83:2)16
+
+simple-name17
+
+WarehouseService18
+,
+&org.springframework.stereotype.Service20
+
+unknown21
+
+annotated by22
+
+
+uses23
+I
+Ccom.chubb.inventoryapp.service.WarehouseService.warehouseRepository25
+
+field26
+
+private27
+
+(16:5)-(16:59)28
+
+warehouseRepository29
+;
+5com.chubb.inventoryapp.repository.WarehouseRepository31
+
+is type32
+v
+pcom.chubb.inventoryapp.service.WarehouseService#<init>(Lcom/chubb/inventoryapp/repository/WarehouseRepository;)V34
+
+method35
+
+(18:2)-(21:3)36
+
+	has param37
+
+calls38
+
+
+references39
+Å
+{com.chubb.inventoryapp.service.WarehouseService#addWarehouse(Lcom/chubb/inventoryapp/dto/WarehouseRequest;)Ljava/lang/Long;41
+
+(23:2)-(35:3)42
+
+addWarehouse43
+1
++com.chubb.inventoryapp.dto.WarehouseRequest45
+è
+àcom.chubb.inventoryapp.repository.WarehouseRepository#existsByNameIgnoreCaseAndLocationIgnoreCase(Ljava/lang/String;Ljava/lang/String;)Z47
+F
+@com.chubb.inventoryapp.exception.WarehouseAlreadyExistsException49
+,
+&com.chubb.inventoryapp.model.Warehouse51
+
+returns52
+8
+2org.springframework.data.repository.CrudRepository54
+c
+]org.springframework.data.repository.CrudRepository#save(Ljava/lang/Object;)Ljava/lang/Object;56
+ú
+ïcom.chubb.inventoryapp.service.WarehouseService#mapToResponse(Lcom/chubb/inventoryapp/model/Warehouse;)Lcom/chubb/inventoryapp/dto/WarehouseResponse;58
+
+(37:3)-(44:7)59
+
+mapToResponse60
+2
+,com.chubb.inventoryapp.dto.WarehouseResponse62
+X
+Rcom.chubb.inventoryapp.service.WarehouseService#getAllWarehouses()Ljava/util/List;64
+
+(46:2)-(51:3)65
+
+getAllWarehouses66
+<
+6org.springframework.data.repository.ListCrudRepository68
+V
+Porg.springframework.data.repository.ListCrudRepository#findAll()Ljava/util/List;70
+[
+Ucom.chubb.inventoryapp.service.WarehouseService#getActiveWarehouses()Ljava/util/List;72
+
+(53:2)-(58:3)73
+
+getActiveWarehouses74
+^
+Xcom.chubb.inventoryapp.repository.WarehouseRepository#findByActiveTrue()Ljava/util/List;76
+á
+Äcom.chubb.inventoryapp.service.WarehouseService#getWarehouseById(Ljava/lang/Long;)Lcom/chubb/inventoryapp/dto/WarehouseResponse;78
+
+(60:2)-(63:3)79
+
+getWarehouseById80
+i
+corg.springframework.data.repository.CrudRepository#findById(Ljava/lang/Object;)Ljava/util/Optional;82
+A
+;com.chubb.inventoryapp.exception.WarehouseNotFoundException84
+Ö
+com.chubb.inventoryapp.service.WarehouseService#updateWarehouse(Lcom/chubb/inventoryapp/dto/WarehouseRequest;Ljava/lang/Long;)V86
+
+(65:2)-(70:3)87
+
+updateWarehouse88
+\
+Vcom.chubb.inventoryapp.service.WarehouseService#deactivateWarehouse(Ljava/lang/Long;)V90
+
+(72:2)-(76:6)91
+
+deactivateWarehouse92
+Z
+Tcom.chubb.inventoryapp.service.WarehouseService#activateWarehouse(Ljava/lang/Long;)V94
+
+(78:5)-(82:6)95
+
+activateWarehouse96J%
+#
+1
+12
+
+3
+4
+
+5
+6 Z
+
+7
+7982
+
+
+5
+68jÑ	
+
+69
+697021
+N
+77H
+777835 *
+1< <(+210:7B$
+
+
+13
+14
+
+
+15
+79
+
+
+17
+80
+
+83
+838421
+
+75
+757621
+
+48
+484921
+
+53
+535421
+
+30
+303121
+N
+57H
+575835 *
+1% %(*210:7B$
+
+
+13
+27
+
+
+15
+59
+
+
+17
+60
+
+19
+192021
+
+46
+464721
+J
+10D
+101112 *
+1 (:7B$
+
+
+13
+14
+
+
+15
+16
+
+
+17
+18
+
+44
+444521
+N
+24H
+242526 *
+1' (:210:7B$
+
+
+13
+27
+
+
+15
+28
+
+
+17
+29
+N
+89H
+899035 *
+1H H(!210:7B$
+
+
+13
+14
+
+
+15
+91
+
+
+17
+92
+
+55
+555621
+
+67
+676821
+N
+40H
+404135 *
+1 (210:7B$
+
+
+13
+14
+
+
+15
+42
+
+
+17
+43
+N
+71H
+717235 *
+15! 5(4210:7B$
+
+
+13
+14
+
+
+15
+73
+
+
+17
+74
+N
+93H
+939435 *
+1N N("210:7B$
+
+
+13
+14
+
+
+15
+95
+
+
+17
+96
+
+61
+616221
+N
+85H
+858635 *
+1A A(210:7B$
+
+
+13
+14
+
+
+15
+87
+
+
+17
+88
+N
+33H
+333435 *
+1	 (210:7B$
+
+
+13
+14
+
+
+15
+36
+
+
+17
+18
+N
+63H
+636435 *
+1.! .(1210:7B$
+
+
+13
+14
+
+
+15
+65
+
+
+17
+66
+
+81
+818221
+
+50
+505121rÜ
+
+101922*
+1 (	
+
+101923*
+1 (	
+
+243032*
+1 (&
+
+243023*
+1 (&
+
+243023*
+1' (:
+
+333037*
+1 (-
+
+331038*
+1	 (
+
+333032*
+1. (A
+
+333023*
+1 (-
+
+331023*
+1 (
+
+331039*
+1 (
+
+333023*
+1 (
+
+332439*
+1 (
+
+404437*
+1 (+
+
+404432*
+1, (3
+
+404423*
+1 (+
+
+403039*
+1 (F
+
+404638*
+1 (F
+
+402439*
+1 (
+
+403023*
+1 (
+
+402439*
+1 (
+
+404838*
+1 (6
+
+405032*
+1 (
+
+405023*
+1	 (
+
+405038*
+1# (,
+
+405052*
+1!	 !(!
+
+405339*
+1!	 !(!
+
+405538*
+1! !(!
+
+402439*
+1!	 !(
+
+403023*
+1!	 !(
+
+402439*
+1!	 !(
+
+576152*
+1% %(
+
+575037*
+1%+ %(4
+
+576123*
+1% %(
+
+575032*
+1%5 %(>
+
+575023*
+1%+ %(4
+
+636123*
+1. .(
+
+636739*
+1/
+ /(%
+
+636938*
+1/ /(%
+
+632439*
+1/
+ /(
+
+633023*
+1/
+ /(
+
+632439*
+1/
+ /(
+
+631023*
+11 1(
+
+631039*
+11 1(
+
+716123*
+15 5(
+
+713039*
+16
+ 6(.
+
+717538*
+16 6(.
+
+712439*
+16
+ 6(
+
+713023*
+16
+ 6(
+
+712439*
+16
+ 6(
+
+711023*
+18 8(
+
+711039*
+18 8(
+
+776152*
+1<	 <(
+
+776123*
+1<	 <(
+
+775032*
+1= =(
+
+775023*
+1= =(
+
+775052*
+1= =(E
+
+775339*
+1= =(5
+
+778138*
+1=- =(5
+
+772439*
+1= =(,
+
+773023*
+1= =(,
+
+772439*
+1= =(,
+
+778338*
+1=P =(j
+
+776152*
+1>
+ >(
+
+771039*
+1>
+ >(
+
+775738*
+1>
+ >(
+
+854437*
+1A A(.
+
+854432*
+1A/ A(6
+
+854423*
+1A A(.
+
+855032*
+1B B(
+
+855023*
+1B B(
+
+855052*
+1B B(E
+
+855339*
+1B B(5
+
+858138*
+1B- B(5
+
+852439*
+1B B(,
+
+853023*
+1B B(,
+
+852439*
+1B B(,
+
+858338*
+1BP B(j
+
+855052*
+1E	 E(!
+
+855339*
+1E	 E(!
+
+855538*
+1E E(!
+
+852439*
+1E	 E(
+
+853023*
+1E	 E(
+
+852439*
+1E	 E(
+
+895032*
+1I I(
+
+895023*
+1I I(
+
+895052*
+1I I(E
+
+895339*
+1I I(5
+
+898138*
+1I- I(5
+
+892439*
+1I I(,
+
+893023*
+1I I(,
+
+892439*
+1I I(,
+
+898338*
+1IP I(j
+
+895052*
+1K	 K(!
+
+895339*
+1K	 K(!
+
+895538*
+1K K(!
+
+892439*
+1K	 K(
+
+893023*
+1K	 K(
+
+892439*
+1K	 K(
+
+935032*
+1O O(
+
+935023*
+1O O(
+
+935052*
+1O O(E
+
+935339*
+1O O(5
+
+938138*
+1O- O(5
+
+932439*
+1O O(,
+
+933023*
+1O O(,
+
+932439*
+1O O(,
+
+938338*
+1OP O(j
+
+935052*
+1Q	 Q(!
+
+935339*
+1Q	 Q(!
+
+935538*
+1Q Q(!
+
+932439*
+1Q	 Q(
+
+933023*
+1Q	 Q(
+
+932439*
+1Q	 Q(

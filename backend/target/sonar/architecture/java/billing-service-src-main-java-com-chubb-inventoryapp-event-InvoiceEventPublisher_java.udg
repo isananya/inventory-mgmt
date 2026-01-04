@@ -1,0 +1,325 @@
+
+1.0isananya_inventory-mgmtJavaFrontend"1767529078728*java2.B¿
+Z
+Ubilling-service/src/main/java/com/chubb/inventoryapp/event/InvoiceEventPublisher.java2
+	
+type3
+	
+MAIN4
+
+
+module-key5
+
+billing-service6
+
+package8
+1
+,billing-service:com.chubb.inventoryapp.event9
+8
+2com.chubb.inventoryapp.event.InvoiceEventPublisher11
+
+class12
+
+access13
+
+public14
+
+
+full-range15
+
+(7:1)-(27:2)16
+
+simple-name17
+
+InvoiceEventPublisher18
+,
+&org.springframework.stereotype.Service20
+
+unknown21
+
+annotated by22
+
+
+uses23
+G
+Acom.chubb.inventoryapp.event.InvoiceEventPublisher.rabbitTemplate25
+
+field26
+
+private27
+
+(10:5)-(10:49)28
+
+rabbitTemplate29
+9
+3org.springframework.amqp.rabbit.core.RabbitTemplate31
+
+is type32
+A
+;com.chubb.inventoryapp.event.InvoiceEventPublisher.exchange34
+
+(11:5)-(11:35)35
+
+exchange36
+L
+Fcom.chubb.inventoryapp.event.InvoiceEventPublisher.generatedRoutingKey38
+
+(12:5)-(12:46)39
+
+generatedRoutingKey40
+ú
+ïcom.chubb.inventoryapp.event.InvoiceEventPublisher#<init>(Lorg/springframework/amqp/rabbit/core/RabbitTemplate;Ljava/lang/String;Ljava/lang/String;)V42
+
+method43
+
+(14:5)-(21:6)44
+
+	has param45
+
+calls46
+8
+2org.springframework.beans.factory.annotation.Value48
+
+
+references49
+v
+pcom.chubb.inventoryapp.event.InvoiceEventPublisher#publishInvoiceGenerated(Ljava/lang/Long;Ljava/lang/String;F)V51
+
+(23:5)-(26:6)52
+
+publishInvoiceGenerated53
+/
+)com.chubb.inventoryapp.event.InvoiceEvent55
+Å
+{org.springframework.amqp.rabbit.core.RabbitTemplate#convertAndSend(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;)V57J%
+#
+1
+12
+
+3
+4
+
+5
+6 Z
+
+7
+7982
+
+
+5
+68j¿
+
+47
+474821
+J
+10D
+101112 *
+1 (#:7B$
+
+
+13
+14
+
+
+15
+16
+
+
+17
+18
+N
+37H
+373826 *
+1 (-210:7B$
+
+
+13
+27
+
+
+15
+39
+
+
+17
+40
+
+56
+565721
+
+19
+192021
+N
+24H
+242526 *
+1
+" 
+(0210:7B$
+
+
+13
+27
+
+
+15
+28
+
+
+17
+29
+N
+50H
+505143 *
+1 ((210:7B$
+
+
+13
+14
+
+
+15
+52
+
+
+17
+53
+
+54
+545521
+N
+41H
+414243 *
+1 (!210:7B$
+
+
+13
+14
+
+
+15
+44
+
+
+17
+18
+N
+33H
+333426 *
+1 ("210:7B$
+
+
+13
+27
+
+
+15
+35
+
+
+17
+36
+
+30
+303121r‡
+
+101922*
+1 (	
+
+101923*
+1 (	
+
+243032*
+1
+ 
+(!
+
+243023*
+1
+ 
+(!
+
+243023*
+1
+" 
+(0
+
+413045*
+1 (
+
+411046*
+1 (!
+
+413032*
+1 (*
+
+413023*
+1 (
+
+414722*
+1 (,
+
+414723*
+1 (
+
+414722*
+1 (5
+
+414723*
+1 (
+
+411023*
+1	 (
+
+411049*
+1	 (
+
+413023*
+1 (
+
+412449*
+1 (
+
+411023*
+1	 (
+
+411049*
+1	 (
+
+413349*
+1 (
+
+411023*
+1	 (
+
+411049*
+1	 (
+
+413749*
+1 (!
+
+505432*
+1 (
+
+505423*
+1	 (
+
+503049*
+1	 (&
+
+505646*
+1 (&
+
+502449*
+1	 (
+
+503023*
+1	 (
+
+502449*
+1	 (
+
+503349*
+1' (/
+
+503749*
+11 (D

@@ -1,0 +1,357 @@
+
+1.0isananya_inventory-mgmtJavaFrontend"1767529075254*java2.B›
+S
+Ninventory-service/src/main/java/com/chubb/inventoryapp/dto/ProductRequest.java2
+	
+type3
+	
+MAIN4
+
+
+module-key5
+
+inventory-service6
+
+package8
+1
+,inventory-service:com.chubb.inventoryapp.dto9
+/
+)com.chubb.inventoryapp.dto.ProductRequest11
+
+class12
+
+access13
+
+public14
+
+
+full-range15
+
+(14:1)-(41:2)16
+
+simple-name17
+
+ProductRequest18
+
+lombok.Data20
+
+unknown21
+
+annotated by22
+
+
+uses23
+
+lombok.NoArgsConstructor25
+
+lombok.AllArgsConstructor27
+;
+5com.chubb.inventoryapp.dto.ProductRequest.productCode29
+
+field30
+
+private31
+
+(18:2)-(20:29)32
+
+productCode33
+-
+'jakarta.validation.constraints.NotBlank35
+)
+#jakarta.validation.constraints.Size37
+4
+.com.chubb.inventoryapp.dto.ProductRequest.name39
+
+(22:2)-(24:22)40
+
+
+name41
+5
+/com.chubb.inventoryapp.dto.ProductRequest.brand43
+
+(26:2)-(28:23)44
+
+brand45
+5
+/com.chubb.inventoryapp.dto.ProductRequest.price47
+
+(30:2)-(32:22)48
+
+price49
+,
+&jakarta.validation.constraints.NotNull51
+-
+'jakarta.validation.constraints.Positive53
+;
+5com.chubb.inventoryapp.dto.ProductRequest.description55
+
+(34:2)-(34:29)56
+
+description57
+>
+8com.chubb.inventoryapp.dto.ProductRequest.specifications59
+
+(36:2)-(36:63)60
+
+specifications61
+8
+2com.chubb.inventoryapp.dto.ProductRequest.imageUrl63
+
+(38:2)-(38:26)64
+
+imageUrl65
+:
+4com.chubb.inventoryapp.dto.ProductRequest.categoryId67
+
+(40:2)-(40:26)68
+
+
+categoryId69J%
+#
+1
+12
+
+3
+4
+
+5
+6 Z
+
+7
+7982
+
+
+5
+68jÿ
+
+36
+363721
+N
+62H
+626330 *
+1& &(210:7B$
+
+
+13
+31
+
+
+15
+64
+
+
+17
+65
+N
+66H
+666730 *
+1( ((210:7B$
+
+
+13
+31
+
+
+15
+68
+
+
+17
+69
+N
+38H
+383930 *
+1 (210:7B$
+
+
+13
+31
+
+
+15
+40
+
+
+17
+41
+
+50
+505121
+N
+58H
+585930 *
+1$ $(,210:7B$
+
+
+13
+31
+
+
+15
+60
+
+
+17
+61
+N
+54H
+545530 *
+1" "(210:7B$
+
+
+13
+31
+
+
+15
+56
+
+
+17
+57
+N
+46H
+464730 *
+1   (210:7B$
+
+
+13
+31
+
+
+15
+48
+
+
+17
+49
+N
+42H
+424330 *
+1 (210:7B$
+
+
+13
+31
+
+
+15
+44
+
+
+17
+45
+
+52
+525321
+
+34
+343521
+
+19
+192021
+J
+10D
+101112 *
+1 (:7B$
+
+
+13
+14
+
+
+15
+16
+
+
+17
+18
+
+26
+262721
+N
+28H
+282930 *
+1 (210:7B$
+
+
+13
+31
+
+
+15
+32
+
+
+17
+33
+
+24
+242521r“
+
+101922*
+1 (
+
+101923*
+1 (
+
+102422*
+1 (
+
+102423*
+1 (
+
+102622*
+1 (
+
+102623*
+1 (
+
+283422*
+1 (1
+
+283423*
+1 (
+
+283622*
+1 (
+
+283623*
+1 (
+
+383422*
+1 (1
+
+383423*
+1 (
+
+383622*
+1 (
+
+383623*
+1 (
+
+423422*
+1 (2
+
+423423*
+1 (
+
+423622*
+1 (
+
+423623*
+1 (
+
+465022*
+1 ()
+
+465023*
+1 (
+
+
+465222*
+1 (5
+
+465223*
+1 (

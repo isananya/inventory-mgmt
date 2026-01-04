@@ -1,0 +1,141 @@
+
+1.0isananya_inventory-mgmtJavaFrontend"1767529078229*java2.B¹
+W
+Rbilling-service/src/main/java/com/chubb/inventoryapp/dto/InvoiceStatusRequest.java2
+	
+type3
+	
+MAIN4
+
+
+module-key5
+
+billing-service6
+
+package8
+/
+*billing-service:com.chubb.inventoryapp.dto9
+5
+/com.chubb.inventoryapp.dto.InvoiceStatusRequest11
+
+class12
+
+access13
+
+public14
+
+
+full-range15
+
+(8:1)-(12:2)16
+
+simple-name17
+
+InvoiceStatusRequest18
+
+lombok.Data20
+
+unknown21
+
+annotated by22
+
+
+uses23
+<
+6com.chubb.inventoryapp.dto.InvoiceStatusRequest.status25
+
+field26
+
+private27
+
+(10:5)-(11:34)28
+
+status29
+0
+*com.chubb.inventoryapp.model.PaymentStatus31
+
+is type32
+,
+&jakarta.validation.constraints.NotNull34J%
+#
+1
+12
+
+3
+4
+
+5
+6 Z
+
+7
+7982
+
+
+5
+68jØ
+J
+10D
+101112 *
+1	 	(":7B$
+
+
+13
+14
+
+
+15
+16
+
+
+17
+18
+
+30
+303121
+
+19
+192021
+N
+24H
+242526 *
+1 (!210:7B$
+
+
+13
+27
+
+
+15
+28
+
+
+17
+29
+
+33
+333421r½
+
+101922*
+1 (
+
+101923*
+1 (
+
+243032*
+1 (
+
+243322*
+1
+ 
+(-
+
+243323*
+1
+ 
+(
+
+243023*
+1 (
+
+243023*
+1 (!

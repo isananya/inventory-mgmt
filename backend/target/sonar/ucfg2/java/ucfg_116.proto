@@ -1,0 +1,37 @@
+
+Çcom.chubb.inventoryapp.controller.WarehouseController#activateWarehouse(Ljava/lang/Long;)Lorg/springframework/http/ResponseEntity;ü
+îD:/CHUBB_Training/CAPSTONE PROJECT/inventory-mgmt/backend/inventory-service/src/main/java/com/chubb/inventoryapp/controller/WarehouseController.javaD  D(1"1*π
+1E E(∑
+¥
+E E(5
+%0/com.chubb.inventoryapp.service.WarehouseService"__id*k
+
+__unknown_file (O*M7
+5com.chubb.inventoryapp.controller.WarehouseController"
+warehouseServiceùö
+E E(.
+
+%1void"Tcom.chubb.inventoryapp.service.WarehouseService#activateWarehouse(Ljava/lang/Long;)V*S
+
+__unknown_file (7
+5
+%0/com.chubb.inventoryapp.service.WarehouseService*2
+
+__unknown_file (
+
+idjava.lang.Long2#activateWarehouse(Ljava/lang/Long;)í
+è
+F F(&-
+%2'org.springframework.http.ResponseEntity"gorg.springframework.http.ResponseEntity#ok(Ljava/lang/Object;)Lorg/springframework/http/ResponseEntity;*G
+
+__unknown_file (+")
+'org.springframework.http.ResponseEntity*"
+
+__unknown_file (
+""";
+F F('/
+-
+%2'org.springframework.http.ResponseEntity: 
+D2 D(G
+idjava.lang.LongB97
+5com.chubb.inventoryapp.controller.WarehouseControllerH

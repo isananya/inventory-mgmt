@@ -1,0 +1,30 @@
+
+^com.chubb.inventoryapp.config.RabbitConfig#invoiceQueue()Lorg/springframework/amqp/core/Queue;í
+áD:/CHUBB_Training/CAPSTONE PROJECT/inventory-mgmt/backend/billing-service/src/main/java/com/chubb/inventoryapp/config/RabbitConfig.java ("1*≠
+1 ()ç
+ä
+ ()
+%0java.lang.String"__id*`
+
+__unknown_file (D*B,
+*com.chubb.inventoryapp.config.RabbitConfig"
+invoiceQueueName\Z
+ ()
+%1#org.springframework.amqp.core.Queue"#org.springframework.amqp.core.Queueˆ
+Û
+ (0
+%2"@org.springframework.amqp.core.Queue#<init>(Ljava/lang/String;Z)V*G
+
+__unknown_file (+
+)
+%1#org.springframework.amqp.core.Queue*4
+
+__unknown_file (
+
+%0java.lang.String* 
+
+__unknown_file (2"7
+ (1+
+)
+%1#org.springframework.amqp.core.QueueB.,
+*com.chubb.inventoryapp.config.RabbitConfigH

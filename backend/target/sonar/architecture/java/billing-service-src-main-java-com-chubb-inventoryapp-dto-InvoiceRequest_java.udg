@@ -1,0 +1,178 @@
+
+1.0isananya_inventory-mgmtJavaFrontend"1767529079048*java2.B¯
+Q
+Lbilling-service/src/main/java/com/chubb/inventoryapp/dto/InvoiceRequest.java2
+	
+type3
+	
+MAIN4
+
+
+module-key5
+
+billing-service6
+
+package8
+/
+*billing-service:com.chubb.inventoryapp.dto9
+/
+)com.chubb.inventoryapp.dto.InvoiceRequest11
+
+class12
+
+access13
+
+public14
+
+
+full-range15
+
+(9:1)-(17:2)16
+
+simple-name17
+
+InvoiceRequest18
+
+lombok.Data20
+
+unknown21
+
+annotated by22
+
+
+uses23
+;
+5com.chubb.inventoryapp.dto.InvoiceRequest.paymentMode25
+
+field26
+
+private27
+
+(11:5)-(12:37)28
+
+paymentMode29
+.
+(com.chubb.inventoryapp.model.PaymentMode31
+
+is type32
+,
+&jakarta.validation.constraints.NotNull34
+5
+/com.chubb.inventoryapp.dto.InvoiceRequest.email36
+
+(14:5)-(16:26)37
+
+email38
+*
+$jakarta.validation.constraints.Email40J%
+#
+1
+12
+
+3
+4
+
+5
+6 Z
+
+7
+7982
+
+
+5
+68j¼
+N
+24H
+242526 *
+1 ($210:7B$
+
+
+13
+27
+
+
+15
+28
+
+
+17
+29
+N
+35H
+353626 *
+1 (210:7B$
+
+
+13
+27
+
+
+15
+37
+
+
+17
+38
+
+39
+394021
+J
+10D
+101112 *
+1
+ 
+(:7B$
+
+
+13
+14
+
+
+15
+16
+
+
+17
+18
+
+19
+192021
+
+33
+333421
+
+30
+303121r©
+
+101922*
+1	 	(
+
+101923*
+1	 	(
+
+243032*
+1 (
+
+243322*
+1 (
+
+243323*
+1 (
+
+243023*
+1 (
+
+243023*
+1 ($
+
+353322*
+1 (
+
+353323*
+1 (
+
+353922*
+1 (
+
+353923*
+1 (

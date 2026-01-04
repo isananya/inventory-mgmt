@@ -1,0 +1,264 @@
+
+1.0isananya_inventory-mgmtJavaFrontend"1767529069314*java2.B∞
+M
+Huser-service/src/main/java/com/chubb/inventoryapp/dto/SignupRequest.java2
+	
+type3
+	
+MAIN4
+
+
+module-key5
+
+user-service6
+
+package8
+,
+'user-service:com.chubb.inventoryapp.dto9
+.
+(com.chubb.inventoryapp.dto.SignupRequest11
+
+class12
+
+access13
+
+public14
+
+
+full-range15
+
+(14:1)-(30:2)16
+
+simple-name17
+
+SignupRequest18
+
+lombok.Data20
+
+unknown21
+
+annotated by22
+
+
+uses23
+
+lombok.NoArgsConstructor25
+
+lombok.AllArgsConstructor27
+4
+.com.chubb.inventoryapp.dto.SignupRequest.email29
+
+field30
+
+private31
+
+(18:2)-(20:26)32
+
+email33
+*
+$jakarta.validation.constraints.Email35
+-
+'jakarta.validation.constraints.NotBlank37
+7
+1com.chubb.inventoryapp.dto.SignupRequest.password39
+
+(22:5)-(24:29)40
+
+password41
+)
+#jakarta.validation.constraints.Size43
+3
+-com.chubb.inventoryapp.dto.SignupRequest.name45
+
+(26:5)-(27:25)46
+
+
+name47
+3
+-com.chubb.inventoryapp.dto.SignupRequest.role49
+
+(29:2)-(29:20)50
+
+
+role51
+'
+!com.chubb.inventoryapp.model.Role53
+
+is type54J%
+#
+1
+12
+
+3
+4
+
+5
+6 Z
+
+7
+7982
+
+
+5
+68jò
+
+36
+363721
+
+52
+525321
+
+34
+343521
+
+42
+424321
+
+19
+192021
+N
+48H
+484930 *
+1 (210:7B$
+
+
+13
+31
+
+
+15
+50
+
+
+17
+51
+
+26
+262721
+N
+28H
+282930 *
+1 (210:7B$
+
+
+13
+31
+
+
+15
+32
+
+
+17
+33
+N
+38H
+383930 *
+1 (210:7B$
+
+
+13
+31
+
+
+15
+40
+
+
+17
+41
+J
+10D
+101112 *
+1 (:7B$
+
+
+13
+14
+
+
+15
+16
+
+
+17
+18
+
+24
+242521
+N
+44H
+444530 *
+1 (210:7B$
+
+
+13
+31
+
+
+15
+46
+
+
+17
+47rÅ
+
+101922*
+1 (
+
+101923*
+1 (
+
+102422*
+1 (
+
+102423*
+1 (
+
+102622*
+1 (
+
+102623*
+1 (
+
+283422*
+1 (*
+
+283423*
+1 (
+
+283622*
+1 (-
+
+283623*
+1 (
+
+383622*
+1 (
+
+383623*
+1 (
+
+384222*
+1 (G
+
+384223*
+1 (
+
+
+443622*
+1 (
+
+443623*
+1 (
+
+485254*
+1
+ (
+
+485223*
+1
+ (
+
+485223*
+1 (

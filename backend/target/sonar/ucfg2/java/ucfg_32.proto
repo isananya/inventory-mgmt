@@ -1,0 +1,37 @@
+
+Vcom.chubb.inventoryapp.security.UserDetailsImpl#getAuthorities()Ljava/util/Collection;”
+‰D:/CHUBB_Training/CAPSTONE PROJECT/inventory-mgmt/backend/user-service/src/main/java/com/chubb/inventoryapp/security/UserDetailsImpl.java%2 %(@"1*À
+1& &(—
+”
+&2 &(6'
+%0!com.chubb.inventoryapp.model.User"__id*Y
+
+__unknown_file (=*;1
+/com.chubb.inventoryapp.security.UserDetailsImpl"
+user›˜
+& &(1H
+%1Borg.springframework.security.core.authority.SimpleGrantedAuthority"Borg.springframework.security.core.authority.SimpleGrantedAuthorityÿ
+ü
+& &(H
+%2"^org.springframework.security.core.authority.SimpleGrantedAuthority#<init>(Ljava/lang/String;)V*f
+
+__unknown_file (J
+H
+%1Borg.springframework.security.core.authority.SimpleGrantedAuthority*"
+
+__unknown_file (
+""â
+ß
+& &(I
+%3"5java.util.List#of(Ljava/lang/Object;)Ljava/util/List;*.
+
+__unknown_file ("
+java.util.List*f
+
+__unknown_file (J
+H
+%1Borg.springframework.security.core.authority.SimpleGrantedAuthority"
+& &(J
+
+%3B31
+/com.chubb.inventoryapp.security.UserDetailsImplH

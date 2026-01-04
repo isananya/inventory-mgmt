@@ -1,0 +1,133 @@
+
+1.0isananya_inventory-mgmtJavaFrontend"1767529074416*java2.B¥
+i
+dinventory-service/src/main/java/com/chubb/inventoryapp/exception/CategoryAlreadyExistsException.java2
+	
+type3
+	
+MAIN4
+
+
+module-key5
+
+inventory-service6
+
+package8
+7
+2inventory-service:com.chubb.inventoryapp.exception9
+E
+?com.chubb.inventoryapp.exception.CategoryAlreadyExistsException11
+
+	exception12
+
+access13
+
+public14
+
+
+full-range15
+
+(6:1)-(11:2)16
+
+simple-name17
+$
+CategoryAlreadyExistsException18
+<
+6org.springframework.web.bind.annotation.ResponseStatus20
+
+unknown21
+
+annotated by22
+
+
+uses23
+)
+#org.springframework.http.HttpStatus25
+2
+,org.springframework.http.HttpStatus.CONFLICT27
+
+
+references28
+a
+[com.chubb.inventoryapp.exception.CategoryAlreadyExistsException#<init>(Ljava/lang/String;)V30
+
+method31
+
+(8:5)-(10:6)32
+
+calls33J%
+#
+1
+12
+
+3
+4
+
+5
+6 Z
+
+7
+7982
+
+
+5
+68jÿ
+J
+10D
+101112 *
+1 (,:7B$
+
+
+13
+14
+
+
+15
+16
+
+
+17
+18
+
+24
+242521
+
+26
+262721
+
+19
+192021
+N
+29H
+293031 *
+1 (*210:7B$
+
+
+13
+14
+
+
+15
+32
+
+
+17
+18r¢
+
+101922*
+1 (%
+
+101923*
+1 (
+
+102423*
+1 (
+
+102423*
+1 ($
+
+102628*
+1 ($
+
+291033*
+1 (*

@@ -1,0 +1,105 @@
+
+≠com.chubb.inventoryapp.controller.WarehouseController#updateWarehouse(Ljava/lang/Long;Lcom/chubb/inventoryapp/dto/WarehouseRequest;)Lorg/springframework/http/ResponseEntity;ü
+îD:/CHUBB_Training/CAPSTONE PROJECT/inventory-mgmt/backend/inventory-service/src/main/java/com/chubb/inventoryapp/controller/WarehouseController.java6  6(/"startingBlock*˚
+startingBlock6/ 8(2ç
+ä
+
+__unknown_file (
+%3"__id*b
+
+__unknown_file (F*D
+6
+request+com.chubb.inventoryapp.dto.WarehouseRequest"
+
+locationâ
+Ü
+
+__unknown_file (
+%4"__id*^
+
+__unknown_file (B*@
+6
+request+com.chubb.inventoryapp.dto.WarehouseRequest"
+nameò
+ï
+8 8(
+%5"
+__annotate*S
+
+__unknown_file (75
+3org.springframework.web.bind.annotation.RequestBody*"
+
+__unknown_file (
+
+%4Ä
+~
+8* 8(1@
+6
+request+com.chubb.inventoryapp.dto.WarehouseRequest"
+name"__annotation*"
+
+__unknown_file (
+
+%5ò
+ï
+8 8(
+%6"
+__annotate*S
+
+__unknown_file (75
+3org.springframework.web.bind.annotation.RequestBody*"
+
+__unknown_file (
+
+%3Ö
+Ç
+8* 8(1D
+6
+request+com.chubb.inventoryapp.dto.WarehouseRequest"
+
+location"__annotation*"
+
+__unknown_file (
+
+%6*
+1*Â
+19 9(∑
+¥
+9 9(5
+%0/com.chubb.inventoryapp.service.WarehouseService"__id*k
+
+__unknown_file (O*M7
+5com.chubb.inventoryapp.controller.WarehouseController"
+warehouseService…∆
+9 9(/
+
+%1void"com.chubb.inventoryapp.service.WarehouseService#updateWarehouse(Lcom/chubb/inventoryapp/dto/WarehouseRequest;Ljava/lang/Long;)V*S
+
+__unknown_file (7
+5
+%0/com.chubb.inventoryapp.service.WarehouseService*T
+
+__unknown_file (8
+6
+request+com.chubb.inventoryapp.dto.WarehouseRequest*2
+
+__unknown_file (
+
+idjava.lang.Long2NupdateWarehouse(Lcom/chubb/inventoryapp/dto/WarehouseRequest;Ljava/lang/Long;)í
+è
+: :(&-
+%2'org.springframework.http.ResponseEntity"gorg.springframework.http.ResponseEntity#ok(Ljava/lang/Object;)Lorg/springframework/http/ResponseEntity;*G
+
+__unknown_file (+")
+'org.springframework.http.ResponseEntity*"
+
+__unknown_file (
+""";
+: :('/
+-
+%2'org.springframework.http.ResponseEntity: 
+7 7("
+idjava.lang.Long:B
+8 8(16
+request+com.chubb.inventoryapp.dto.WarehouseRequestB97
+5com.chubb.inventoryapp.controller.WarehouseControllerH

@@ -1,0 +1,67 @@
+
+Mcom.chubb.inventoryapp.service.InventoryService#getLowStock()Ljava/util/List;õ
+éD:/CHUBB_Training/CAPSTONE PROJECT/inventory-mgmt/backend/inventory-service/src/main/java/com/chubb/inventoryapp/service/InventoryService.javaÄ# Ä(."1*Ñ
+1
+Å Å("º
+π
+
+Å Å(";
+%05com.chubb.inventoryapp.repository.InventoryRepository"__id*h
+
+__unknown_file (L*J1
+/com.chubb.inventoryapp.service.InventoryService"
+inventoryRepository›⁄
+
+Å Å(,
+%1java.util.List"Porg.springframework.data.repository.ListCrudRepository#findAll()Ljava/util/List;*Y
+
+__unknown_file (=
+;
+%05com.chubb.inventoryapp.repository.InventoryRepository2	findAll()§°
+
+Å Ç(
+%2java.util.stream.Stream"6java.util.Collection#stream()Ljava/util/stream/Stream;*2
+
+__unknown_file (
+
+%1java.util.List2stream()©
+¶
+
+É É(H"
+%3java.util.function.Predicate"__declareFunction*a
+
+__unknown_file (EC
+A__sonar_lambda_20$com.chubb.inventoryapp.service.InventoryServiceÆ´
+
+Å É(I
+%5java.util.stream.Stream"Wjava.util.stream.Stream#filter(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;*;
+
+__unknown_file (
+
+%2java.util.stream.Stream*@
+
+__unknown_file ($
+"
+%3java.util.function.Predicate2&filter(Ljava/util/function/Predicate;)àÖ
+
+Å Ñ()
+%6java.util.stream.Stream"Sjava.util.stream.Stream#map(Ljava/util/function/Function;)Ljava/util/stream/Stream;*;
+
+__unknown_file (
+
+%5java.util.stream.Stream*"
+
+__unknown_file (
+""2"map(Ljava/util/function/Function;)ûõ
+
+Å Ö(
+%7java.util.List"0java.util.stream.Stream#toList()Ljava/util/List;*;
+
+__unknown_file (
+
+%6java.util.stream.Stream2toList()"$
+
+Å Ö(
+
+%7java.util.ListB31
+/com.chubb.inventoryapp.service.InventoryServiceH

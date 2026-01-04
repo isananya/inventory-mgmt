@@ -1,0 +1,254 @@
+
+1.0isananya_inventory-mgmtJavaFrontend"1767529075736*java2.B…	
+V
+Qinventory-service/src/main/java/com/chubb/inventoryapp/dto/InventoryResponse.java2
+	
+type3
+	
+MAIN4
+
+
+module-key5
+
+inventory-service6
+
+package8
+1
+,inventory-service:com.chubb.inventoryapp.dto9
+2
+,com.chubb.inventoryapp.dto.InventoryResponse11
+
+class12
+
+access13
+
+public14
+
+
+full-range15
+
+(10:1)-(19:2)16
+
+simple-name17
+
+InventoryResponse18
+
+lombok.Data20
+
+unknown21
+
+annotated by22
+
+
+uses23
+
+lombok.NoArgsConstructor25
+
+lombok.AllArgsConstructor27
+5
+/com.chubb.inventoryapp.dto.InventoryResponse.id29
+
+field30
+
+private31
+
+(14:2)-(14:18)32
+
+id33
+:
+4com.chubb.inventoryapp.dto.InventoryResponse.product35
+
+(15:5)-(15:29)36
+
+product37
+*
+$com.chubb.inventoryapp.model.Product39
+
+is type40
+<
+6com.chubb.inventoryapp.dto.InventoryResponse.warehouse42
+
+(16:5)-(16:33)43
+
+	warehouse44
+,
+&com.chubb.inventoryapp.model.Warehouse46
+;
+5com.chubb.inventoryapp.dto.InventoryResponse.quantity48
+
+(17:5)-(17:30)49
+
+quantity50
+D
+>com.chubb.inventoryapp.dto.InventoryResponse.lowStockThreshold52
+
+(18:5)-(18:44)53
+
+lowStockThreshold54J%
+#
+1
+12
+
+3
+4
+
+5
+6 Z
+
+7
+7982
+
+
+5
+68jÀ
+N
+28H
+282930 *
+1 (210:7B$
+
+
+13
+31
+
+
+15
+32
+
+
+17
+33
+
+38
+383921
+N
+51H
+515230 *
+1 (&210:7B$
+
+
+13
+31
+
+
+15
+53
+
+
+17
+54
+
+19
+192021
+J
+10D
+101112 *
+1 (:7B$
+
+
+13
+14
+
+
+15
+16
+
+
+17
+18
+N
+41H
+414230 *
+1 ( 210:7B$
+
+
+13
+31
+
+
+15
+43
+
+
+17
+44
+
+26
+262721
+N
+34H
+343530 *
+1 (210:7B$
+
+
+13
+31
+
+
+15
+36
+
+
+17
+37
+
+45
+454621
+N
+47H
+474830 *
+1 (210:7B$
+
+
+13
+31
+
+
+15
+49
+
+
+17
+50
+
+24
+242521rÄ
+
+101922*
+1
+ 
+(
+
+101923*
+1
+ 
+(
+
+102422*
+1 (
+
+102423*
+1 (
+
+102622*
+1 (
+
+102623*
+1 (
+
+343840*
+1 (
+
+343823*
+1 (
+
+343823*
+1 (
+
+414540*
+1 (
+
+414523*
+1 (
+
+414523*
+1 ( 

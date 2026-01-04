@@ -1,0 +1,1273 @@
+
+1.0isananya_inventory-mgmtJavaFrontend"1767529069619*java2.B’-
+O
+Juser-service/src/main/java/com/chubb/inventoryapp/service/AuthService.java2
+	
+type3
+	
+MAIN4
+
+
+module-key5
+
+user-service6
+
+package8
+0
++user-service:com.chubb.inventoryapp.service9
+0
+*com.chubb.inventoryapp.service.AuthService11
+
+class12
+
+access13
+
+public14
+
+
+full-range15
+
+(28:1)-(147:2)16
+
+simple-name17
+
+AuthService18
+,
+&org.springframework.stereotype.Service20
+
+unknown21
+
+annotated by22
+
+
+uses23
+?
+9com.chubb.inventoryapp.service.AuthService.userRepository25
+
+field26
+
+private27
+
+(31:2)-(31:46)28
+
+userRepository29
+6
+0com.chubb.inventoryapp.repository.UserRepository31
+
+is type32
+@
+:com.chubb.inventoryapp.service.AuthService.passwordEncoder34
+
+(32:2)-(32:48)35
+
+passwordEncoder36
+B
+<org.springframework.security.crypto.password.PasswordEncoder38
+F
+@com.chubb.inventoryapp.service.AuthService.authenticationManager40
+
+(33:5)-(33:63)41
+
+authenticationManager42
+G
+Aorg.springframework.security.authentication.AuthenticationManager44
+;
+5com.chubb.inventoryapp.service.AuthService.jwtService46
+
+(34:5)-(34:41)47
+
+
+jwtService48
+0
+*com.chubb.inventoryapp.security.JwtService50
+š
+“com.chubb.inventoryapp.service.AuthService#<init>(Lcom/chubb/inventoryapp/repository/UserRepository;Lorg/springframework/security/crypto/password/PasswordEncoder;Lorg/springframework/security/authentication/AuthenticationManager;Lcom/chubb/inventoryapp/security/JwtService;)V52
+
+method53
+
+(36:2)-(42:3)54
+
+	has param55
+
+calls56
+
+
+references57
+‰
+‚com.chubb.inventoryapp.service.AuthService#register(Lcom/chubb/inventoryapp/dto/SignupRequest;)Lcom/chubb/inventoryapp/model/User;59
+
+(44:2)-(67:3)60
+
+register61
+'
+!com.chubb.inventoryapp.model.User63
+
+returns64
+.
+(com.chubb.inventoryapp.dto.SignupRequest66
+Y
+Scom.chubb.inventoryapp.repository.UserRepository#existsByEmail(Ljava/lang/String;)Z68
+j
+dcom.chubb.inventoryapp.repository.UserRepository#findByEmail(Ljava/lang/String;)Ljava/util/Optional;70
+A
+;com.chubb.inventoryapp.exception.UserAlreadyExistsException72
+u
+oorg.springframework.security.crypto.password.PasswordEncoder#encode(Ljava/lang/CharSequence;)Ljava/lang/String;74
+'
+!com.chubb.inventoryapp.model.Role76
+0
+*com.chubb.inventoryapp.model.Role.CUSTOMER78
+8
+2org.springframework.data.repository.CrudRepository80
+c
+]org.springframework.data.repository.CrudRepository#save(Ljava/lang/Object;)Ljava/lang/Object;82
+Œ
+…com.chubb.inventoryapp.service.AuthService#login(Lcom/chubb/inventoryapp/dto/LoginRequest;)Lcom/chubb/inventoryapp/dto/LoginResponse;84
+
+(69:2)-(100:3)85
+
+login86
+.
+(com.chubb.inventoryapp.dto.LoginResponse88
+-
+'com.chubb.inventoryapp.dto.LoginRequest90
+6
+0org.springframework.security.core.Authentication92
+»
+´org.springframework.security.authentication.AuthenticationManager#authenticate(Lorg/springframework/security/core/Authentication;)Lorg/springframework/security/core/Authentication;94
+U
+Oorg.springframework.security.authentication.UsernamePasswordAuthenticationToken96
+5
+/com.chubb.inventoryapp.security.UserDetailsImpl98
+X
+Qorg.springframework.security.core.Authentication#getPrincipal()Ljava/lang/Object;100
+c
+\com.chubb.inventoryapp.security.UserDetailsImpl#getUser()Lcom/chubb/inventoryapp/model/User;102
+=
+6com.chubb.inventoryapp.exception.UserInactiveException104
+„
+}com.chubb.inventoryapp.security.JwtService#generateToken(Lcom/chubb/inventoryapp/security/UserDetailsImpl;)Ljava/lang/String;106
+.
+'org.springframework.http.ResponseCookie108
+D
+=org.springframework.http.ResponseCookie$ResponseCookieBuilder110
+u
+norg.springframework.http.ResponseCookie$ResponseCookieBuilder#build()Lorg/springframework/http/ResponseCookie;112
+Ž
+†org.springframework.http.ResponseCookie$ResponseCookieBuilder#maxAge(J)Lorg/springframework/http/ResponseCookie$ResponseCookieBuilder;114
+
+•org.springframework.http.ResponseCookie$ResponseCookieBuilder#path(Ljava/lang/String;)Lorg/springframework/http/ResponseCookie$ResponseCookieBuilder;116
+Ž
+†org.springframework.http.ResponseCookie$ResponseCookieBuilder#secure(Z)Lorg/springframework/http/ResponseCookie$ResponseCookieBuilder;118
+
+ˆorg.springframework.http.ResponseCookie$ResponseCookieBuilder#httpOnly(Z)Lorg/springframework/http/ResponseCookie$ResponseCookieBuilder;120
+™
+‘org.springframework.http.ResponseCookie#from(Ljava/lang/String;Ljava/lang/String;)Lorg/springframework/http/ResponseCookie$ResponseCookieBuilder;122
+]
+Vcom.chubb.inventoryapp.security.UserDetailsImpl#getAuthorities()Ljava/util/Collection;124
+9
+2org.springframework.security.core.GrantedAuthority126
+c
+\com.chubb.inventoryapp.service.AuthService#logout()Lorg/springframework/http/ResponseCookie;128
+
+(102:2)-(109:3)129
+
+logout130
+€
+ycom.chubb.inventoryapp.service.AuthService#getProfile(Ljava/lang/String;)Lcom/chubb/inventoryapp/dto/UserProfileResponse;132
+
+(111:2)-(123:3)133
+
+
+getProfile134
+5
+.com.chubb.inventoryapp.dto.UserProfileResponse136
+g
+`com.chubb.inventoryapp.security.JwtService#extractUsername(Ljava/lang/String;)Ljava/lang/String;138
+=
+6com.chubb.inventoryapp.exception.UserNotFoundException140
+ˆ
+€com.chubb.inventoryapp.service.AuthService#changePassword(Ljava/lang/String;Lcom/chubb/inventoryapp/dto/ChangePasswordRequest;)V142
+
+(125:2)-(137:3)143
+
+changePassword144
+7
+0com.chubb.inventoryapp.dto.ChangePasswordRequest146
+x
+qorg.springframework.security.crypto.password.PasswordEncoder#matches(Ljava/lang/CharSequence;Ljava/lang/String;)Z148
+A
+:com.chubb.inventoryapp.exception.PasswordMismatchException150
+T
+Mcom.chubb.inventoryapp.service.AuthService#deleteAccount(Ljava/lang/String;)V152
+
+(139:2)-(146:3)153
+
+deleteAccount154J%
+#
+1
+12
+
+3
+4
+
+5
+6 Z
+
+7
+7982
+
+
+5
+68jÀ
+
+77
+777821
+
+117
+11711821
+N
+33H
+333426 *
+1    (/210:7B$
+
+
+13
+27
+
+
+15
+35
+
+
+17
+36
+N
+83H
+838453 *
+1E E(210:7B$
+
+
+13
+14
+
+
+15
+85
+
+
+17
+86
+
+87
+878821
+J
+10D
+101112 *
+1 (:7B$
+
+
+13
+14
+
+
+15
+16
+
+
+17
+18
+
+137
+13713821
+S
+141L
+14114253 *
+1} }(210:7B&
+
+
+13
+14
+
+15
+143
+
+17
+144
+
+71
+717221
+
+115
+11511621
+
+99
+9910021
+
+81
+818221
+S
+131L
+13113253 *
+1o o('210:7B&
+
+
+13
+14
+
+15
+133
+
+17
+134
+
+75
+757621
+
+101
+10110221
+
+109
+10911021
+
+103
+10310421
+
+62
+626321
+
+135
+13513621
+
+65
+656621
+
+125
+12512621
+
+111
+11111221
+
+69
+697021
+S
+127L
+12712853 *
+1f f(210:7B&
+
+
+13
+14
+
+15
+129
+
+17
+130
+
+95
+959621
+
+91
+919221
+N
+24H
+242526 *
+1 (-210:7B$
+
+
+13
+27
+
+
+15
+28
+
+
+17
+29
+
+89
+899021
+
+139
+13914021
+
+79
+798021
+
+97
+979821
+N
+51H
+515253 *
+1$	 $(210:7B$
+
+
+13
+14
+
+
+15
+54
+
+
+17
+18
+
+49
+495021
+
+19
+192021
+
+121
+12112221
+
+93
+939421
+
+113
+11311421
+
+119
+11912021
+
+123
+12312421
+
+107
+10710821
+N
+45H
+454626 *
+1" "((210:7B$
+
+
+13
+27
+
+
+15
+47
+
+
+17
+48
+
+67
+676821
+
+43
+434421
+
+147
+14714821
+
+30
+303121
+
+145
+14514621
+
+73
+737421
+
+37
+373821
+N
+39H
+394026 *
+1!) !(>210:7B$
+
+
+13
+27
+
+
+15
+41
+
+
+17
+42
+U
+151N
+15115253 *
+1‹ ‹(210:7B&
+
+
+13
+14
+
+15
+153
+
+17
+154
+
+105
+10510621
+
+149
+14915021
+N
+58H
+585953 *
+1, ,(210:7B$
+
+
+13
+14
+
+
+15
+60
+
+
+17
+61rú4
+
+101922*
+1 (	
+
+101923*
+1 (	
+
+243032*
+1 (
+
+243023*
+1 (
+
+243023*
+1 (-
+
+333732*
+1   (
+
+333723*
+1   (
+
+333723*
+1    (/
+
+394332*
+1! !((
+
+394323*
+1! !((
+
+394323*
+1!) !(>
+
+454932*
+1" "(
+
+454923*
+1" "(
+
+454923*
+1" "((
+
+513055*
+1$ $(#
+
+513755*
+1$4 $(C
+
+514355*
+1% %(
+
+514955*
+1%1 %(;
+
+511056*
+1$	 $(
+
+513032*
+1$$ $(2
+
+513023*
+1$ $(#
+
+513732*
+1$D $(S
+
+513723*
+1$4 $(C
+
+514332*
+1% %(/
+
+514323*
+1% %(
+
+514932*
+1%< %(F
+
+514923*
+1%1 %(;
+
+511023*
+1& &(
+
+511057*
+1& &(
+
+513023*
+1& &(
+
+512457*
+1& &(
+
+511023*
+1' '(
+
+511057*
+1' '(
+
+513723*
+1' '(
+
+513357*
+1' '(
+
+511023*
+1( ((
+
+511057*
+1( ((
+
+514323*
+1( ((
+
+513957*
+1( ((
+
+511023*
+1) )(
+
+511057*
+1) )(
+
+514923*
+1) )(
+
+514557*
+1) )(
+
+586264*
+1,	 ,(
+
+586555*
+1, ,($
+
+586223*
+1,	 ,(
+
+586532*
+1,% ,(,
+
+586523*
+1, ,($
+
+583057*
+1- -(#
+
+586756*
+1- -(#
+
+582457*
+1- -(
+
+583023*
+1- -(
+
+582457*
+1- -(
+
+586232*
+1.	 .(
+
+586223*
+1. .(
+
+583057*
+1. .(+
+
+586956*
+1.  .(+
+
+582457*
+1. .(
+
+583023*
+1. .(
+
+582457*
+1. .(
+
+587156*
+10 0()
+
+583757*
+13 3(,
+
+587356*
+13& 3(,
+
+583357*
+13 3(%
+
+583723*
+13 3(%
+
+583357*
+13 3(%
+
+587532*
+15	 5(
+
+587523*
+15 5(
+
+587523*
+15/ 5(3
+
+587523*
+154 5(<
+
+587757*
+154 5(<
+
+586264*
+17 7(
+
+587957*
+17 7(
+
+588156*
+17 7(
+
+582457*
+17 7(
+
+583023*
+17 7(
+
+582457*
+17 7(
+
+586232*
+1: :(
+
+586223*
+1: :(
+
+586256*
+1: :(
+
+583757*
+1= =(*
+
+587356*
+1=$ =(*
+
+583357*
+1= =(#
+
+583723*
+1= =(#
+
+583357*
+1= =(#
+
+587532*
+1? ?(
+
+587523*
+1? ?(
+
+587523*
+1?- ?(1
+
+587523*
+1?2 ?(:
+
+587757*
+1?2 ?(:
+
+586264*
+1B
+ B(
+
+587957*
+1B
+ B(
+
+588156*
+1B B(
+
+582457*
+1B
+ B(
+
+583023*
+1B
+ B(
+
+582457*
+1B
+ B(
+
+838764*
+1E	 E(
+
+838955*
+1E E()
+
+838723*
+1E	 E(
+
+838932*
+1E* E(1
+
+838923*
+1E E()
+
+839132*
+1F F(
+
+839123*
+1F	 F(
+
+839164*
+1F F(A
+
+834357*
+1F F(A
+
+839356*
+1F5 F(A
+
+833957*
+1F F(4
+
+834323*
+1F F(4
+
+833957*
+1F F(4
+
+839556*
+1G G(8
+
+839732*
+1J J(
+
+839723*
+1J	 J(
+
+839723*
+1J! J(0
+
+839157*
+1J2 J(C
+
+839956*
+1J7 J(C
+
+836264*
+1L L(
+
+839757*
+1L L(
+
+8310156*
+1L L(
+
+8310356*
+1M M(,
+
+834957*
+1P P(.
+
+8310556*
+1P! P(.
+
+834557*
+1P P( 
+
+834923*
+1P P( 
+
+834557*
+1P P( 
+
+8310732*
+1R R(
+
+8310723*
+1R	 R(
+
+8310764*
+1R! W(
+
+8310957*
+1R! W(
+
+8311156*
+1W W(
+
+8310964*
+1R! V(
+
+8310957*
+1R! V(
+
+8311356*
+1V V(
+
+8310964*
+1R! U(
+
+8310957*
+1R! U(
+
+8311556*
+1U U(
+
+8310964*
+1R! T(
+
+8310957*
+1R! T(
+
+8311756*
+1T T(
+
+8310964*
+1R! S(
+
+8310957*
+1R! S(
+
+8311956*
+1S S(
+
+8310964*
+1R! R(4
+
+8310757*
+1R! R(4
+
+8312156*
+1R0 R(4
+
+8310723*
+1R! R(/
+
+839757*
+1[ [(*
+
+8312356*
+1[ [(*
+
+8312523*
+1^ ^(&
+
+836264*
+1a a(&
+
+839757*
+1a a(&
+
+8310156*
+1a a(&
+
+12710764*
+1f	 f(
+
+12710723*
+1f	 f(
+
+12710764*
+1g
+ l(
+
+12710957*
+1g
+ l(
+
+12711156*
+1l l(
+
+12710964*
+1g
+ k(
+
+12710957*
+1g
+ k(
+
+12711356*
+1k k(
+
+12710964*
+1g
+ j(
+
+12710957*
+1g
+ j(
+
+12711556*
+1j j(
+
+12710964*
+1g
+ i(
+
+12710957*
+1g
+ i(
+
+12711756*
+1i i(
+
+12710964*
+1g
+ h(
+
+12710957*
+1g
+ h(
+
+12711956*
+1h h(
+
+12710964*
+1g
+ g(
+
+12710757*
+1g
+ g(
+
+12712156*
+1g g(
+
+12710723*
+1g
+ g(
+
+13113564*
+1o	 o(
+
+13113523*
+1o	 o(
+
+1314957*
+1p p(2
+
+13113756*
+1p# p(2
+
+1314557*
+1p p("
+
+1314923*
+1p p("
+
+1314557*
+1p p("
+
+1316232*
+1r r(
+
+1316223*
+1r r(
+
+1316264*
+1r r(<
+
+1313057*
+1r r()
+
+1316956*
+1r r()
+
+1312457*
+1r r(
+
+1313023*
+1r r(
+
+1312457*
+1r r(
+
+13113956*
+1rG r(\
+
+14114555*
+1}+ }(@
+
+14114532*
+1}A }(H
+
+14114523*
+1}+ }(@
+
+1414957*
+1 (2
+
+14113756*
+1# (2
+
+1414557*
+1 ("
+
+1414923*
+1 ("
+
+1414557*
+1 ("
+
+1416232*
+1 (
+
+1416223*
+1 (
+
+1416264*
+1 (<
+
+1413057*
+1 ()
+
+1416956*
+1 ()
+
+1412457*
+1 (
+
+1413023*
+1 (
+
+1412457*
+1 (
+
+14113956*
+1G (\
+
+1413757*
+1ƒ ƒ(
+
+14114756*
+1ƒ ƒ(
+
+1413357*
+1ƒ ƒ(
+
+1413723*
+1ƒ ƒ(
+
+1413357*
+1ƒ ƒ(
+
+14114956*
+1„ „('
+
+1413757*
+1‡ ‡(*
+
+1417356*
+1‡$ ‡(*
+
+1413357*
+1‡ ‡(#
+
+1413723*
+1‡ ‡(#
+
+1413357*
+1‡ ‡(#
+
+1416264*
+1ˆ ˆ(
+
+1417957*
+1ˆ ˆ(
+
+1418156*
+1ˆ ˆ(
+
+1412457*
+1ˆ ˆ(
+
+1413023*
+1ˆ ˆ(
+
+1412457*
+1ˆ ˆ(
+
+1514957*
+1Œ Œ(,
+
+15113756*
+1Œ Œ(,
+
+1514557*
+1Œ Œ(
+
+1514923*
+1Œ Œ(
+
+1514557*
+1Œ Œ(
+
+1516232*
+1 (
+
+1516223*
+1 (
+
+1516264*
+1 Ž(
+
+1513057*
+1 ()
+
+1516956*
+1 ()
+
+1512457*
+1 (
+
+1513023*
+1 (
+
+1512457*
+1 (
+
+15113956*
+1Ž% Ž(:
+
+1516264*
+1‘ ‘(
+
+1517957*
+1‘ ‘(
+
+1518156*
+1‘ ‘(
+
+1512457*
+1‘ ‘(
+
+1513023*
+1‘ ‘(
+
+1512457*
+1‘ ‘(

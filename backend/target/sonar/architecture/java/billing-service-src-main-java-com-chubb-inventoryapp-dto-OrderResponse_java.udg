@@ -1,0 +1,239 @@
+
+1.0isananya_inventory-mgmtJavaFrontend"1767529078036*java2.B»
+P
+Kbilling-service/src/main/java/com/chubb/inventoryapp/dto/OrderResponse.java2
+	
+type3
+	
+MAIN4
+
+
+module-key5
+
+billing-service6
+
+package8
+/
+*billing-service:com.chubb.inventoryapp.dto9
+.
+(com.chubb.inventoryapp.dto.OrderResponse11
+
+class12
+
+access13
+
+public14
+
+
+full-range15
+
+(7:1)-(15:2)16
+
+simple-name17
+
+OrderResponse18
+
+lombok.Data20
+
+unknown21
+
+annotated by22
+
+
+uses23
+6
+0com.chubb.inventoryapp.dto.OrderResponse.orderId25
+
+field26
+
+private27
+
+(9:2)-(9:23)28
+
+orderId29
+9
+3com.chubb.inventoryapp.dto.OrderResponse.customerId31
+
+(10:5)-(10:29)32
+
+
+customerId33
+5
+/com.chubb.inventoryapp.dto.OrderResponse.status35
+
+(11:5)-(11:27)36
+
+status37
+6
+0com.chubb.inventoryapp.dto.OrderResponse.address39
+
+(12:5)-(12:29)40
+
+address41
+(
+"com.chubb.inventoryapp.dto.Address43
+
+is type44
+:
+4com.chubb.inventoryapp.dto.OrderResponse.totalAmount46
+
+(13:5)-(13:31)47
+
+totalAmount48
+8
+2com.chubb.inventoryapp.dto.OrderResponse.createdAt50
+
+(14:5)-(14:37)51
+
+	createdAt52J%
+#
+1
+12
+
+3
+4
+
+5
+6 Z
+
+7
+7982
+
+
+5
+68j‘
+N
+24H
+242526 *
+1	 	(210:7B$
+
+
+13
+27
+
+
+15
+28
+
+
+17
+29
+N
+38H
+383926 *
+1 (210:7B$
+
+
+13
+27
+
+
+15
+40
+
+
+17
+41
+N
+49H
+495026 *
+1 ($210:7B$
+
+
+13
+27
+
+
+15
+51
+
+
+17
+52
+N
+34H
+343526 *
+1 (210:7B$
+
+
+13
+27
+
+
+15
+36
+
+
+17
+37
+N
+45H
+454626 *
+1 (210:7B$
+
+
+13
+27
+
+
+15
+47
+
+
+17
+48
+
+19
+192021
+
+42
+424321
+J
+10D
+101112 *
+1 (:7B$
+
+
+13
+14
+
+
+15
+16
+
+
+17
+18
+N
+30H
+303126 *
+1
+ 
+(210:7B$
+
+
+13
+27
+
+
+15
+32
+
+
+17
+33rá
+
+101922*
+1 (
+
+101923*
+1 (
+
+384244*
+1 (
+
+384223*
+1 (
+
+384223*
+1 (

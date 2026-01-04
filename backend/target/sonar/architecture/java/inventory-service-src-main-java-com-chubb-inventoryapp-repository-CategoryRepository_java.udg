@@ -1,0 +1,159 @@
+
+1.0isananya_inventory-mgmtJavaFrontend"1767529076730*java2.BÕ
+^
+Yinventory-service/src/main/java/com/chubb/inventoryapp/repository/CategoryRepository.java2
+	
+type3
+	
+MAIN4
+
+
+module-key5
+
+inventory-service6
+
+package8
+8
+3inventory-service:com.chubb.inventoryapp.repository9
+:
+4com.chubb.inventoryapp.repository.CategoryRepository11
+
+	interface12
+
+access13
+
+public14
+
+
+full-range15
+
+(10:1)-(16:2)16
+
+simple-name17
+
+CategoryRepository18
+;
+5org.springframework.data.jpa.repository.JpaRepository20
+
+unknown21
+
+
+implements22
+/
+)org.springframework.stereotype.Repository24
+
+annotated by25
+
+
+uses26
++
+%com.chubb.inventoryapp.model.Category28
+w
+qcom.chubb.inventoryapp.repository.CategoryRepository#findByNameIgnoreCase(Ljava/lang/String;)Ljava/util/Optional;30
+
+method31
+
+(13:5)-(13:58)32
+
+findByNameIgnoreCase33
+f
+`com.chubb.inventoryapp.repository.CategoryRepository#existsByNameIgnoreCase(Ljava/lang/String;)Z35
+
+(15:5)-(15:49)36
+
+existsByNameIgnoreCase37J%
+#
+1
+12
+
+3
+4
+
+5
+6 Z
+
+7
+7982
+
+
+5
+68j¨
+N
+34H
+343531 *
+1 (#210:7B$
+
+
+13
+14
+
+
+15
+36
+
+
+17
+37
+
+27
+272821
+N
+29H
+293031 *
+1 (,210:7B$
+
+
+13
+14
+
+
+15
+32
+
+
+17
+33
+J
+10D
+101112 *
+1 ($:7B$
+
+
+13
+14
+
+
+15
+16
+
+
+17
+18
+
+23
+232421
+
+19
+192021r¢
+
+101922*
+1- (J
+
+102325*
+1
+ 
+(
+
+102326*
+1
+ 
+(
+
+101926*
+1- (:
+
+102726*
+1; (C
+
+292726*
+1 (

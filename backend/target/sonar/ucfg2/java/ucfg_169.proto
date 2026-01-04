@@ -1,0 +1,10 @@
+
+ècom.chubb.inventoryapp.service.ProductService#mapToResponse(Lcom/chubb/inventoryapp/model/Product;)Lcom/chubb/inventoryapp/dto/ProductResponse;ó
+åD:/CHUBB_Training/CAPSTONE PROJECT/inventory-mgmt/backend/inventory-service/src/main/java/com/chubb/inventoryapp/service/ProductService.java1 1()"1*!
+13 3("
+2 <(
+
+"":5
+1* 1(3)
+p$com.chubb.inventoryapp.model.ProductB1/
+-com.chubb.inventoryapp.service.ProductService

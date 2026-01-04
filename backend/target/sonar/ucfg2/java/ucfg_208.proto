@@ -1,0 +1,81 @@
+
+ëcom.chubb.inventoryapp.config.RabbitConfig#rabbitTemplate(Lorg/springframework/amqp/rabbit/connection/ConnectionFactory;Lorg/springframework/amqp/support/converter/MessageConverter;)Lorg/springframework/amqp/rabbit/core/RabbitTemplate;’
+‡D:/CHUBB_Training/CAPSTONE PROJECT/inventory-mgmt/backend/billing-service/src/main/java/com/chubb/inventoryapp/config/RabbitConfig.java0 0(("startingBlock*„
+startingBlock0( 0(pÝ
+Ú
+/ /(	
+%3"
+__annotate*K
+
+__unknown_file (/-
++org.springframework.context.annotation.Bean*o
+
+__unknown_file (S
+Q
+connectionFactory<org.springframework.amqp.rabbit.connection.ConnectionFactory’
+
+0; 0(LQ
+connectionFactory<org.springframework.amqp.rabbit.connection.ConnectionFactory"__annotation*"
+
+__unknown_file (
+
+%3Û
+Ø
+/ /(	
+%4"
+__annotate*K
+
+__unknown_file (/-
++org.springframework.context.annotation.Bean*m
+
+__unknown_file (Q
+O
+messageConverter;org.springframework.amqp.support.converter.MessageConverter
+
+0_ 0(oO
+messageConverter;org.springframework.amqp.support.converter.MessageConverter"__annotation*"
+
+__unknown_file (
+
+%4*
+1*¯	
+115 1(F|z
+1& 1(49
+%03org.springframework.amqp.rabbit.core.RabbitTemplate"3org.springframework.amqp.rabbit.core.RabbitTemplateÚ
+×
+1" 1(G
+%1"{org.springframework.amqp.rabbit.core.RabbitTemplate#<init>(Lorg/springframework/amqp/rabbit/connection/ConnectionFactory;)V*W
+
+__unknown_file (;
+9
+%03org.springframework.amqp.rabbit.core.RabbitTemplate*o
+
+__unknown_file (S
+Q
+connectionFactory<org.springframework.amqp.rabbit.connection.ConnectionFactory­
+ª
+1 1(H?
+template3org.springframework.amqp.rabbit.core.RabbitTemplate"__id*W
+
+__unknown_file (;
+9
+%03org.springframework.amqp.rabbit.core.RabbitTemplateÅÂ
+2 2(6
+
+%2void"‡org.springframework.amqp.rabbit.core.RabbitTemplate#setMessageConverter(Lorg/springframework/amqp/support/converter/MessageConverter;)V*]
+
+__unknown_file (A
+?
+template3org.springframework.amqp.rabbit.core.RabbitTemplate*m
+
+__unknown_file (Q
+O
+messageConverter;org.springframework.amqp.support.converter.MessageConverter2RsetMessageConverter(Lorg/springframework/amqp/support/converter/MessageConverter;)"M
+3 3(A
+?
+template3org.springframework.amqp.rabbit.core.RabbitTemplate:]
+0) 0(MQ
+connectionFactory<org.springframework.amqp.rabbit.connection.ConnectionFactory:[
+0N 0(oO
+messageConverter;org.springframework.amqp.support.converter.MessageConverterB.,
+*com.chubb.inventoryapp.config.RabbitConfigH

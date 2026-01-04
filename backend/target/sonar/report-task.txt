@@ -1,0 +1,7 @@
+organization=ananya
+projectKey=isananya_inventory-mgmt
+serverUrl=https://sonarcloud.io
+serverVersion=8.0.0.78018
+dashboardUrl=https://sonarcloud.io/dashboard?id=isananya_inventory-mgmt
+ceTaskId=AZuI8fTMN810Gp6OLcj3
+ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AZuI8fTMN810Gp6OLcj3
