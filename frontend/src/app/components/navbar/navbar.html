@@ -1,0 +1,62 @@
+<nav class="navbar">
+  <div class="navbar-brand">
+    <a routerLink="/">InventoryApp</a>
+  </div>
+
+  <div class="navbar-actions">
+
+    <div class="navbar-links" *ngIf="(isLoggedIn$ | async)">
+    <ng-container [ngSwitch]="userRole$ | async">
+      
+      <ng-container *ngSwitchCase="'CUSTOMER'">
+        <a routerLink="/products">Shop</a>
+        <a routerLink="/my-orders">My Orders</a>
+        <a routerLink="/cart" class="icon-link">🛒 Cart</a>
+      </ng-container>
+
+      <ng-container *ngSwitchCase="'SALES_EXECUTIVE'">
+        <a routerLink="/products">Product Catalog</a>
+        <a routerLink="/orders">Manage Orders</a>
+        <a routerLink="/cart">🛒 New Order</a>
+      </ng-container>
+
+      <ng-container *ngSwitchCase="'ADMIN'">
+        <a routerLink="/admin/users">User Panel</a>
+        <a routerLink="/products">Products</a>
+        <a routerLink="/inventory">Warehouse</a>
+      </ng-container>
+
+      <ng-container *ngSwitchCase="'WAREHOUSE_MANAGER'">
+        <a routerLink="/inventory">Manage Stock</a>
+        <a routerLink="/inventory/shipments">Shipments</a>
+      </ng-container>
+
+      <ng-container *ngSwitchCase="'FINANCE_OFFICER'">
+        <a routerLink="/billing">All Invoices</a>
+      </ng-container>
+
+    </ng-container>
+  </div>
+
+    
+    <div *ngIf="!(isLoggedIn$ | async)" class="auth-buttons">
+      <a routerLink="/auth/login" class="nav-btn">Login</a>
+      <a routerLink="/auth/signup" class="nav-btn btn-outline">Signup</a>
+    </div>
+
+    <div *ngIf="(isLoggedIn$ | async)" class="user-profile">
+      <div class="user-icon" (click)="toggleDropdown()">
+        <span>{{ (userName$ | async)?.charAt(0)?.toUpperCase() }}</span>
+      </div>
+
+      <div class="dropdown-menu" *ngIf="showDropdown">
+        <div class="dropdown-header">
+          <p class="user-name">{{ userName$ | async }}</p>
+          <p class="user-role">{{ userRole$ | async }}</p>
+        </div>
+        <hr>
+        <a (click)="logout()">Logout</a>
+      </div>
+    </div>
+  </div>
+</nav>
