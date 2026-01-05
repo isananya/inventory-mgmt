@@ -9,7 +9,7 @@
     <ng-container [ngSwitch]="userRole$ | async">
       
       <ng-container *ngSwitchCase="'CUSTOMER'">
-        <a routerLink="/products">Shop</a>
+        <a routerLink="/shop">Shop</a>
         <a routerLink="/my-orders">My Orders</a>
         <a routerLink="/cart" class="icon-link">🛒 Cart</a>
       </ng-container>

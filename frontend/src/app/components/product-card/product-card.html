@@ -1,0 +1,25 @@
+<div class="card">
+    <div class="image-container">
+        <img [src]="product.imageUrl || 'assets/placeholder.png'" [alt]="product.name">
+    </div>
+
+    <div class="details">
+        <h3>{{ product.name }}</h3>
+        <p class="brand">{{ product.brand }}</p>
+        <p class="price">Rs {{ product.price }}</p>
+    </div>
+
+    <div class="actions">
+        <ng-container *ngIf="quantity() === 0; else quantityControls">
+            <button class="add-btn" (click)="add()">Add to Cart</button>
+        </ng-container>
+
+        <ng-template #quantityControls>
+            <div class="qty-controls">
+                <button (click)="update(-1)">-</button>
+                <span>{{ quantity() }}</span>
+                <button (click)="update(1)">+</button>
+            </div>
+        </ng-template>
+    </div>
+</div>

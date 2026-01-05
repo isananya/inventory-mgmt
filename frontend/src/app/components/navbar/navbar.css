@@ -35,7 +35,7 @@
 }
 
 .navbar-links a:hover {
-    color: #007bff;
+    color: #0dc1a6;
 }
 
 .icon-link {
@@ -59,12 +59,12 @@
 }
 
 .nav-btn.btn-outline {
-    border: 1px solid #007bff;
-    color: #007bff;
+    border: 1px solid #0dc1a6;
+    color: #0dc1a6;
 }
 
 .nav-btn.btn-outline:hover {
-    background-color: #007bff;
+    background-color: #0dc1a6;
     color: white;
 }
 
@@ -76,7 +76,7 @@
 .user-icon {
     width: 40px;
     height: 40px;
-    background-color: #5906ac;
+    background-color: #127667;
     color: white;
     border-radius: 50%;
     display: flex;
