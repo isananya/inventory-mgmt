@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
-import { BehaviorSubject, tap } from 'rxjs';
-import { LoginRequest, SignupRequest, LoginResponse } from '../models/auth';
+import { BehaviorSubject, Observable, tap } from 'rxjs';
+import { LoginRequest, SignupRequest, LoginResponse, User } from '../models/auth';
 import { Router } from '@angular/router';
 
 @Injectable({
@@ -49,6 +49,10 @@ export class AuthService {
     });
   }
 
+  getProfile(): Observable<User> {
+    return this.http.get<User>(`${this.baseUrl}/profile`);
+  }
+
   private setUser(email: string, role: string, name: string) {
     localStorage.setItem('userEmail', email);
     localStorage.setItem('userRole', role);
@@ -61,6 +65,10 @@ export class AuthService {
 
   getRole(): string {
     return localStorage.getItem('userRole') || '';
+  }
+
+  getEmail(): string {
+    return localStorage.getItem('userEmail') || '';
   }
 
   isLoggedIn(): boolean {
