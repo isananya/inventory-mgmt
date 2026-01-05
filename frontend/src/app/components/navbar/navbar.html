@@ -40,8 +40,8 @@
 
     
     <div *ngIf="!(isLoggedIn$ | async)" class="auth-buttons">
-      <a routerLink="/auth/login" class="nav-btn">Login</a>
-      <a routerLink="/auth/signup" class="nav-btn btn-outline">Signup</a>
+      <a routerLink="/login" class="nav-btn">Login</a>
+      <a routerLink="/signup" class="nav-btn btn-outline">Signup</a>
     </div>
 
     <div *ngIf="(isLoggedIn$ | async)" class="user-profile">
