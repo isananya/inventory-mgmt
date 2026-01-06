@@ -15,15 +15,14 @@
       </ng-container>
 
       <ng-container *ngSwitchCase="'SALES_EXECUTIVE'">
-        <a routerLink="/products">Product Catalog</a>
+        <a routerLink="/shop">Product Catalog</a>
         <a routerLink="/orders">Manage Orders</a>
         <a routerLink="/cart">🛒 New Order</a>
       </ng-container>
 
       <ng-container *ngSwitchCase="'ADMIN'">
-        <a routerLink="/admin/users">User Panel</a>
-        <a routerLink="/products">Products</a>
-        <a routerLink="/inventory">Warehouse</a>
+        <a routerLink="/admin/users">Manage Users</a>
+        <a routerLink="/admin/inventory">Manage Inventory</a>
       </ng-container>
 
       <ng-container *ngSwitchCase="'WAREHOUSE_MANAGER'">

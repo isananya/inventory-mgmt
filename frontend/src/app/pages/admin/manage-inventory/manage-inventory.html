@@ -1,0 +1,19 @@
+<div class="manage-container">
+  <aside class="sidebar">
+    <h3>Manage Inventory</h3>
+    <nav>
+      <a routerLink="add-category" routerLinkActive="active">Add Category</a>
+      <a routerLink="add-product" routerLinkActive="active">Add Product</a>
+      <a routerLink="add-warehouse" routerLinkActive="active">Add Warehouse</a>
+      <a routerLink="manage-warehouses" routerLinkActive="active">Manage Warehouses</a>
+      <a routerLink="add-inventory" routerLinkActive="active">Add Stock</a>
+    </nav>
+  </aside>
+
+  <main class="content-area">
+    <router-outlet></router-outlet>
+    <div class="placeholder" *ngIf="isRoot()">
+      <p>Select an option from the sidebar to begin.</p>
+    </div>
+  </main>
+</div>

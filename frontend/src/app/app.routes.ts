@@ -6,6 +6,7 @@ import { CartComponent } from './pages/cart/cart';
 import { CheckoutComponent } from './pages/checkout/checkout';
 import { MyOrdersComponent } from './pages/my-orders/my-orders';
 import { AdminDashboardComponent } from './pages/admin-dashboard/admin-dashboard';
+import { ManageInventoryComponent } from './pages/admin/manage-inventory/manage-inventory';
 
 export const routes: Routes = [
     { path: 'login', component: LoginComponent },
@@ -14,5 +15,6 @@ export const routes: Routes = [
     { path: 'cart', component: CartComponent},
     { path: 'checkout', component: CheckoutComponent},
     { path: 'my-orders', component: MyOrdersComponent},
-    { path: 'admin-dashboard', component: AdminDashboardComponent}
+    { path: 'admin-dashboard', component: AdminDashboardComponent},
+    { path: 'admin/inventory', component:ManageInventoryComponent}
 ];

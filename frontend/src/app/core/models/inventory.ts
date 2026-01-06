@@ -18,3 +18,32 @@ export interface InventoryResponse {
   warehouse: { id: number; name: string };
   quantity: number;
 }
+
+export interface CategoryRequest {
+  name: string;
+  description?: string;
+  iconUrl?: string;
+}
+
+export interface ProductRequest {
+  productCode: string; 
+  name: string;
+  brand: string; 
+  price: number;
+  description?: string;
+  specifications?: Record<string, any>;
+  imageUrl?: string;
+  categoryId: number;
+}
+
+export interface WarehouseRequest {
+  name: string;
+  location: string;
+}
+
+export interface InventoryRequest {
+  productId: number;
+  warehouseId: number;
+  quantity: number;
+  lowStockThreshold?: number;
+}
