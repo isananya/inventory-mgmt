@@ -1,0 +1,67 @@
+<div class="orders-container">
+  
+  <div class="header-row">
+    <div>
+      <h2>All Orders</h2>
+      <p class="subtitle">Tracking {{ totalElements }} orders</p>
+    </div>
+  </div>
+
+  <div class="table-responsive">
+    <table class="orders-table">
+      <thead>
+        <tr>
+          <th>Order ID</th>
+          <th>Date</th>
+          <th>Customer ID</th>
+          <th>Address</th>
+          <th>Amount</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let order of orders">
+          <td class="id-col">#{{ order.orderId }}</td>
+          
+          <td>{{ order.createdAt | date:'mediumDate' }}</td>
+          
+          <td>{{ order.customerId }}</td>
+          
+          <td class="address-col" [title]="formatAddress(order.address)">
+            {{ formatAddress(order.address) }}
+          </td>
+          
+          <td class="amount-col">{{ order.totalAmount | currency:'Rs ' }}</td>
+          
+          <td>
+            <span class="status-badge" [ngClass]="'status-' + order.status.toLowerCase()">
+              {{ order.status }}
+            </span>
+          </td>
+        </tr>
+
+        <tr *ngIf="!isLoading && orders.length === 0">
+          <td colspan="6" class="empty-state">No orders found.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="pagination-controls" *ngIf="totalPages > 1">
+    <button class="btn-page" (click)="prevPage()" [disabled]="currentPage === 0">
+      &laquo; Previous
+    </button>
+    
+    <span class="page-info">
+      Page <strong>{{ currentPage + 1 }}</strong> of {{ totalPages }}
+    </span>
+    
+    <button class="btn-page" (click)="nextPage()" [disabled]="currentPage === totalPages - 1">
+      Next &raquo;
+    </button>
+  </div>
+  
+  <div *ngIf="isLoading" class="loading-overlay">
+    <div class="spinner"></div>
+  </div>
+</div>

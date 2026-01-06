@@ -1,7 +1,8 @@
 import { inject, Injectable } from '@angular/core';
-import { OrderRequest, PageOrderResponse } from '../models/order';
-import { HttpClient } from '@angular/common/http';
+import { OrderRequest, OrderResponse, PageOrderResponse } from '../models/order';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -22,5 +23,11 @@ export class OrderService {
 
   cancelOrder(orderId: number) {
     return this.http.put(`${this.apiUrl}/order/${orderId}/cancel`, {});
+  }
+
+  getAllOrders(page = 0, size = 10): Observable<PageOrderResponse> {
+    return this.http.get<PageOrderResponse>(`${this.apiUrl}/order`, {
+      params: { page, size }
+    });
   }
 }

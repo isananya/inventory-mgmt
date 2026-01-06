@@ -13,6 +13,7 @@ import { AddWarehouseComponent } from './pages/admin/add-warehouse/add-warehouse
 import { AddInventoryComponent } from './pages/admin/add-inventory/add-inventory';
 import { ManageWarehousesComponent } from './pages/admin/manage-warehouse/manage-warehouse';
 import { ManageUsersComponent } from './pages/admin/manage-users/manage-users';
+import { AllOrdersComponent } from './pages/all-orders/all-orders';
 
 export const routes: Routes = [
     { path: 'login', component: LoginComponent },
@@ -31,5 +32,6 @@ export const routes: Routes = [
             {path: 'manage-warehouses', component: ManageWarehousesComponent}
         ]
     },
-    { path: 'admin/users', component: ManageUsersComponent}
+    { path: 'admin/users', component: ManageUsersComponent},
+    { path: 'all-orders', component: AllOrdersComponent}
 ];

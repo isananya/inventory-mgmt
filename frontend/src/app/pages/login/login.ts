@@ -37,7 +37,8 @@ export class LoginComponent {
         const role = this.auth.getRole();
         if (role === 'WAREHOUSE_MANAGER') this.router.navigate(['/inventory']);
         else if (role === 'ADMIN') this.router.navigate(['/admin-dashboard']);
-        else this.router.navigate(['/shop']);      },
+        else this.router.navigate(['/shop']);
+      },
       error: (err) => {
         this.errorMsg = 'Invalid email or password';
         this.isLoading = false;

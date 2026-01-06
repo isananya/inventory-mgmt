@@ -67,8 +67,10 @@ export class ManageUsersComponent implements OnInit {
     this.pendingAction = () => {
       this.userService.deleteUser(user.id).subscribe({
         next: () => {
-          this.users = this.users.filter(u => u.id !== user.id);
+          // this.users = this.users.filter(u => u.id !== user.id);
           this.showToast('User deleted successfully', 'success');
+          this.loadUsers();
+          this.cd.detectChanges();
         },
         error: (err) => this.showToast(err.message || 'Delete failed', 'error')
       });
