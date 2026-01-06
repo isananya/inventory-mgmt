@@ -35,7 +35,7 @@ export class LoginComponent {
       next: () => {
         this.isLoading = false;
         const role = this.auth.getRole();
-        if (role === 'WAREHOUSE_MANAGER') this.router.navigate(['/inventory']);
+        if (role === 'WAREHOUSE_MANAGER') this.router.navigate(['/warehouse-dashboard']);
         else if (role === 'ADMIN') this.router.navigate(['/admin-dashboard']);
         else this.router.navigate(['/shop']);
       },

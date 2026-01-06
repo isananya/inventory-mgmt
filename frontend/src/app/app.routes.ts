@@ -14,6 +14,7 @@ import { AddInventoryComponent } from './pages/admin/add-inventory/add-inventory
 import { ManageWarehousesComponent } from './pages/admin/manage-warehouse/manage-warehouse';
 import { ManageUsersComponent } from './pages/admin/manage-users/manage-users';
 import { AllOrdersComponent } from './pages/all-orders/all-orders';
+import { WarehouseDashboardComponent } from './pages/warehouse-dashboard/warehouse-dashboard';
 
 export const routes: Routes = [
     { path: 'login', component: LoginComponent },
@@ -33,5 +34,6 @@ export const routes: Routes = [
         ]
     },
     { path: 'admin/users', component: ManageUsersComponent},
-    { path: 'all-orders', component: AllOrdersComponent}
+    { path: 'all-orders', component: AllOrdersComponent},
+    { path: 'warehouse-dashboard', component: WarehouseDashboardComponent}
 ];

@@ -19,6 +19,10 @@ export class InventoryService {
     return this.http.post<StockCheckResponse[]>(`${this.apiUrl}/inventory/check`, stockRequests);
   }
 
+  getLowStock(): Observable<InventoryResponse[]> {
+    return this.http.get<InventoryResponse[]>(`${this.apiUrl}/inventory/low-stock`);
+  }
+
   createWarehouse(data: WarehouseRequest) {
     return this.http.post(`${this.apiUrl}/warehouse`, data);
   }
@@ -37,5 +41,25 @@ export class InventoryService {
 
   deactivateWarehouse(id: number) {
     return this.http.patch(`${this.apiUrl}/warehouse/${id}/deactivate`, {});
+  }
+
+  getInventoryByWarehouse(warehouseId: number): Observable<InventoryResponse[]> {
+    return this.http.get<InventoryResponse[]>(`${this.apiUrl}/inventory/warehouse/${warehouseId}`);
+  }
+
+  addStock(requests: StockRequest[]): Observable<void> {
+    return this.http.put<void>(`${this.apiUrl}/inventory/stock/add`, requests);
+  }
+
+  deductStock(requests: StockRequest[]): Observable<void> {
+    return this.http.put<void>(`${this.apiUrl}/inventory/stock/deduct`, requests);
+  }
+
+  getActiveWarehouses(): Observable<WarehouseResponse[]> {
+    return this.http.get<WarehouseResponse[]>(`${this.apiUrl}/warehouse/active`);
+  }
+  
+  getWarehouseById(id: number): Observable<WarehouseResponse> {
+    return this.http.get<WarehouseResponse>(`${this.apiUrl}/warehouse/${id}`);
   }
 }
