@@ -127,6 +127,10 @@ public class GlobalSecurityFilter implements GlobalFilter, Ordered {
         if (path.matches("/order/.*/items") && method == HttpMethod.GET) {
             return hasRole(role, "CUSTOMER", "SALES_EXECUTIVE", "WAREHOUSE_MANAGER", "FINANCE_OFFICER");
        }
+
+       if (path.startsWith("/order/customer") && method == HttpMethod.GET) {
+            return hasRole(role, "CUSTOMER", "SALES_EXECUTIVE", "WAREHOUSE_MANAGER", "FINANCE_OFFICER");
+        }
         
         if (path.matches("/order/\\d+") && method == HttpMethod.GET) {
             return hasRole(role, "CUSTOMER", "SALES_EXECUTIVE", "WAREHOUSE_MANAGER", "FINANCE_OFFICER");
