@@ -1,0 +1,38 @@
+<div class="form-container">
+    <h2>Update Stock Level</h2>
+    <form (ngSubmit)="onSubmit()" #f="ngForm">
+
+        <div class="form-group">
+            <label>Select Product *</label>
+            <select [(ngModel)]="data.productId" name="prod" required>
+                <option [ngValue]="0" disabled>Choose Product</option>
+                <option *ngFor="let p of products" [value]="p.id">
+                    {{ p.name }} (Code: {{ p.productCode || 'N/A' }})
+                </option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Select Warehouse *</label>
+            <select [(ngModel)]="data.warehouseId" name="wh" required>
+                <option [ngValue]="0" disabled>Choose Warehouse </option>
+                <option *ngFor="let w of warehouses" [value]="w.id">{{ w.name }}</option>
+            </select>
+        </div>
+
+        <div class="row">
+            <div class="form-group half">
+                <label>Quantity *</label>
+                <input type="number" [(ngModel)]="data.quantity" name="qty" required min="1">
+            </div>
+
+            <div class="form-group half">
+                <label>Low Stock Alert Limit</label>
+                <input type="number" [(ngModel)]="data.lowStockThreshold" name="threshold" min="0">
+                <small>Default is 10</small>
+            </div>
+        </div>
+
+        <button type="submit" [disabled]="!f.valid">Add Inventory</button>
+    </form>
+</div>

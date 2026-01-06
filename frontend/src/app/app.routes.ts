@@ -10,6 +10,7 @@ import { ManageInventoryComponent } from './pages/admin/manage-inventory/manage-
 import { AddCategoryComponent } from './pages/admin/add-category/add-category';
 import { AddProductComponent } from './pages/admin/add-product/add-product';
 import { AddWarehouseComponent } from './pages/admin/add-warehouse/add-warehouse';
+import { AddInventoryComponent } from './pages/admin/add-inventory/add-inventory';
 
 export const routes: Routes = [
     { path: 'login', component: LoginComponent },
@@ -23,7 +24,8 @@ export const routes: Routes = [
         children: [
             {path: 'add-category', component: AddCategoryComponent},
             {path: 'add-product', component: AddProductComponent},
-            {path: 'add-warehouse', component: AddWarehouseComponent}
+            {path: 'add-warehouse', component: AddWarehouseComponent},
+            {path: 'add-inventory', component: AddInventoryComponent}
         ]
     }
 ];
