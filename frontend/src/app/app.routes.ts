@@ -7,6 +7,7 @@ import { CheckoutComponent } from './pages/checkout/checkout';
 import { MyOrdersComponent } from './pages/my-orders/my-orders';
 import { AdminDashboardComponent } from './pages/admin-dashboard/admin-dashboard';
 import { ManageInventoryComponent } from './pages/admin/manage-inventory/manage-inventory';
+import { AddCategoryComponent } from './pages/admin/add-category/add-category';
 
 export const routes: Routes = [
     { path: 'login', component: LoginComponent },
@@ -16,5 +17,9 @@ export const routes: Routes = [
     { path: 'checkout', component: CheckoutComponent},
     { path: 'my-orders', component: MyOrdersComponent},
     { path: 'admin-dashboard', component: AdminDashboardComponent},
-    { path: 'admin/inventory', component:ManageInventoryComponent}
+    { path: 'admin/inventory', component:ManageInventoryComponent,
+        children: [
+            {path: 'add-category', component: AddCategoryComponent}
+        ]
+    }
 ];
