@@ -3,7 +3,7 @@ import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { DashboardStats } from '../../core/models/admin';
 import { AdminService } from '../../core/services/admin';
 import { BaseChartDirective } from 'ng2-charts';
-import { ChartConfiguration } from 'chart.js';
+import { ChartConfiguration, ChartOptions } from 'chart.js';
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -13,7 +13,7 @@ import { ChartConfiguration } from 'chart.js';
 })
 
 export class AdminDashboardComponent implements OnInit {
-  
+
   stats: DashboardStats | null = null;
   isLoading = true;
 
@@ -40,7 +40,20 @@ export class AdminDashboardComponent implements OnInit {
     }
   };
 
-  constructor(private adminService: AdminService, private cd:ChangeDetectorRef){}
+  public pieChartData: ChartConfiguration<'pie'>['data'] = {
+    labels: [],
+    datasets: [{ data: [], backgroundColor: [] }]
+  };
+
+  public pieChartOptions: ChartOptions<'pie'> = {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: { position: 'right' }
+    }
+  };
+
+  constructor(private adminService: AdminService, private cd: ChangeDetectorRef) { }
 
   ngOnInit() {
     this.loadStats();
@@ -68,17 +81,38 @@ export class AdminDashboardComponent implements OnInit {
 
     const labels = this.stats.monthlySales.map(s => s.month);
     const data = this.stats.monthlySales.map(s => s.amount);
-
     this.barChartData = {
       labels: labels,
-      datasets: [
-        { 
-          data: data, 
-          label: 'Monthly Sales', 
-          backgroundColor: '#0dc1a6', 
-          borderRadius: 4
-        }
-      ]
+      datasets: [{
+        data: data,
+        label: 'Monthly Sales',
+        backgroundColor: '#0dc1a6',
+        borderRadius: 4
+      }]
+    };
+
+    const statusLabels = this.stats.ordersByStatus.map(s => s.status);
+    const statusData = this.stats.ordersByStatus.map(s => s.count);
+    
+    const statusColors = statusLabels.map(status => {
+      switch(status) {
+        case 'CREATED': return '#0dc1a6';
+        case 'APPROVED': return '#0c9c86ff'
+        case 'DELIVERED': return '#36ebd0ff';
+        case 'SHIPPED': return '#156a5dff';
+        case 'PACKED': return '#0e6457ff';
+        case 'CANCELLED': return '#0a4d43ff';
+        default: return '#6c757d';
+      }
+    });
+
+    this.pieChartData = {
+      labels: statusLabels,
+      datasets: [{
+        data: statusData,
+        backgroundColor: statusColors,
+        hoverOffset: 4
+      }]
     };
   }
 }

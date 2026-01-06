@@ -51,7 +51,6 @@ export class AdminService {
         });
 
         const ordersByStatus = Array.from(statusMap, ([status, count]) => ({ status, count }));
-
         return {
           totalRevenue,
           totalOrders: results.ordersPage.totalElements,
