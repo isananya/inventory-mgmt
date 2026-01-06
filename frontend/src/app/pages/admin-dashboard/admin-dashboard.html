@@ -1,0 +1,89 @@
+<div class="dashboard-container">
+  
+  <header class="dash-header">
+    <h1>Admin Overview</h1>
+    <p>Welcome back, Administrator.</p>
+  </header>
+
+  <div *ngIf="isLoading" class="loading">Loading Analytics...</div>
+
+  <div *ngIf="!isLoading && stats" class="dash-content">
+    
+    <div class="stats-grid">
+      <div class="stat-card revenue">
+        <div class="icon">💰</div>
+        <div class="info">
+          <h3>Total Revenue</h3>
+          <p>Rs {{ stats.totalRevenue | number:'1.2-2' }}</p>
+        </div>
+      </div>
+
+      <div class="stat-card orders">
+        <div class="icon">📦</div>
+        <div class="info">
+          <h3>Total Orders</h3>
+          <p>{{ stats.totalOrders }}</p>
+        </div>
+      </div>
+
+      <div class="stat-card users">
+        <div class="icon">👥</div>
+        <div class="info">
+          <h3>Active Users</h3>
+          <p>{{ stats.totalUsers }}</p>
+        </div>
+      </div>
+
+      <div class="stat-card stock" [class.alert]="stats.lowStockCount > 0">
+        <div class="icon">⚠️</div>
+        <div class="info">
+          <h3>Low Stock Items</h3>
+          <p>{{ stats.lowStockCount }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="chart-section">
+      <h2>Monthly Sales Performance</h2>
+      
+      <div class="chart-container">
+        <canvas baseChart
+          [data]="barChartData"
+          [options]="barChartOptions"
+          [type]="'bar'"
+          [legend]="barChartLegend">
+        </canvas>
+      </div>
+
+    </div>
+
+    <div class="recent-section">
+      <h2>Recent Orders</h2>
+      <table class="recent-table">
+        <thead>
+          <tr>
+            <th>Order ID</th>
+            <th>Customer</th>
+            <th>Date</th>
+            <th>Status</th>
+            <th>Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let order of stats.recentOrders">
+            <td>#{{ order.id }}</td>
+            <td>{{ order.customerName }}</td>
+            <td>{{ order.date | date }}</td>
+            <td>
+              <span class="status-tag" [class]="order.status.toLowerCase()">
+                {{ order.status }}
+              </span>
+            </td>
+            <td>Rs {{ order.amount | number:'1.2-2' }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>

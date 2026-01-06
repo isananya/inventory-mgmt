@@ -5,6 +5,8 @@ import { routes } from './app.routes';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { baseUrlInterceptor, credentialsInterceptor } from './core/interceptors/credentials-interceptor';
 
+import { provideCharts, withDefaultRegisterables } from 'ng2-charts';
+
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
@@ -14,6 +16,7 @@ export const appConfig: ApplicationConfig = {
         baseUrlInterceptor,
         credentialsInterceptor
       ])
-    )
+    ),
+    provideCharts(withDefaultRegisterables())
   ]
 };

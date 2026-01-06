@@ -128,7 +128,7 @@ public class InventoryService {
     public List<InventoryResponse> getLowStock() {
         return inventoryRepository.findAll()
                 .stream()
-                .filter(i -> i.getQuantity() <= i.getLowStockThreshold())
+                .filter(i -> i.getQuantity() <= (i.getLowStockThreshold() != null ? i.getLowStockThreshold() : 0))
                 .map(this::mapToResponse)
                 .toList();
     }
