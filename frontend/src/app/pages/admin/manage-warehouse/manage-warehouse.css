@@ -1,0 +1,77 @@
+.container {
+    padding: 1rem;
+}
+
+.warehouse-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+th,
+td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+th {
+    background: #f8f9fa;
+    color: #444;
+    font-weight: 600;
+}
+
+/* Badges */
+.badge {
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.badge-active {
+    background: #d4edda;
+    color: #155724;
+}
+
+.badge-inactive {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+/* Buttons */
+button {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background 0.2s;
+}
+
+.btn-activate {
+    background: #28a745;
+    color: white;
+}
+
+.btn-activate:hover {
+    background: #218838;
+}
+
+.btn-deactivate {
+    background: #dc3545;
+    color: white;
+}
+
+.btn-deactivate:hover {
+    background: #c82333;
+}
+
+.empty-state {
+    padding: 2rem;
+    text-align: center;
+    color: #666;
+}

@@ -1,6 +1,6 @@
 <nav class="navbar">
   <div class="navbar-brand">
-    <a routerLink="/">InventoryApp</a>
+    <a >InventoryApp</a>
   </div>
 
   <div class="navbar-actions">
@@ -21,6 +21,7 @@
       </ng-container>
 
       <ng-container *ngSwitchCase="'ADMIN'">
+        <a routerLink="/admin-dashboard">Dashboard</a>
         <a routerLink="/admin/users">Manage Users</a>
         <a routerLink="/admin/inventory">Manage Inventory</a>
       </ng-container>

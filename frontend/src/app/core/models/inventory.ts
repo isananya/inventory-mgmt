@@ -47,3 +47,10 @@ export interface InventoryRequest {
   quantity: number;
   lowStockThreshold?: number;
 }
+
+export interface WarehouseResponse {
+  id: number;
+  name: string;
+  location: string;
+  active: boolean;
+}

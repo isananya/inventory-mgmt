@@ -1,0 +1,42 @@
+<div class="container">
+    <h2>Manage Warehouses</h2>
+
+    <table class="warehouse-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Location</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let w of warehouses">
+                <td>#{{ w.id }}</td>
+                <td><strong>{{ w.name }}</strong></td>
+                <td>{{ w.location }}</td>
+
+                <td>
+                    <span class="badge" [ngClass]="w.active ? 'badge-active' : 'badge-inactive'">
+                        {{ w.active ? 'Active' : 'Inactive' }}
+                    </span>
+                </td>
+
+                <td>
+                    <button *ngIf="w.active" (click)="toggleStatus(w)" class="btn-deactivate">
+                        Deactivate
+                    </button>
+
+                    <button *ngIf="!w.active" (click)="toggleStatus(w)" class="btn-activate">
+                        Activate
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div *ngIf="warehouses.length === 0" class="empty-state">
+        No warehouses found.
+    </div>
+</div>

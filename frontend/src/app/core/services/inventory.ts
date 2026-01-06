@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment';
-import { InventoryRequest, InventoryResponse, StockCheckResponse, StockRequest, WarehouseRequest } from '../models/inventory';
+import { InventoryRequest, InventoryResponse, StockCheckResponse, StockRequest, WarehouseRequest, WarehouseResponse } from '../models/inventory';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -22,11 +23,19 @@ export class InventoryService {
     return this.http.post(`${this.apiUrl}/warehouse`, data);
   }
 
-  getAllWarehouses() {
-    return this.http.get<any[]>(`${this.apiUrl}/warehouse`);
+  getAllWarehouses(): Observable<WarehouseResponse[]> {
+    return this.http.get<WarehouseResponse[]>(`${this.apiUrl}/warehouse`);
   }
 
   addInventory(data: InventoryRequest) {
     return this.http.post(`${this.apiUrl}/inventory`, data); 
+  }
+
+  activateWarehouse(id: number) {
+    return this.http.patch(`${this.apiUrl}/warehouse/${id}/activate`, {});
+  }
+
+  deactivateWarehouse(id: number) {
+    return this.http.patch(`${this.apiUrl}/warehouse/${id}/deactivate`, {});
   }
 }

@@ -11,6 +11,7 @@ import { AddCategoryComponent } from './pages/admin/add-category/add-category';
 import { AddProductComponent } from './pages/admin/add-product/add-product';
 import { AddWarehouseComponent } from './pages/admin/add-warehouse/add-warehouse';
 import { AddInventoryComponent } from './pages/admin/add-inventory/add-inventory';
+import { ManageWarehousesComponent } from './pages/admin/manage-warehouse/manage-warehouse';
 
 export const routes: Routes = [
     { path: 'login', component: LoginComponent },
@@ -25,7 +26,8 @@ export const routes: Routes = [
             {path: 'add-category', component: AddCategoryComponent},
             {path: 'add-product', component: AddProductComponent},
             {path: 'add-warehouse', component: AddWarehouseComponent},
-            {path: 'add-inventory', component: AddInventoryComponent}
+            {path: 'add-inventory', component: AddInventoryComponent},
+            {path: 'manage-warehouses', component: ManageWarehousesComponent}
         ]
     }
 ];
