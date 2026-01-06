@@ -1,0 +1,104 @@
+<div class="user-container">
+  <div class="header-row">
+    <h2>Manage Users</h2>
+    <button class="btn-add" (click)="openFormModal()">+ Add New User</button>
+  </div>
+
+  <table class="user-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Status</th> <th>Role</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>#{{ user.id }}</td>
+        <td>{{ user.name }}</td>
+        <td>{{ user.email }}</td>
+        
+        <td>
+          <span class="status-badge" [ngClass]="user.active ? 'status-active' : 'status-inactive'">
+            {{ user.active ? 'Active' : 'Inactive' }}
+          </span>
+        </td>
+        
+        <td>
+          <select 
+            (change)="onRoleChange(user, $event)"
+            class="role-select"
+            [ngClass]="'role-' + (user.role ? user.role.toLowerCase().replace('_', '-') : 'customer')">
+            <option 
+              *ngFor="let role of availableRoles" 
+              [value]="role"
+              [selected]="user.role.toUpperCase() === role">
+              {{ role.replace('_', ' ') }}
+            </option>
+          </select>
+        </td>
+
+        <td>
+          <button 
+            class="btn-delete" 
+            [disabled]="!user.active"
+            [title]="!user.active ? 'User is already inactive' : 'Delete User'"
+            (click)="onDeleteClick(user)">
+            Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="modal-backdrop" *ngIf="isFormModalOpen" (click)="closeFormModal()">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <h3>Create New User</h3>
+    <form [formGroup]="userForm" (ngSubmit)="onSubmitUser()">
+      <div class="form-group">
+        <label>Full Name</label>
+        <input formControlName="name" [class.invalid]="userForm.get('name')?.invalid && userForm.get('name')?.touched">
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" formControlName="email" [class.invalid]="userForm.get('email')?.invalid && userForm.get('email')?.touched">
+      </div>
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" formControlName="password" [class.invalid]="userForm.get('password')?.invalid && userForm.get('password')?.touched">
+      </div>
+      <div class="form-group">
+        <label>Role</label>
+        <select formControlName="role">
+          <option *ngFor="let role of availableRoles" [value]="role">{{ role }}</option>
+        </select>
+      </div>
+
+      <div class="modal-actions">
+        <button type="button" class="btn-cancel" (click)="closeFormModal()">Cancel</button>
+        <button type="submit" class="btn-save" [disabled]="userForm.invalid">Create User</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="modal-backdrop" *ngIf="isConfirmModalOpen">
+  <div class="modal-content confirm-box">
+    <div class="icon-warning">!</div>
+    <h3>Confirmation Required</h3>
+    <p>{{ confirmMessage }}</p>
+    
+    <div class="modal-actions center-actions">
+      <button class="btn-cancel" (click)="onConfirmNo()">No, Cancel</button>
+      <button class="btn-confirm-yes" (click)="onConfirmYes()">Yes, Proceed</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" [ngClass]="{'show': toast.visible, 'error': toast.type === 'error'}">
+  <span class="toast-icon">{{ toast.type === 'success' ? '✔' : '✖' }}</span>
+  {{ toast.message }}
+</div>
