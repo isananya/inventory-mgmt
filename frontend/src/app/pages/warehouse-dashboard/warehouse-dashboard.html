@@ -1,102 +1,155 @@
 <div class="dashboard-container">
-  
-  <div class="header-section">
-    <div>
-      <h1>Warehouse Overview</h1>
-    </div>
-    <div class="header-actions">
-      <button class="btn-primary" routerLink="/add-warehouse">+ Add Warehouse</button>
-    </div>
-  </div>
 
-  <div class="kpi-grid">
-    <div class="kpi-card blue">
-      <div class="icon">🏭</div>
-      <div class="kpi-content">
-        <h3>Active Warehouses</h3>
-        <span class="value">{{ totalActiveWarehouses }}</span>
-      </div>
-    </div>
-
-    <div class="kpi-card orange">
-      <div class="icon">📦</div>
-      <div class="kpi-content">
-        <h3>Total Orders Pending</h3>
-        <span class="value">{{ totalOrdersToPack }}</span>
-      </div>
-    </div>
-
-    <div class="kpi-card red" routerLink="/inventory/alerts">
-      <div class="icon">⚠️</div>
-      <div class="kpi-content">
-        <h3>Global Stock Alerts</h3>
-        <span class="value">{{ totalLowStock }}</span>
-      </div>
-    </div>
-  </div>
-
-  <div class="main-grid">
-    
-  <div class="panel chart-panel">
-    <h2>Regional Distribution</h2>
-    <p class="subtitle">Warehouses by Location</p>
-    
-    <div class="bar-chart-container">
-      <div class="chart-row" *ngFor="let stat of locationStats">
-        
-        <div class="row-label">
-          <span class="w-name">{{ stat.name }}</span>
+    <div class="header-section">
+        <div>
+            <h1>Warehouse Overview</h1>
         </div>
-        
-        <div class="row-bar-area" [title]="stat.count + ' locations'">
-          <div class="bar-fill teal" [style.width.%]="stat.percentage"></div>
+        <div class="header-actions">
+            <button class="btn-primary" (click)="openAddInventoryModal()">+ Add Inventory</button>
         </div>
-        
-        <div class="row-value">{{ stat.count }} </div>
-        
-      </div>
+        <div class="modal-overlay" *ngIf="showModal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Add Inventory</h2>
+                    <button class="close-btn" (click)="closeModal()">×</button>
+                </div>
 
-      <div *ngIf="locationStats.length === 0" class="empty-graph">
-        No warehouse data available.
-      </div>
+                <div class="modal-body">
+                    <form (ngSubmit)="submitInventory()">
+
+                        <div class="form-group">
+                            <label>Target Warehouse</label>
+                            <select [(ngModel)]="formData.warehouseId" name="warehouseId" required>
+                                <option [value]="0" disabled>Select Warehouse</option>
+                                <option *ngFor="let w of activeWarehouses" [value]="w.id">
+                                    {{ w.name }} ({{ w.location }})
+                                </option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Product</label>
+                            <select [(ngModel)]="formData.productId" name="productId" required>
+                                <option [value]="0" disabled>Select Product</option>
+                                <option *ngFor="let p of products" [value]="p.id">
+                                    {{ p.name }} - {{ p.productCode }}
+                                </option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Quantity to Add</label>
+                            <input type="number" [(ngModel)]="formData.quantity" name="quantity" min="1" required
+                                placeholder="e.g. 50">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Low Stock Threshold</label>
+                            <input type="number" [(ngModel)]="formData.lowStockThreshold" name="lowStockThreshold" min="0"
+                                placeholder="e.g. 10">
+                        </div>
+
+                        <div class="modal-actions">
+                            <button type="button" class="btn-cancel" (click)="closeModal()">Cancel</button>
+                            <button type="submit" class="btn-submit" [disabled]="isSubmitting">
+                                {{ isSubmitting ? 'Adding...' : 'Confirm Stock' }}
+                            </button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
-  
 
-  </div>
+    <div class="kpi-grid">
+        <div class="kpi-card blue">
+            <div class="icon">🏭</div>
+            <div class="kpi-content">
+                <h3>Active Warehouses</h3>
+                <span class="value">{{ totalActiveWarehouses }}</span>
+            </div>
+        </div>
 
-    <div class="panel stock-panel">
-      <div class="panel-header">
-        <h2>Critical Low Stock</h2>
-        <span class="badge-count">{{ lowStockItems.length }}</span>
-      </div>
+        <div class="kpi-card orange">
+            <div class="icon">📦</div>
+            <div class="kpi-content">
+                <h3>Total Orders Pending</h3>
+                <span class="value">{{ totalOrdersToPack }}</span>
+            </div>
+        </div>
 
-      <div class="scrollable-table">
-        <table class="simple-table">
-          <thead>
-            <tr>
-              <th>Product</th>
-              <th>Warehouse</th>
-              <th>Qty</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let item of lowStockItems">
-              <td class="prod-name">
-                {{ item.product.name }}
-                <span class="sku">{{ item.product.productCode }}</span>
-              </td>
-              <td>{{ item.warehouse.name }}</td>
-              <td>
-                <span class="qty-badge critical">{{ item.quantity }}</span>
-              </td>
-            </tr>
-            <tr *ngIf="lowStockItems.length === 0">
-              <td colspan="3" class="empty-state">No alerts. All good!</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+        <div class="kpi-card red" routerLink="/inventory/alerts">
+            <div class="icon">⚠️</div>
+            <div class="kpi-content">
+                <h3>Global Stock Alerts</h3>
+                <span class="value">{{ totalLowStock }}</span>
+            </div>
+        </div>
     </div>
 
-  </div>
+    <div class="main-grid">
+
+        <div class="panel chart-panel">
+            <h2>Regional Distribution</h2>
+            <p class="subtitle">Warehouses by Location</p>
+
+            <div class="bar-chart-container">
+                <div class="chart-row" *ngFor="let stat of locationStats">
+
+                    <div class="row-label">
+                        <span class="w-name">{{ stat.name }}</span>
+                    </div>
+
+                    <div class="row-bar-area" [title]="stat.count + ' locations'">
+                        <div class="bar-fill teal" [style.width.%]="stat.percentage"></div>
+                    </div>
+
+                    <div class="row-value">{{ stat.count }} </div>
+
+                </div>
+
+                <div *ngIf="locationStats.length === 0" class="empty-graph">
+                    No warehouse data available.
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="panel stock-panel">
+            <div class="panel-header">
+                <h2>Critical Low Stock</h2>
+                <span class="badge-count">{{ lowStockItems.length }}</span>
+            </div>
+
+            <div class="scrollable-table">
+                <table class="simple-table">
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>Warehouse</th>
+                            <th>Qty</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of lowStockItems">
+                            <td class="prod-name">
+                                {{ item.product.name }}
+                                <span class="sku">{{ item.product.productCode }}</span>
+                            </td>
+                            <td>{{ item.warehouse.name }}</td>
+                            <td>
+                                <span class="qty-badge critical">{{ item.quantity }}</span>
+                            </td>
+                        </tr>
+                        <tr *ngIf="lowStockItems.length === 0">
+                            <td colspan="3" class="empty-state">No alerts. All good!</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
 </div>
