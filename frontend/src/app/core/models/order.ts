@@ -15,9 +15,19 @@ export interface OrderRequest {
   address: Address;
   items: OrderItemRequest[];
 }
-
 export interface OrderResponse {
   orderId: number;
+  customerId: number;
+  status: string;  
+  address: Address;
   totalAmount: number;
-  status: string;
+  createdAt: string;
+}
+
+export interface PageOrderResponse {
+  content: OrderResponse[];
+  totalPages: number;
+  totalElements: number;
+  size: number;
+  number: number;
 }
