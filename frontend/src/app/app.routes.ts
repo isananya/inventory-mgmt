@@ -9,6 +9,7 @@ import { AdminDashboardComponent } from './pages/admin-dashboard/admin-dashboard
 import { ManageInventoryComponent } from './pages/admin/manage-inventory/manage-inventory';
 import { AddCategoryComponent } from './pages/admin/add-category/add-category';
 import { AddProductComponent } from './pages/admin/add-product/add-product';
+import { AddWarehouseComponent } from './pages/admin/add-warehouse/add-warehouse';
 
 export const routes: Routes = [
     { path: 'login', component: LoginComponent },
@@ -21,7 +22,8 @@ export const routes: Routes = [
     { path: 'admin/inventory', component:ManageInventoryComponent,
         children: [
             {path: 'add-category', component: AddCategoryComponent},
-            {path: 'add-product', component: AddProductComponent}
+            {path: 'add-product', component: AddProductComponent},
+            {path: 'add-warehouse', component: AddWarehouseComponent}
         ]
     }
 ];

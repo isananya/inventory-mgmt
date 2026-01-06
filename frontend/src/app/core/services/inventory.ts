@@ -19,11 +19,11 @@ export class InventoryService {
   }
 
   createWarehouse(data: WarehouseRequest) {
-    return this.http.post(`${this.apiUrl}/warehouses`, data);
+    return this.http.post(`${this.apiUrl}/warehouse`, data);
   }
 
   getAllWarehouses() {
-    return this.http.get<any[]>(`${this.apiUrl}/warehouses`);
+    return this.http.get<any[]>(`${this.apiUrl}/warehouse`);
   }
 
   addInventory(data: InventoryRequest) {
