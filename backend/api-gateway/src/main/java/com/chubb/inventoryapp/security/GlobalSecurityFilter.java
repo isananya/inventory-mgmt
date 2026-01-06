@@ -111,6 +111,10 @@ public class GlobalSecurityFilter implements GlobalFilter, Ordered {
         if (path.equals("/order") && method == HttpMethod.POST) {
             return hasRole(role, "CUSTOMER", "SALES_EXECUTIVE");
         }
+
+        if (path.equals("/order") && method == HttpMethod.GET) {
+            return hasRole(role, "ADMIN", "SALES_EXECUTIVE");
+        }
         
         if (path.matches("/order/.*/cancel") && method == HttpMethod.PUT) {
             return hasRole(role, "CUSTOMER", "SALES_EXECUTIVE");
