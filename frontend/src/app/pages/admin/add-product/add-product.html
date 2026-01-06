@@ -1,0 +1,46 @@
+<div class="form-container">
+      <h2>Add New Product</h2>
+      <form (ngSubmit)="onSubmit()" #f="ngForm">
+        
+        <div class="row">
+          <div class="form-group half">
+            <label>Product Code * (3-7 chars)</label>
+            <input [(ngModel)]="data.productCode" name="code" required minlength="3" maxlength="7">
+          </div>
+          <div class="form-group half">
+            <label>Brand *</label>
+            <input [(ngModel)]="data.brand" name="brand" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Product Name *</label>
+          <input [(ngModel)]="data.name" name="name" required>
+        </div>
+
+        <div class="form-group">
+          <label>Price *</label>
+          <input type="number" [(ngModel)]="data.price" name="price" required min="0.01">
+        </div>
+
+        <div class="form-group">
+          <label>Category *</label>
+          <select [(ngModel)]="data.categoryId" name="cat" required>
+            <option [ngValue]="null" disabled>Select Category</option>
+            <option *ngFor="let c of categories" [value]="c.id">{{ c.name }}</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Image URL</label>
+          <input [(ngModel)]="data.imageUrl" name="img">
+        </div>
+
+        <div class="form-group">
+          <label>Description</label>
+          <textarea [(ngModel)]="data.description" name="desc" rows="3"></textarea>
+        </div>
+
+        <button type="submit" [disabled]="!f.valid">Create Product</button>
+      </form>
+    </div>

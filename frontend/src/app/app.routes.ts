@@ -8,6 +8,7 @@ import { MyOrdersComponent } from './pages/my-orders/my-orders';
 import { AdminDashboardComponent } from './pages/admin-dashboard/admin-dashboard';
 import { ManageInventoryComponent } from './pages/admin/manage-inventory/manage-inventory';
 import { AddCategoryComponent } from './pages/admin/add-category/add-category';
+import { AddProductComponent } from './pages/admin/add-product/add-product';
 
 export const routes: Routes = [
     { path: 'login', component: LoginComponent },
@@ -19,7 +20,8 @@ export const routes: Routes = [
     { path: 'admin-dashboard', component: AdminDashboardComponent},
     { path: 'admin/inventory', component:ManageInventoryComponent,
         children: [
-            {path: 'add-category', component: AddCategoryComponent}
+            {path: 'add-category', component: AddCategoryComponent},
+            {path: 'add-product', component: AddProductComponent}
         ]
     }
 ];
