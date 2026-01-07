@@ -1,0 +1,107 @@
+<div class="container">
+  <div class="header">
+    <h1>Manage Stock</h1>
+    <p>Select a warehouse to view and adjust inventory levels.</p>
+  </div>
+
+  <div class="table-container">
+    <table class="main-table">
+      <thead>
+        <tr>
+          <th>Warehouse Name</th>
+          <th>Location</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngFor="let w of warehouses">
+          <tr class="parent-row" [class.active]="expandedWarehouseId === w.id" (click)="toggleWarehouse(w.id)">
+            <td>
+              <strong>{{ w.name }}</strong>
+            </td>
+            <td>{{ w.location }}</td>
+            <td>
+              <span class="chevron">{{ expandedWarehouseId === w.id ? '▼' : '▶' }}</span>
+            </td>
+          </tr>
+
+          <tr *ngIf="expandedWarehouseId === w.id" class="details-row">
+            <td colspan="3">
+              <div class="inventory-panel">
+                
+                <div *ngIf="isLoadingInventory" class="loading">Loading Inventory...</div>
+
+                <div *ngIf="!isLoadingInventory && inventoryMap[w.id]" class="inner-table-wrapper">
+                  <table class="inner-table">
+                    <thead>
+                      <tr>
+                        <th>Product</th>
+                        <th>Code</th>
+                        <th>Qty</th>
+                        <th>Status</th>
+                        <th class="text-right">Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let item of inventoryMap[w.id]">
+                        <td>{{ item.product.name }}</td>
+                        <td><span class="sku-badge">{{ item.product.productCode }}</span></td>
+                        <td class="qty-cell">{{ item.quantity }}</td>
+                        <td>
+                          <span class="status-badge" 
+                                [class.low]="item.quantity <= item.lowStockThreshold"
+                                [class.good]="item.quantity > item.lowStockThreshold">
+                            {{ item.quantity <= item.lowStockThreshold ? 'Low Stock' : 'Good' }}
+                          </span>
+                        </td>
+                        <td class="actions-cell">
+                          <button class="btn-mini add" (click)="openActionModal('ADD', item)" title="Add Stock">Add</button>
+                          <button class="btn-mini deduct" (click)="openActionModal('DEDUCT', item)" title="Deduct Stock">Deduct</button>
+                        </td>
+                      </tr>
+                      <tr *ngIf="inventoryMap[w.id].length === 0">
+                        <td colspan="5" class="empty-state">No inventory in this warehouse.</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+              </div>
+            </td>
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="modal-overlay" *ngIf="showModal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2>{{ modalAction }} Stock</h2>
+      <button class="close-btn" (click)="closeModal()">×</button>
+    </div>
+    
+    <div class="modal-body">
+      <p class="modal-subtitle">
+        {{ selectedItem?.product?.name }} 
+        <span class="sub-warehouse">@ {{ selectedItem?.warehouse?.name }}</span>
+      </p>
+      
+      <div class="form-group">
+        <label>Enter Quantity</label>
+        <input type="number" [(ngModel)]="quantityInput" min="1" autoFocus placeholder="0" />
+      </div>
+
+      <div class="modal-actions">
+        <button class="btn-cancel" (click)="closeModal()">Cancel</button>
+        <button class="btn-confirm" 
+                [class.red]="modalAction === 'DEDUCT'" 
+                (click)="submitStockChange()" 
+                [disabled]="isSubmitting || quantityInput <= 0">
+          {{ isSubmitting ? 'Saving...' : 'Confirm' }}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

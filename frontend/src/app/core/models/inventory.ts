@@ -15,8 +15,9 @@ export interface StockCheckResponse {
 export interface InventoryResponse {
   id: number;
   product: Product;
-  warehouse: { id: number; name: string };
+  warehouse: WarehouseResponse;
   quantity: number;
+  lowStockThreshold: number;
 }
 
 export interface CategoryRequest {
