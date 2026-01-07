@@ -10,7 +10,7 @@ export class ProductService {
 
   constructor(private http: HttpClient) { }
 
-  getProducts(page = 0, size = 10) {
+  getProducts(page = 0, size = 30) {
     return this.http.get<PageProductResponse>(`${this.apiUrl}/products`, {
       params: new HttpParams().set('page', page).set('size', size)
     });
