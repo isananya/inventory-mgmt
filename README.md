@@ -113,3 +113,66 @@ http://localhost:8761
 cd backend
 mvn test
 ```
+
+
+## API Endpoints
+
+| Method | Endpoint | Access Role(s) | Description |
+| :--- | :--- | :--- | :--- |
+| **Auth** | | | |
+| `POST` | `/auth/signup` | Public | Register a new user |
+| `POST` | `/auth/login` | Public | Login (Returns JWT) |
+| `POST` | `/auth/logout` | Authenticated | Logout (Invalidate cookie) |
+| `GET` | `/auth/profile` | Authenticated | Get current user profile |
+| `PUT` | `/auth/password` | Authenticated | Change password |
+| `DELETE` | `/auth` | Authenticated | Delete own account |
+| **Users** | | | |
+| `GET` | `/users` | ADMIN | Get all users |
+| `DELETE` | `/users/{id}` | ADMIN | Delete a user by ID |
+| **Category** | | | |
+| `GET` | `/category` | Public | Get all categories |
+| `POST` | `/category` | ADMIN | Add a new category |
+| **Products** | | | |
+| `GET` | `/products` | Public | Get all products (Paginated) |
+| `POST` | `/products` | ADMIN | Add a new product |
+| `GET` | `/products/{id}` | Public | Get product by ID |
+| `PATCH` | `/products/{id}` | ADMIN | Update product properties |
+| `GET` | `/products/category/{catId}` | Public | Get products by Category |
+| `GET` | `/products/search/{name}` | Public | Search products by name |
+| **Inventory** | | | |
+| `POST` | `/inventory` | WAREHOUSE_MANAGER, ADMIN | Add inventory item |
+| `GET` | `/inventory/product/{prodId}` | CUSTOMER, SALES, WAREHOUSE, ADMIN | Get inventory by Product ID |
+| `GET` | `/inventory/warehouse/{whId}` | WAREHOUSE_MANAGER, SALES, ADMIN | Get inventory by Warehouse ID |
+| `PATCH` | `/inventory/{id}` | WAREHOUSE_MANAGER, ADMIN | Update inventory quantity |
+| `PUT` | `/inventory/stock/add` | WAREHOUSE_MANAGER, ADMIN | Bulk add stock |
+| `PUT` | `/inventory/stock/deduct` | WAREHOUSE_MANAGER, ADMIN | Bulk deduct stock |
+| `GET` | `/inventory/low-stock` | WAREHOUSE_MANAGER, ADMIN | Get low stock items |
+| `POST` | `/inventory/check` | CUSTOMER, SALES, WAREHOUSE, ADMIN | Check stock availability |
+| **Warehouse** | | | |
+| `GET` | `/warehouse` | WAREHOUSE_MANAGER, SALES, ADMIN | Get all warehouses |
+| `POST` | `/warehouse` | ADMIN | Add a new warehouse |
+| `GET` | `/warehouse/active` | WAREHOUSE_MANAGER, SALES, ADMIN | Get active warehouses |
+| `GET` | `/warehouse/{id}` | WAREHOUSE_MANAGER, SALES, ADMIN | Get warehouse by ID |
+| `PUT` | `/warehouse/{id}` | ADMIN | Update warehouse |
+| `PATCH` | `/warehouse/{id}/deactivate` | ADMIN | Deactivate warehouse |
+| `PATCH` | `/warehouse/{id}/activate` | ADMIN | Activate warehouse |
+| **Order** | | | |
+| `POST` | `/order` | CUSTOMER, SALES, ADMIN | Place a new order |
+| `GET` | `/order` | ADMIN | Get all orders |
+| `GET` | `/order/{id}` | CUSTOMER, SALES, WAREHOUSE, FINANCE, ADMIN | Get order by ID |
+| `GET` | `/order/customer/{custId}` | ADMIN | Get orders by Customer |
+| `PUT` | `/order/{id}/cancel` | CUSTOMER, SALES, ADMIN | Cancel order |
+| `GET` | `/order/{id}/status` | CUSTOMER, SALES, WAREHOUSE, FINANCE, ADMIN | Get order status |
+| `PATCH` | `/order/{id}/status` | WAREHOUSE_MANAGER, ADMIN | Update order status |
+| `GET` | `/order/{id}/items` | CUSTOMER, SALES, WAREHOUSE, FINANCE, ADMIN | Get order items |
+| **Billing** | | | |
+| `GET` | `/billing` | FINANCE_OFFICER, ADMIN | Get all invoices |
+| `GET` | `/billing/{id}` | CUSTOMER, SALES, FINANCE, ADMIN | Get invoice by ID |
+| `POST` | `/billing/order/{orderId}` | CUSTOMER, SALES, ADMIN | Generate Invoice for Order |
+| `GET` | `/billing/order/{orderId}` | CUSTOMER, SALES, FINANCE, ADMIN | Get invoice by Order ID |
+| `PATCH` | `/billing/order/{orderId}/status`| CUSTOMER, SALES, ADMIN | Update invoice status |
+
+## Sonar Analysis
+
+<img width="1920" height="1008" alt="image" src="https://github.com/user-attachments/assets/f33ac387-6d3c-40f9-8178-cfb91bc15dc5" />
+
