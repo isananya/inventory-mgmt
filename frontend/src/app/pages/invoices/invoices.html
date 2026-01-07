@@ -1,0 +1,69 @@
+<div class="invoices-container">
+  
+  <div class="header-row">
+    <div>
+      <h2>All Invoices</h2>
+      <p class="subtitle">Total Records: {{ totalElements }}</p>
+    </div>
+  </div>
+
+  <div class="table-responsive">
+    <table class="invoices-table">
+      <thead>
+        <tr>
+          <th>Invoice ID</th>
+          <th>Order ID</th>
+          <th>Date</th>
+          <th>Customer ID</th>
+          <th>Mode</th>
+          <th>Amount</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let inv of invoices">
+          <td class="id-col">I00{{ inv.id }}</td>
+          <td class="ref-col">#{{ inv.orderId }}</td>
+          
+          <td>{{ inv.createdAt | date:'mediumDate' }}</td>
+          <td>{{ inv.customerId }}</td>
+          
+          <td>
+            <span class="mode-badge">{{ inv.paymentMode }}</span>
+          </td>
+          
+          <td class="amount-col">{{ inv.totalAmount | currency:'Rs ' }}</td>
+          
+          <td>
+            <span class="status-badge" [ngClass]="'status-' + inv.paymentStatus.toLowerCase()">
+              {{ inv.paymentStatus }}
+            </span>
+          </td>
+        </tr>
+
+        <tr *ngIf="!isLoading && invoices.length === 0">
+          <td colspan="7" class="empty-state">No invoices found.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="pagination-controls" *ngIf="totalPages > 1">
+    <button class="btn-page" (click)="prevPage()" [disabled]="currentPage === 0">
+      &laquo; Previous
+    </button>
+    
+    <span class="page-info">
+      Page <strong>{{ currentPage + 1 }}</strong> of {{ totalPages }}
+    </span>
+    
+    <button class="btn-page" (click)="nextPage()" [disabled]="currentPage === totalPages - 1">
+      Next &raquo;
+    </button>
+  </div>
+  
+  <div *ngIf="isLoading" class="loading-overlay">
+    <div class="spinner"></div>
+  </div>
+
+</div>

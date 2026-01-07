@@ -17,6 +17,7 @@ import { AllOrdersComponent } from './pages/all-orders/all-orders';
 import { WarehouseDashboardComponent } from './pages/warehouse-dashboard/warehouse-dashboard';
 import { ManageStockComponent } from './pages/manage-stock/manage-stock';
 import { ManageOrderComponent } from './pages/manage-order/manage-order';
+import { InvoicesComponent } from './pages/invoices/invoices';
 
 export const routes: Routes = [
     { path: 'login', component: LoginComponent },
@@ -39,5 +40,6 @@ export const routes: Routes = [
     { path: 'all-orders', component: AllOrdersComponent},
     { path: 'warehouse-dashboard', component: WarehouseDashboardComponent},
     { path: 'manage-stock', component: ManageStockComponent},
-    { path: 'manage-order', component: ManageOrderComponent}
+    { path: 'manage-order', component: ManageOrderComponent},
+    { path: 'invoices', component: InvoicesComponent}
 ];

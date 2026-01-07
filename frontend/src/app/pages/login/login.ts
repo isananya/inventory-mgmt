@@ -37,6 +37,7 @@ export class LoginComponent {
         const role = this.auth.getRole();
         if (role === 'WAREHOUSE_MANAGER') this.router.navigate(['/warehouse-dashboard']);
         else if (role === 'ADMIN') this.router.navigate(['/admin-dashboard']);
+        else if (role === 'FINANCE_OFFICER') this.router.navigate(['/invoices']);
         else this.router.navigate(['/shop']);
       },
       error: (err) => {
