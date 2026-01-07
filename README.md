@@ -11,6 +11,12 @@ This project implements a modern **Order & Inventory Management System** followi
 - Code quality analysis using SonarCloud
 - Fully Dockerized deployment
 
+## Project Architecture
+![ARCHITECTURE_DIAGRAM](https://github.com/user-attachments/assets/d8640726-0127-4302-8337-6d0dd13075bc)
+
+## Database Design - ER Diagram
+<img width="1730" height="593" alt="ER Diagram" src="https://github.com/user-attachments/assets/f7b0f8a7-7bfd-4d0e-953d-aa495bdb16cd" />
+
 ## Tech Stack
 
 - **Backend:** Spring Boot Microservices (Parent Maven POM)  
@@ -24,6 +30,16 @@ This project implements a modern **Order & Inventory Management System** followi
 - **CI/CD:** Jenkins Pipeline  
 - **Code Quality:** SonarCloud  
 - **Deployment:** Docker & Docker Compose
+
+## UI Screenshots
+
+Refer to the ```FRONTEND SCREENSHOTS.pdf``` in root for detailed ui.
+
+<img width="1920" height="1008" alt="image" src="https://github.com/user-attachments/assets/b8cae276-5f44-4fbb-8428-dbde8c1bdb1d" />
+
+<img width="1920" height="1008" alt="image" src="https://github.com/user-attachments/assets/f02df878-e774-4f73-b88a-55f16e8eb4ab" />
+
+<img width="1920" height="1008" alt="image" src="https://github.com/user-attachments/assets/fcd973b1-81ac-402b-ad40-cd445c508dec" />
 
 ## Setup & Installation
 
@@ -90,4 +106,10 @@ http://localhost:8761
 - **Frontend:**
 ```bash
 (http://localhost:4200)
+```
+
+## Run Tests
+```bash
+cd backend
+mvn test
 ```
