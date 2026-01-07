@@ -1,0 +1,98 @@
+<div class="orders-container">
+  
+  <div class="header-row">
+    <div>
+      <h2>All Orders</h2>
+      <p class="subtitle">Tracking {{ totalElements }} orders</p>
+    </div>
+  </div>
+
+  <div class="table-responsive">
+    <table class="orders-table">
+      <thead>
+        <tr>
+          <th>Order ID</th>
+          <th>Date</th>
+          <th>Customer ID</th>
+          <th>Address</th>
+          <th>Amount</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let order of orders">
+          <td class="id-col">#{{ order.orderId }}</td>
+          
+          <td>{{ order.createdAt | date:'mediumDate' }}</td>
+          
+          <td>{{ order.customerId }}</td>
+          
+          <td class="address-col" [title]="formatAddress(order.address)">
+            {{ formatAddress(order.address) }}
+          </td>
+          
+          <td class="amount-col">{{ order.totalAmount | currency:'Rs ' }}</td>
+          
+          <td>
+            <span class="status-badge" [ngClass]="'status-' + order.status.toLowerCase()">
+              {{ order.status }}
+            </span>
+          </td>
+
+          <td>
+            <button class="btn-update" (click)="openUpdateModal(order)">Update</button>
+          </td>
+        </tr>
+
+        <tr *ngIf="!isLoading && orders.length === 0">
+          <td colspan="7" class="empty-state">No orders found.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="pagination-controls" *ngIf="totalPages > 1">
+    <button class="btn-page" (click)="prevPage()" [disabled]="currentPage === 0">
+      &laquo; Previous
+    </button>
+    
+    <span class="page-info">
+      Page <strong>{{ currentPage + 1 }}</strong> of {{ totalPages }}
+    </span>
+    
+    <button class="btn-page" (click)="nextPage()" [disabled]="currentPage === totalPages - 1">
+      Next &raquo;
+    </button>
+  </div>
+  
+  <div *ngIf="isLoading" class="loading-overlay">
+    <div class="spinner"></div>
+  </div>
+
+  <div class="modal-overlay" *ngIf="showModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Update Status #{{ selectedOrder?.orderId }}</h3>
+        <button class="close-btn" (click)="closeModal()">×</button>
+      </div>
+  
+      <div class="modal-body">
+        <label>Select New Status:</label>
+        <select [(ngModel)]="newStatus" class="status-select">
+          <option *ngFor="let status of statusOptions" [value]="status">
+            {{ status }}
+          </option>
+        </select>
+  
+        <div class="modal-actions">
+          <button class="btn-cancel" (click)="closeModal()">Cancel</button>
+          <button class="btn-confirm" (click)="confirmStatusUpdate()" [disabled]="isSubmitting">
+            {{ isSubmitting ? 'Saving...' : 'Confirm' }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

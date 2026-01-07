@@ -30,4 +30,9 @@ export class OrderService {
       params: { page, size }
     });
   }
+
+  updateOrderStatus(orderId: number, status: string): Observable<any> {
+    const body = { status: status };
+    return this.http.patch(`${this.apiUrl}/order/${orderId}/status`, body);
+  }
 }
