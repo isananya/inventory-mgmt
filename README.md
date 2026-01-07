@@ -41,6 +41,10 @@ Refer to the ```FRONTEND SCREENSHOTS.pdf``` in root for detailed ui.
 
 <img width="1920" height="1008" alt="image" src="https://github.com/user-attachments/assets/fcd973b1-81ac-402b-ad40-cd445c508dec" />
 
+### Email
+
+<img width="1420" height="586" alt="image" src="https://github.com/user-attachments/assets/343775bd-8b07-49f5-8b2e-ce857a488128" />
+
 ## Setup & Installation
 
 ### Prerequisites
