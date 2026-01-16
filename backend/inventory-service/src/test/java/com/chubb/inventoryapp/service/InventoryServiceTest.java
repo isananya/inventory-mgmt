@@ -258,14 +258,16 @@ class InventoryServiceTest {
         req.setQuantity(5);
 
         Inventory inventory = new Inventory();
-        Warehouse w = new Warehouse(); w.setId(1L);
-        Product p = new Product(); p.setPrice(100f);
+        Warehouse w = new Warehouse(); 
+        w.setId(1L);
+        Product p = new Product(); 
+        p.setPrice(100f);
         inventory.setWarehouse(w);
         inventory.setProduct(p);
 
-        when(inventoryRepository.findAvailableStock(1L, 5)).thenReturn(Optional.of(inventory));
+        when(inventoryRepository.findAvailableStock(1L, 5)).thenReturn(List.of(inventory));
 
-        List<StockCheckResponse> responses = inventoryService.checkStock(Collections.singletonList(req));
+        List<StockCheckResponse> responses = inventoryService.checkStock(List.of(req));
 
         assertTrue(responses.get(0).isAvailable());
         assertEquals(100f, responses.get(0).getPrice());
@@ -277,9 +279,9 @@ class InventoryServiceTest {
         req.setProductId(1L);
         req.setQuantity(5);
 
-        when(inventoryRepository.findAvailableStock(1L, 5)).thenReturn(Optional.empty());
+        when(inventoryRepository.findAvailableStock(1L, 5)).thenReturn(Collections.emptyList());
 
-        List<StockCheckResponse> responses = inventoryService.checkStock(Collections.singletonList(req));
+        List<StockCheckResponse> responses = inventoryService.checkStock(List.of(req));
 
         assertFalse(responses.get(0).isAvailable());
         assertNull(responses.get(0).getWarehouseId());

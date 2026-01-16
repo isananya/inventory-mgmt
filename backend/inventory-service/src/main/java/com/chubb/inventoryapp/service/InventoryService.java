@@ -137,11 +137,11 @@ public class InventoryService {
         List<StockCheckResponse> responses = new ArrayList<>();
 
         for (StockRequest req : requests) {
-            Optional<Inventory> inventoryOpt = inventoryRepository
+            List<Inventory> inventories = inventoryRepository
                     .findAvailableStock(req.getProductId(), req.getQuantity());
 
-            if (inventoryOpt.isPresent()) {
-                Inventory inventory = inventoryOpt.get();
+            if (!inventories.isEmpty()) {
+                Inventory inventory = inventories.get(0);
                 responses.add(new StockCheckResponse(req.getProductId(), true, 
                     inventory.getWarehouse().getId(), inventory.getProduct().getPrice()));
             } 

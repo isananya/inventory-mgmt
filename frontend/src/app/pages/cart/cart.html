@@ -1,10 +1,16 @@
 <div class="cart-container">
   <h1>Shopping Cart</h1>
 
+  <div class="error-banner" *ngIf="globalError">
+    ⚠️ {{ globalError }}
+  </div>
+
   <div *ngIf="cartItems().length > 0; else emptyCart" class="cart-layout">
     
     <div class="items-list">
-      <div *ngFor="let item of cartItems()" class="cart-item">
+      <div *ngFor="let item of cartItems()" 
+           class="cart-item"
+           [class.stock-error]="isOutOfStock(item.product.id)">
         
         <div class="item-image">
           <img [src]="item.product.imageUrl || 'assets/placeholder.png'" [alt]="item.product.name">
@@ -14,6 +20,10 @@
           <h3>{{ item.product.name }}</h3>
           <p class="brand">{{ item.product.brand }}</p>
           <p class="price">Rs {{ item.product.price }}</p>
+          
+          <p class="stock-msg" *ngIf="isOutOfStock(item.product.id)">
+            ⚠️ Not enough stock available
+          </p>
         </div>
 
         <div class="item-actions">
@@ -40,8 +50,10 @@
         <span>Rs {{ totalPrice() | number:'1.2-2' }}</span>
       </div>
 
-      <button class="checkout-btn" (click)="proceedToCheckout()">
-        Place Order
+      <button class="checkout-btn" 
+              (click)="proceedToCheckout()" 
+              [disabled]="isCheckingStock">
+        {{ isCheckingStock ? 'Checking Stock...' : 'Place Order' }}
       </button>
     </div>
 

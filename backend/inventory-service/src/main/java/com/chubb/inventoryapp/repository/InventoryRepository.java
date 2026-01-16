@@ -26,7 +26,7 @@ public interface InventoryRepository extends JpaRepository<Inventory, Long> {
            "WHERE i.product.id = :productId " +
            "AND i.quantity >= :quantity " +
            "AND i.warehouse.active = true") 
-    Optional<Inventory> findAvailableStock(@Param("productId") Long productId, 
+    List<Inventory> findAvailableStock(@Param("productId") Long productId, 
                                            @Param("quantity") Integer quantity);
 }
 	
